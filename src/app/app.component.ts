@@ -1,3 +1,8 @@
+/* global cozy */
+type InitialData = {
+    bar: any;
+  };
+declare var cozy: InitialData;
 import {
     BodyOutputType,
     Toast,
@@ -56,6 +61,8 @@ import { PlatformUtilsService } from 'jslib/abstractions/platformUtils.service';
 
 import { ConstantsService } from 'jslib/services/constants.service';
 import { NativeMessagingService } from '../services/nativeMessaging.service';
+// @ts-ignore
+import CozyClient from 'cozy-client'
 
 const BroadcasterSubscriptionId = 'AppComponent';
 const IdleTimeout = 60000 * 10; // 10 minutes
@@ -117,7 +124,7 @@ export class AppComponent implements OnInit {
             window.onscroll = () => this.recordActivity();
             window.onkeypress = () => this.recordActivity();
         });
-
+        this.initCozy()
         this.broadcasterService.subscribe(BroadcasterSubscriptionId, async (message: any) => {
             this.ngZone.run(async () => {
                 // console.log(`message heard =`, message);
@@ -212,8 +219,42 @@ export class AppComponent implements OnInit {
                 }
             });
         });
+        
     }
+    initCozy(){
+       
 
+        const root = document.querySelector('[role=application]')
+        if(root instanceof HTMLElement){
+            const data = root.dataset
+
+            const protocol = window.location ? window.location.protocol : 'https:'
+            const cozyUrl = `${protocol}//${data.cozyDomain}`
+            const appMetadata = {
+                slug: 'password',
+                version: '1'
+              }
+    
+            const client = new CozyClient({
+                uri: cozyUrl,
+                token: data.cozyToken,
+                appMetadata,
+                schema: {}
+              })
+              
+    
+              cozy.bar.init({
+                appName: data.cozyAppName,
+                appEditor: data.cozyAppEditor,
+                cozyClient: client,
+                iconPath: data.cozyIconPath,
+                lang: data.cozyLocale,
+                replaceTitleOnMobile: false
+              })
+        }
+        
+    }
+   
     ngOnDestroy() {
         this.broadcasterService.unsubscribe(BroadcasterSubscriptionId);
     }

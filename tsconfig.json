@@ -11,6 +11,10 @@
     "sourceMap": true,
     "types": ["sweetalert2"],
     "baseUrl": ".",
+    "typeRoots": [
+      "../node_modules/@types",
+      "../@types"
+  ],
     "paths": {
       "tldjs": [
         "jslib/src/misc/tldjs.noop"
