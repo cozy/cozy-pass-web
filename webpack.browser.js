@@ -42,6 +42,7 @@ const common = {
             { from: './src/images', to: 'images' },
             { from: './src/locales', to: 'locales' },
             {from :'./cozy-passwords/build', to: 'tools'},
+            {from: './src/images/icon.svg'},
            './manifest.webapp',
         ]),
     ],
