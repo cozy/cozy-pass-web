@@ -72,7 +72,6 @@ const IdleTimeout = 60000 * 10; // 10 minutes
     styles: [],
     template: `
         <toaster-container [toasterconfig]="toasterConfig" aria-live="polite"></toaster-container>
-        <div id="cozy-bar">This is the Cozy Bar</div>
         <ng-template #settings></ng-template>
         <ng-template #premium></ng-template>
         <ng-template #passwordHistory></ng-template>

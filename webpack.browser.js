@@ -40,8 +40,8 @@ const common = {
         new CopyWebpackPlugin([
             './src/package.json',
             { from: './src/images', to: 'images' },
-            { from: './src/app/browser/tools', to: 'tools' },
             { from: './src/locales', to: 'locales' },
+            {from :'./cozy-passwords/build', to: 'tools'},
            './manifest.webapp',
         ]),
     ],

@@ -2,3 +2,6 @@
 	path = jslib
 	url = https://github.com/bitwarden/jslib.git
 	branch = master
+[submodule "cozy-passwords"]
+	path = cozy-passwords
+	url = git@github.com:cozy/cozy-passwords.git
