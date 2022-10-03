@@ -122,8 +122,14 @@ app-vault-ciphers {
         app-cozy-icon {
             margin-right: 0px;
             svg {
-                fill: var(--secondaryButtonActiveColor);
-            } 
+                fill: var(--secondaryTextColor);
+            }
+
+            &:hover, &:focus {
+                svg {
+                    fill: var(--iconTextColor);
+                }
+            }
         }
     }
 }
