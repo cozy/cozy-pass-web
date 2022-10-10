@@ -6,6 +6,8 @@ import { I18nService } from 'jslib/abstractions/i18n.service';
 import { PlatformUtilsService } from 'jslib/abstractions/platformUtils.service';
 import { UserService } from 'jslib/abstractions/user.service';
 
+import { BroadcasterService } from 'jslib/angular/services/broadcaster.service';
+
 import { OrganizationUserStatusType } from 'jslib/enums/organizationUserStatusType';
 import { OrganizationUserType } from 'jslib/enums/organizationUserType';
 
@@ -42,6 +44,7 @@ interface SharinRecipient {
 export class SharingService {
     constructor(
         protected apiService: ApiService,
+        protected broadcasterService: BroadcasterService,
         protected clientService: CozyClientService,
         protected cryptoService: CryptoService,
         protected i18nService: I18nService,
@@ -149,6 +152,8 @@ export class SharingService {
                 await this.apiService.postOrganizationUserConfirm(organization.id, user.id, request);
             }
         }
+
+        this.broadcasterService.send({command: 'confirmedUser', userId: user.id});
     }
 
     async rejectUser(user: User) {
