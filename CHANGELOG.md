@@ -1,3 +1,15 @@
+# 2.0.6
+
+## ✨ Features
+
+* Improve visibility for folders' add and delete buttons ([PR #80](https://github.com/cozy/cozy-pass-web/pull/80))
+
+## 🐛 Bug Fixes
+
+## 🔧 Tech
+
+* Add mobile app info in manifest file ([PR #78](https://github.com/cozy/cozy-pass-web/pull/78))
+
 # 2.0.5
 
 ## ✨ Features
