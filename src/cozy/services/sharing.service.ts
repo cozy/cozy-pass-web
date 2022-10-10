@@ -114,6 +114,29 @@ export class SharingService {
         return finalUsers;
     }
 
+    async loadAcceptedUsersForOrganization(organizationId: string) {
+        const organizationUsers = await this.apiService.getOrganizationUsers(organizationId);
+
+        const currentUserId = await this.userService.getUserId();
+
+        const isOwner = organizationUsers.data.find(user => {
+            return user.type === OrganizationUserType.Owner
+                && user.id === currentUserId;
+        });
+
+        if (!isOwner) {
+            return [];
+        }
+
+        const invitedUsers = organizationUsers.data.filter(user => {
+            return user.type === OrganizationUserType.User
+                && user.status === OrganizationUserStatusType.Accepted
+                && user.id !== currentUserId;
+        });
+
+        return invitedUsers;
+    }
+
     async autoConfirmTrustedUsers(organizationId: string, recipientsToConfirm: SharinRecipient[]) {
         const trustedUsers = await this.loadTrustedUsers();
 
@@ -206,28 +229,5 @@ export class SharingService {
         }
 
         return trustedUsers;
-    }
-
-    public async loadAcceptedUsersForOrganization(organizationId: string) {
-        const organizationUsers = await this.apiService.getOrganizationUsers(organizationId);
-
-        const currentUserId = await this.userService.getUserId();
-
-        const isOwner = organizationUsers.data.find(user => {
-            return user.type === OrganizationUserType.Owner
-                && user.id === currentUserId;
-        });
-
-        if (!isOwner) {
-            return [];
-        }
-
-        const invitedUsers = organizationUsers.data.filter(user => {
-            return user.type === OrganizationUserType.User
-                && user.status === OrganizationUserStatusType.Accepted
-                && user.id !== currentUserId;
-        });
-
-        return invitedUsers;
     }
 }
