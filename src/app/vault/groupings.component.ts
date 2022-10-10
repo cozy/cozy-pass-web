@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, NgZone, Output } from '@angular/core';
 import { CAN_SHARE_ORGANIZATION } from '../../cozy/flags';
 import { SharingService } from '../../cozy/services/sharing.service';
 
@@ -16,6 +16,8 @@ import { ServiceUtils } from 'jslib/misc/serviceUtils';
 
 const NestingDelimiter = '/';
 
+const BroadcasterSubscriptionId = 'GroupingsComponent';
+
 @Component({
     selector: 'app-vault-groupings',
     templateUrl: 'groupings.component.html',
@@ -32,8 +34,22 @@ export class GroupingsComponent extends BaseGroupingsComponent {
 
     constructor(collectionService: CollectionService, folderService: FolderService,
         storageService: StorageService, private localUserService: UserService,
-        private broadcasterService: BroadcasterService, private cipherService: CipherService, private sharingService: SharingService) {
+        private broadcasterService: BroadcasterService, private cipherService: CipherService, private sharingService: SharingService, private ngZone: NgZone) {
         super(collectionService, folderService, storageService, localUserService);
+    }
+
+    async ngOnInit() {
+        this.broadcasterService.subscribe(BroadcasterSubscriptionId, (message: any) => {
+            this.ngZone.run(async () => {
+                switch (message.command) {
+                    case 'confirmedUser':
+                        await this.setValidatedUser(message);
+                        break;
+                    default:
+                        break;
+                }
+            });
+        });
     }
 
     async load(setLoaded = true) {
@@ -155,6 +171,21 @@ export class GroupingsComponent extends BaseGroupingsComponent {
                 this.collectionsWithUsersToValidateIds[collection.id] = userIds;
             }
         }
+    }
+
+    // remove user from collections that were previously flagged as having users waiting for validation
+    async setValidatedUser(message: { userId: string }) {
+        const userId = message.userId;
+
+        Object.keys(this.collectionsWithUsersToValidateIds).forEach(key => {
+            if (this.collectionsWithUsersToValidateIds[key] === undefined) return;
+
+            this.collectionsWithUsersToValidateIds[key] = this.collectionsWithUsersToValidateIds[key].filter(val => val !== userId);
+
+            if (this.collectionsWithUsersToValidateIds[key].length === 0) {
+                delete this.collectionsWithUsersToValidateIds[key];
+            }
+        });
     }
 
     // */
