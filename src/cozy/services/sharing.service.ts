@@ -203,7 +203,7 @@ export class SharingService {
         return trustedUsers;
     }
 
-    protected async loadAcceptedUsersForOrganization(organizationId: string) {
+    public async loadAcceptedUsersForOrganization(organizationId: string) {
         const organizationUsers = await this.apiService.getOrganizationUsers(organizationId);
 
         const currentUserId = await this.userService.getUserId();

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CAN_SHARE_ORGANIZATION } from '../../cozy/flags';
+import { SharingService } from '../../cozy/services/sharing.service';
 
 import { CipherService } from 'jslib/abstractions/cipher.service';
 import { CollectionService } from 'jslib/abstractions/collection.service';
@@ -24,13 +25,14 @@ export class GroupingsComponent extends BaseGroupingsComponent {
     @Output() onImportClicked = new EventEmitter<void>();
     importSelected = false;
     CAN_SHARE_ORGANIZATION = CAN_SHARE_ORGANIZATION;
+    collectionsWithUsersToValidateIds: { [id: string]: string[] } = {};
 
     hasNotes: boolean;
     private prevSelection: any = new Object();
 
     constructor(collectionService: CollectionService, folderService: FolderService,
         storageService: StorageService, private localUserService: UserService,
-        private broadcasterService: BroadcasterService, private cipherService: CipherService) {
+        private broadcasterService: BroadcasterService, private cipherService: CipherService, private sharingService: SharingService) {
         super(collectionService, folderService, storageService, localUserService);
     }
 
@@ -111,6 +113,8 @@ export class GroupingsComponent extends BaseGroupingsComponent {
                 NestingDelimiter
             );
         });
+
+        await this.checkCollectionsWithUsersToValidate();
     }
 
     selectCollection(collection: CollectionView) {
@@ -127,6 +131,33 @@ export class GroupingsComponent extends BaseGroupingsComponent {
             organizationId: organizationId,
         });
     }
+
+    // Cozy customization, display a red badge on folder icon
+    // when sharing recipients are waiting for validation
+    // /*
+
+    // check if the specified collection has users waiting for validation
+    isCollectionWithUsersToValidate(collection: CollectionView) {
+        return Object.keys(this.collectionsWithUsersToValidateIds).includes(collection.id);
+    }
+
+    // retrieve collections that have users waiting for validation
+    async checkCollectionsWithUsersToValidate() {
+        for (const collection of this.collections) {
+            if (collection.name === 'Cozy Connectors') {
+                continue;
+            }
+
+            const usersToBeConfirmed = await this.sharingService.loadAcceptedUsersForOrganization(collection.organizationId);
+
+            if (usersToBeConfirmed.length > 0) {
+                const userIds = usersToBeConfirmed.map(user => user.id);
+                this.collectionsWithUsersToValidateIds[collection.id] = userIds;
+            }
+        }
+    }
+
+    // */
 
     protected isOrgWithNoKey(collection: CollectionView) {
         // in loadCollections() we set collection.id = collection.organization.id for organizations with no key
