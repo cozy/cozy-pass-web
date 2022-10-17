@@ -11,7 +11,7 @@
                 <p class="u-error" *ngIf="errorMsg !== ''">{{errorMsg}}</p>
                 <div class="box-content-row" appBoxRow *ngIf="!isInCozyApp">
                     <label for="email">email address (required only when executed outside a Cozy app "me@fqdn.mycozy.cloud")</label>
-                    <input id="email" type="text" name="Email" [(ngModel)]="email" required>
+                    <input id="email" type="text" name="Email" [(ngModel)]="email" required appInputVerbatim>
                 </div>
                 <div class="row material-input eyed" #masterPwdContainer>
                     <div class="visible-label">
@@ -22,7 +22,7 @@
                         <label class="shadow-label"></label>
                         <div class="box-input">
                             <input id="masterPassword" inputmode="url" name="MasterPassword"
-                                placeholder="" [(ngModel)]="masterPassword" type="password" required>
+                                placeholder="" [(ngModel)]="masterPassword" type="password" required appInputVerbatim>
                             <div id="visi-pwd-btn" class="visibility-btn">
                                 <i class="fa fa-mg fa-eye"></i>
                             </div>

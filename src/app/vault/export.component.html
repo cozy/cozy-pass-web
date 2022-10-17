@@ -20,7 +20,7 @@
                                 <label for="masterPassword">{{'masterPass' | i18n}}</label>
                                 <input id="masterPassword" type="{{showPassword ? 'text' : 'password'}}"
                                     name="MasterPassword" class="monospaced" [(ngModel)]="masterPassword" required
-                                    appAutofocus>
+                                    appAutofocus appInputVerbatim>
                             </div>
                             <div class="action-buttons">
                                 <a class="row-btn" href="#" appStopClick appBlurClick role="button"
