@@ -145,6 +145,22 @@ app-vault-ciphers {
 
     app-sharing {
         margin: 0 10px;
+        .collectionWithUsersToValidate {
+            &:after {
+                content: '';
+                background-color: var(--errorColor);
+                width: 7px;
+                height: 7px;
+                border-radius: 6px;
+                position: absolute;
+                right: -6px;
+                top: -6px;
+                border: 2px solid;
+                @include themify($themes) {
+                    border-color: themed('backgroundColorAlt2');
+                }
+            }
+        }
     }
     
     .footer.readonlyCipher {
