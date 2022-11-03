@@ -1,11 +1,18 @@
+# 2.0.7
+
+## ✨ Features
+
+## 🐛 Bug Fixes
+
+## 🔧 Tech
+
+
 # 2.0.6
 
 ## ✨ Features
 
 * Improve visibility for folders' add and delete buttons ([PR #80](https://github.com/cozy/cozy-pass-web/pull/80))
 * Add a badge to shared folders with users waiting for approval ([PR #81](https://github.com/cozy/cozy-pass-web/pull/81))
-
-## 🐛 Bug Fixes
 
 ## 🔧 Tech
 

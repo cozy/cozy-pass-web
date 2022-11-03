@@ -2,7 +2,7 @@
   "name": "cozy-pass-web",
   "productName": "Cozy Pass",
   "description": "A secure and free password manager for all of your devices.",
-  "version": "0.0.0",
+  "version": "2.0.7",
   "keywords": [
     "cozy",
     "bitwarden",
