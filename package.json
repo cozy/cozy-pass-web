@@ -136,7 +136,6 @@
     "node-ipc": "^9.1.4",
     "nord": "0.2.1",
     "papaparse": "^5.3.0",
-    "piwik-react-router": "0.8.2",
     "react": "16.10.1",
     "react-dom": "16.10.1",
     "react-router": "^5.2.0",
