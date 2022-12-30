@@ -24,8 +24,8 @@ const Help = () => {
       />
       {canAuthWithOIDC(client) ? (
         <ChangePasswordLink
-          successRoute="#/installation/configureExtension"
-          cancelRoute="#/installation/configureExtension"
+          successRoute="#/installation?initialStep=configureExtension"
+          cancelRoute="#/installation?initialStep=configureExtension"
           Component="a"
         >
           <Icon size={12} icon={GearIcon} /> {t('UpdateCozyPassPassword')}

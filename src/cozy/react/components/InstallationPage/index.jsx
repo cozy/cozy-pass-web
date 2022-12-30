@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect, useMemo } from 'react'
 import { BitwardenSettingsContext } from '../../bitwarden-settings'
 
 import { useClient } from 'cozy-client'
-import { useParams } from 'react-router'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import {
   Stepper,
@@ -67,8 +66,7 @@ function getStepContent(step, setActiveStep, { hasHint, onSkipExtension }) {
   }
 }
 
-const InstallationPage = function({onSkipExtension}) {
-  const params = useParams()
+const InstallationPage = function({onSkipExtension, initialStep}) {
   const { t } = useI18n()
 
   const bitwardenSettings = useContext(BitwardenSettingsContext)
@@ -76,8 +74,8 @@ const InstallationPage = function({onSkipExtension}) {
     bitwardenSettings && bitwardenSettings.extension_installed
 
   const [activeStep, setActiveStep] = useState(
-    params.step
-      ? STEPS[params.step]
+    initialStep
+      ? STEPS[initialStep]
       : isVaultConfigured
       ? STEPS.configureExtension
       : STEPS.presentation

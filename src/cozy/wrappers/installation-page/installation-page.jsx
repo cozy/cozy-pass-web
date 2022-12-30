@@ -6,11 +6,12 @@ import ReactWrapper, { reactWrapperProps } from '../react-wrapper';
 // wrap original InstallationPage component
 const InstallationPageWrapper = ({
   reactWrapperProps,
-  onSkipExtension
+  onSkipExtension,
+  initialStep
 }) => {
   return (
     <ReactWrapper reactWrapperProps={reactWrapperProps}>
-      <InstallationPage onSkipExtension={onSkipExtension}></InstallationPage>
+      <InstallationPage onSkipExtension={onSkipExtension} initialStep={initialStep}></InstallationPage>
     </ReactWrapper>
   );
 };

@@ -1,5 +1,8 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import CozyClient from 'cozy-client';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+    ActivatedRoute,
+    Params
+} from '@angular/router';
 import { ApiService } from 'jslib/abstractions/api.service';
 import { AuthService } from 'jslib/abstractions/auth.service';
 import { CipherService } from 'jslib/abstractions/cipher.service';
@@ -15,6 +18,7 @@ import { UserService } from 'jslib/abstractions/user.service';
 import { VaultTimeoutService } from 'jslib/abstractions/vaultTimeout.service';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { Subscription } from 'rxjs/internal/Subscription';
 import { MessagingService } from '../../../../jslib/src/abstractions/messaging.service';
 import { CozyClientService } from '../../services/cozy-client.service';
 import { VaultInstallationService } from '../../services/installation-guard.service';
@@ -27,6 +31,7 @@ import InstallationPage from './installation-page.jsx';
 
 interface InstallationPageProps extends AngularWrapperProps {
     onSkipExtension: () => void;
+    initialStep: string;
 }
 
 @Component({
@@ -34,7 +39,10 @@ interface InstallationPageProps extends AngularWrapperProps {
     templateUrl: '../angular-wrapper.component.html',
     encapsulation: ViewEncapsulation.None,
 })
-export class InstallationPageComponent extends AngularWrapperComponent {
+export class InstallationPageComponent extends AngularWrapperComponent implements OnInit, OnDestroy {
+    queryParamsSub: Subscription = undefined;
+    initialStep: string = '';
+
     constructor(
         protected clientService: CozyClientService,
         protected apiService: ApiService,
@@ -51,7 +59,8 @@ export class InstallationPageComponent extends AngularWrapperComponent {
         protected i18nService: I18nService,
         protected platformUtilsService: PlatformUtilsService,
         private vaultInstallationService: VaultInstallationService,
-        private messagingService: MessagingService
+        private messagingService: MessagingService,
+        private route: ActivatedRoute
     ) {
         super(
             clientService,
@@ -70,6 +79,24 @@ export class InstallationPageComponent extends AngularWrapperComponent {
             platformUtilsService
         );
     }
+
+    ngOnInit(): void {
+        this.queryParamsSub = this.route.queryParams.subscribe((params: Params) => {
+            if (params.initialStep) {
+                this.initialStep = params.initialStep;
+                this.renderReact();
+            }
+        });
+
+        super.ngOnInit();
+    }
+
+    ngOnDestroy() {
+        if (this.queryParamsSub != null) {
+            this.queryParamsSub.unsubscribe();
+        }
+    }
+
     /******************/
     /* Props Bindings */
     /******************/
@@ -85,6 +112,7 @@ export class InstallationPageComponent extends AngularWrapperComponent {
         return {
             reactWrapperProps: reactWrapperProps,
             onSkipExtension: this.onSkipExtension.bind(this),
+            initialStep: this.initialStep,
         };
     }
 
