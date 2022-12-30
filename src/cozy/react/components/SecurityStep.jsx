@@ -63,8 +63,8 @@ const DefaultSecurityStep = ({ onSkip }) => {
               <Stack spacing="xs">
                 <ChangePasswordLink
                   label={t('SecurityStep.enhance-password')}
-                  successRoute="#/installation/configureExtension"
-                  cancelRoute="#/installation/hint"
+                  successRoute="#/installation?initialStep=configureExtension"
+                  cancelRoute="#/installation?initialStep=hint"
                   extension="full"
                 />
                 <Button
@@ -117,8 +117,8 @@ const OIDCSecurityStep = ({ onNext }) => {
                     extension="full"
                     theme="secondary"
                     label={t('UpdateCozyPassPassword')}
-                    successRoute="#/installation/configureExtension"
-                    cancelRoute="#/installation/configureExtension"
+                    successRoute="#/installation?initialStep=configureExtension"
+                    cancelRoute="#/installation?initialStep=configureExtension"
                   />
                 </div>
               ) : (
