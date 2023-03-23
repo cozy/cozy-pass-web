@@ -7,7 +7,7 @@ import Alerter from 'cozy-ui/transpiled/react/Alerter'
 import Wrapper from 'cozy/react/components/Wrapper'
 import NarrowContent from 'cozy-ui/transpiled/react/NarrowContent'
 import passwordClueIcon from 'cozy/react/assets/password-clue.svg'
-import { MainTitle, Text } from 'cozy-ui/transpiled/react/Text'
+import Typography from 'cozy-ui/transpiled/react/Typography'
 import Stack from 'cozy-ui/transpiled/react/Stack'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 import VerticallyCentered from './VerticallyCentered'
@@ -49,8 +49,8 @@ const DumbHintStep = props => {
           <Stack spacing="xxl" tag="form" onSubmit={handleSubmit}>
             <Stack spacing="m">
               <img src={passwordClueIcon} alt="" height={137} />
-              <MainTitle className="u-mt-1">{t('HintStep.title')}</MainTitle>
-              <Text>
+              <Typography variant="h3" component="h1" className="u-mt-1">{t('HintStep.title')}</Typography>
+              <Typography variant="body1">
                 {props.hasHint === null ? (
                   <Spinner size="small" />
                 ) : props.hasHint === false ? (
@@ -58,7 +58,7 @@ const DumbHintStep = props => {
                 ) : (
                   t('HintStep.hint-configured')
                 )}
-              </Text>
+              </Typography>
             </Stack>
             <Stack spacing="m">
               <Input
@@ -66,7 +66,7 @@ const DumbHintStep = props => {
                 value={hint}
                 onChange={e => setHint(e.target.value)}
               />
-              <Text>{t('HintStep.description')}</Text>
+              <Typography variant="body1">{t('HintStep.description')}</Typography>
             </Stack>
             <Button
               label={t('HintStep.submit')}

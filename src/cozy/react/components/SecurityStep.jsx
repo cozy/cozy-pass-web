@@ -8,7 +8,7 @@ import NarrowContent from 'cozy-ui/transpiled/react/NarrowContent'
 import PasswordExample from 'cozy-ui/transpiled/react/PasswordExample'
 import Stack from 'cozy-ui/transpiled/react/Stack'
 import Card from 'cozy-ui/transpiled/react/Card'
-import { MainTitle, Text } from 'cozy-ui/transpiled/react/Text'
+import Typography from 'cozy-ui/transpiled/react/Typography'
 import { UnorderedList, ListItem } from 'cozy-ui/transpiled/react/UnorderedList'
 import { useClient } from 'cozy-client'
 import flag from 'cozy-flags'
@@ -30,9 +30,9 @@ const DefaultSecurityStep = ({ onSkip }) => {
         <NarrowContent>
           <Stack>
             <img src={strongPasswordIcon} alt="" width={204} height={137} />
-            <MainTitle>{t('SecurityStep.title')}</MainTitle>
+            <Typography variant="h3" component="h1">{t('SecurityStep.title')}</Typography>
             <Stack spacing="xxl">
-              <Text>{t('SecurityStep.description')}</Text>
+              <Typography variant="body1">{t('SecurityStep.description')}</Typography>
               <Card>
                 <UnorderedList className="u-ta-left u-mv-0">
                   <ListItem
@@ -100,17 +100,17 @@ const OIDCSecurityStep = ({ onNext }) => {
         <NarrowContent>
           <Stack>
             <img src={strongPasswordIcon} alt="" width={204} height={137} />
-            <MainTitle>
+            <Typography variant="h3" component="h1">
               {isVaultConfigured
                 ? t('SecurityStepOIDC.title-configured')
                 : t('SecurityStepOIDC.title')}
-            </MainTitle>
+            </Typography>
             <Stack spacing="xl">
-              <Text>
+              <Typography variant="body1">
                 {isVaultConfigured
                   ? t('SecurityStepOIDC.description-configured')
                   : t('SecurityStepOIDC.description')}
-              </Text>
+              </Typography>
               {isVaultConfigured ? (
                 <div>
                   <ChangePasswordLink

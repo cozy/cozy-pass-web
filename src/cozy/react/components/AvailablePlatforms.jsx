@@ -7,7 +7,7 @@ import Stack from 'cozy-ui/transpiled/react/Stack'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Card from 'cozy-ui/transpiled/react/Card'
 import Icon from 'cozy-ui/transpiled/react/Icon'
-import { Text } from 'cozy-ui/transpiled/react/Text'
+import Typography from 'cozy-ui/transpiled/react/Typography'
 import { Dialog } from 'cozy-ui/transpiled/react/CozyDialogs'
 import PhoneIcon from 'cozy-ui/transpiled/react/Icons/Phone'
 
@@ -76,7 +76,7 @@ const AvailablePlatforms = props => {
   return (
     <Card {...props}>
       <Stack spacing="m">
-        <Text>{t('AvailablePlatforms.text')}</Text>
+        <Typography variant="body1">{t('AvailablePlatforms.text')}</Typography>
         <div>
           {Object.entries(supportedPlatforms)
             .filter(([, infos]) => infos.type === 'browser')
