@@ -3,7 +3,7 @@ import cx from 'classnames'
 
 import Button, { ButtonLink } from 'cozy-ui/transpiled/react/Button'
 import Stack from 'cozy-ui/transpiled/react/Stack'
-import { Text, SubTitle } from 'cozy-ui/transpiled/react/Text'
+import Typography from 'cozy-ui/transpiled/react/Typography'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import Infos from 'cozy-ui/transpiled/react/Infos'
@@ -32,7 +32,7 @@ const Section1 = () => {
   return (
     <Section>
       <CircleIcon icon={LockIcon} size={32} color="var(--slateGrey)" />
-      <Text tag="p">{t('PresentationStep.item1')}</Text>
+      <Typography variant="body1" element="p">{t('PresentationStep.item1')}</Typography>
     </Section>
   )
 }
@@ -42,7 +42,7 @@ const Section2 = () => {
   return (
     <Section>
       <CircleIcon icon={PasswordIcon} size={32} color="var(--slateGrey)" />
-      <Text tag="p">{t('PresentationStep.item2')}</Text>
+      <Typography variant="body1" element="p">{t('PresentationStep.item2')}</Typography>
     </Section>
   )
 }
@@ -52,7 +52,7 @@ const Section3 = () => {
   return (
     <Section>
       <CircleIcon icon={ToTheCloudIcon} size={32} color="var(--slateGrey)" />
-      <Text tag="p">{t('PresentationStep.item3')}</Text>
+      <Typography variant="body1" element="p">{t('PresentationStep.item3')}</Typography>
     </Section>
   )
 }
@@ -66,16 +66,16 @@ const UnsupportedBrowser = () => {
       theme="danger"
       description={
         <>
-          <SubTitle className="u-pomegranate">
+          <Typography variant="h5" className="u-pomegranate">
             {t('PresentationStep.notSupportedInfos.title', {
               browser: browserName
             })}
-          </SubTitle>
-          <Text>
+          </Typography>
+          <Typography variant="body1">
             {t('PresentationStep.notSupportedInfos.description', {
               browser: browserName
             })}
-          </Text>
+          </Typography>
         </>
       }
       action={Object.entries(supportedPlatforms)
@@ -112,9 +112,9 @@ const PresentationStep = ({ onLetsGo }) => {
           <img src={importPasswordsIcon} alt="" height={191} />
           <Hero>
             <Title className="u-mb-0">{t('PresentationStep.title')}</Title>
-            <Text className="u-mb-3" tag="p">
+            <Typography variant="body1" className="u-mb-3" element="p">
               {t('PresentationStep.description')}
-            </Text>
+            </Typography>
             <Sections className="u-mb-2">
               <Section1 />
               <Section2 />

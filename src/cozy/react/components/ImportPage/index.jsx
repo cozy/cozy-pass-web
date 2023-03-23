@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { withVaultClient } from 'cozy-keys-lib'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Stack from 'cozy-ui/transpiled/react/Stack'
-import { MainTitle } from 'cozy-ui/transpiled/react/Text'
+import Typography from 'cozy-ui/transpiled/react/Typography'
 import VerticallyCentered from '../VerticallyCentered'
 import Wrapper from '../Wrapper'
 import Label from 'cozy-ui/transpiled/react/Label'
@@ -67,7 +67,7 @@ const ImportPage = ({ vaultClient }) => {
       <VerticallyCentered>
         <Wrapper>
           <Stack spacing="l">
-            {!isMobile ? <MainTitle>{t('ImportPage.title')}</MainTitle> : null}
+            {!isMobile ? <Typography variant="h3" component="h1">{t('ImportPage.title')}</Typography> : null}
             <form onSubmit={handleSubmit}>
               <ImportOptionsField
                 vaultClient={vaultClient}
@@ -91,7 +91,7 @@ const ImportPage = ({ vaultClient }) => {
       {importStatus !== 'waiting' ? (
         <Modal closable={false}>
           <ModalHeader>
-            <MainTitle>
+            <Typography variant="h3" component="h1">
               {importStatus === 'importing'
                 ? t('ImportPage.modal.importing.title')
                 : null}
@@ -101,7 +101,7 @@ const ImportPage = ({ vaultClient }) => {
               {importStatus === 'errored'
                 ? t('ImportPage.modal.errored.title')
                 : null}
-            </MainTitle>
+            </Typography>
           </ModalHeader>
           <ModalDescription>
               {importStatus === 'importing' ? (

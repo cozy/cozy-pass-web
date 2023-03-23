@@ -5,7 +5,7 @@ import { detect as detectBrowser } from 'detect-browser'
 
 import NarrowContent from 'cozy-ui/transpiled/react/NarrowContent'
 import Stack from 'cozy-ui/transpiled/react/Stack'
-import { MainTitle, Text } from 'cozy-ui/transpiled/react/Text'
+import Typography from 'cozy-ui/transpiled/react/Typography'
 import Card from 'cozy-ui/transpiled/react/Card'
 import { ButtonLink, Button } from 'cozy-ui/transpiled/react/Button'
 import { OrderedList, ListItem } from 'cozy-ui/transpiled/react/OrderedList'
@@ -59,8 +59,8 @@ const InstallationStep = ({ onExtensionInstalled, onSkipExtension }) => {
         <NarrowContent>
           {isNativeMobile ? (
             <Stack spacing="m">
-              <MainTitle>{t('InstallationStepMobile.title')}</MainTitle>
-              <Text>{t('InstallationStepMobile.description')}</Text>
+              <Typography variant="h3" component="h1">{t('InstallationStepMobile.title')}</Typography>
+              <Typography variant="body1">{t('InstallationStepMobile.description')}</Typography>
               <InstallNativeAppButton
                 label={t('InstallationStepMobile.installApp')}
                 theme="primary"
@@ -75,8 +75,8 @@ const InstallationStep = ({ onExtensionInstalled, onSkipExtension }) => {
                   width={230}
                   height={115}
                 />
-                <MainTitle>{t('InstallationStep.title')}</MainTitle>
-                <Text>
+                <Typography variant="h3" component="h1">{t('InstallationStep.title')}</Typography>
+                <Typography variant="body1">
                   <span
                     dangerouslySetInnerHTML={{
                       __html: snarkdown(
@@ -98,7 +98,7 @@ const InstallationStep = ({ onExtensionInstalled, onSkipExtension }) => {
                       )
                     }}
                   />
-                </Text>
+                </Typography>
               </Stack>
               <Card className="u-ta-left">
                 <OrderedList className="u-mv-0">

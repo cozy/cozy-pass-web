@@ -4,7 +4,7 @@ import snarkdown from 'snarkdown'
 import NarrowContent from 'cozy-ui/transpiled/react/NarrowContent'
 import Stack from 'cozy-ui/transpiled/react/Stack'
 import Icon from 'cozy-ui/transpiled/react/Icon'
-import { MainTitle, Text } from 'cozy-ui/transpiled/react/Text'
+import Typography from 'cozy-ui/transpiled/react/Typography'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import { useClient } from 'cozy-client'
 
@@ -40,10 +40,10 @@ const InstalledStep = () => {
               <Icon icon={DrawingArrowUpIcon} width={96} height={86} />
             </div>
             <Stack spacing="m">
-              <MainTitle className="InstalledStep__title">
+              <Typography variant="h3" component="h1" className="InstalledStep__title">
                 {t('InstalledStep.title')}
-              </MainTitle>
-              <Text className="InstalledStep__description">
+              </Typography>
+              <Typography variant="body1" className="InstalledStep__description">
                 <span
                   dangerouslySetInnerHTML={{
                     __html: snarkdown(
@@ -69,7 +69,7 @@ const InstalledStep = () => {
                     )
                   }}
                 />
-              </Text>
+              </Typography>
             </Stack>
             <Help />
           </Stack>
