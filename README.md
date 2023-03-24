@@ -43,10 +43,10 @@ You can then clone the app repository and install dependencies:
 ```sh
 $ git clone https://github.com/cozy/cozy-pass-web.git
 $ cd cozy-pass-web
-$ npm install
+$ npm install --legacy-peer-deps
 ```
 
-:pushpin: If you use a node environment wrapper like [nvm] or [ndenv], don't forget to set your local node version `14` before doing a `npm install`.
+:pushpin: If you use a node environment wrapper like [nvm] or [ndenv], don't forget to set your local node version `14` before doing a `npm install --legacy-peer-deps`.
 
 :warning: _cozy-pass-web uses [cozy-ui] and [cozy-client], take a look at the ["living on the edge" note](#living-on-the-edge) below to know hot to install and configure the latest available versions.
 
