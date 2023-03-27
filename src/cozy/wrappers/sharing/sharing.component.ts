@@ -20,6 +20,7 @@ import { PlatformUtilsService } from 'jslib/abstractions/platformUtils.service';
 import { SyncService } from 'jslib/abstractions/sync.service';
 import { UserService } from 'jslib/abstractions/user.service';
 import { VaultTimeoutService } from 'jslib/abstractions/vaultTimeout.service';
+import { BroadcasterService } from 'jslib/angular/services/broadcaster.service';
 
 import { CozyClientService } from '../../services/cozy-client.service';
 import { SharingService } from '../../services/sharing.service';
@@ -54,6 +55,7 @@ interface SharingProps extends AngularWrapperProps {
     file: File;
     confirmationMethods: ConfirmationMethods;
     onShared: OnSharedEvent;
+    showSharingPaywall: () => void;
 }
 
 interface User {
@@ -77,6 +79,7 @@ export class SharingComponent extends AngularWrapperComponent {
     constructor(
         clientService: CozyClientService,
         apiService: ApiService,
+        private broadcasterService: BroadcasterService,
         environmentService: EnvironmentService,
         authService: AuthService,
         syncService: SyncService,
@@ -113,6 +116,12 @@ export class SharingComponent extends AngularWrapperComponent {
     /* Props Bindings */
     /******************/
 
+    protected showSharingPaywall() {
+        this.broadcasterService.send({
+            command: 'sharingPaywall',
+        });
+    }
+
     protected async getProps(): Promise<SharingProps> {
         const collections = await this.collectionService.getAllDecrypted();
 
@@ -132,6 +141,7 @@ export class SharingComponent extends AngularWrapperComponent {
             },
             confirmationMethods: this.getTwoStepsConfirmationMethods(),
             onShared: this.onShared.bind(this),
+            showSharingPaywall: this.showSharingPaywall.bind(this),
         };
     }
 
