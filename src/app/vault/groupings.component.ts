@@ -1,5 +1,4 @@
 import { Component, EventEmitter, NgZone, Output } from '@angular/core';
-import { CAN_SHARE_ORGANIZATION } from '../../cozy/flags';
 import { SharingService } from '../../cozy/services/sharing.service';
 
 import { CipherService } from 'jslib/abstractions/cipher.service';
@@ -26,7 +25,6 @@ export class GroupingsComponent extends BaseGroupingsComponent {
     @Output() onOrganizationWithoutKeyClicked = new EventEmitter<CollectionView>();
     @Output() onImportClicked = new EventEmitter<void>();
     importSelected = false;
-    CAN_SHARE_ORGANIZATION = CAN_SHARE_ORGANIZATION;
     collectionsWithUsersToValidateIds: { [id: string]: string[] } = {};
 
     hasNotes: boolean;
