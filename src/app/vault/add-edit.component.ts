@@ -23,6 +23,10 @@ import { BroadcasterService } from 'jslib/angular/services/broadcaster.service';
 
 import { AddEditComponent as BaseAddEditComponent } from 'jslib/angular/components/add-edit.component';
 
+// @ts-ignore
+import flag from 'cozy-flags';
+import { CAN_SHARE_ORGANIZATION } from '../../cozy/flags';
+
 const BroadcasterSubscriptionId = 'AddEditComponent';
 
 @Component({
@@ -121,5 +125,15 @@ export class AddEditComponent extends BaseAddEditComponent implements OnChanges,
 
     markPasswordAsDirty() {
         this.form.controls['Login.Password'].markAsDirty();
+    }
+
+    share() {
+        if (flag(CAN_SHARE_ORGANIZATION)) {
+            this.onShareCipher.emit(this.cipher);
+        } else {
+            this.broadcasterService.send({
+                command: 'sharingPaywall',
+            });
+        }
     }
 }

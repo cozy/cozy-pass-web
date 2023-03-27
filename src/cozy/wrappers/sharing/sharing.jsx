@@ -3,14 +3,17 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import SharingProvider, { ShareModal, ShareButton, CozyPassFingerprintDialogContent } from 'cozy-sharing'
+import flag from 'cozy-flags';
 
 import ReactWrapper, { reactWrapperProps } from '../react-wrapper';
+import { CAN_SHARE_ORGANIZATION } from '../../flags';
 
 const Sharing = ({ 
     file,
     reactWrapperProps,
     confirmationMethods,
-    onShared
+    onShared,
+    showSharingPaywall
 }) => {
   const [showShareModal, setShowShareModal] = useState(false)
   const [hasRecipientsToBeConfirmed, setHasRecipientsToBeConfirmed] = useState(false)
@@ -26,6 +29,14 @@ const Sharing = ({
       return toBeConfirmed
     },
     recipientConfirmationDialogContent: CozyPassFingerprintDialogContent,
+  }
+
+  const onClick = () => {
+    if(flag(CAN_SHARE_ORGANIZATION)) {
+      setShowShareModal(true)
+    } else {
+      showSharingPaywall()
+    }
   }
 
   useEffect(() => {
@@ -61,7 +72,7 @@ const Sharing = ({
           extension="full"
           useShortLabel
           docId={file.id}
-          onClick={() => setShowShareModal(true)}
+          onClick={onClick}
         />
       </SharingProvider>
     </ReactWrapper>
