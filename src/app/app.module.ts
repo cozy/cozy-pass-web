@@ -70,6 +70,7 @@ import { CozyIconComponent } from '../cozy/wrappers/cozy-icon/cozy-icon.componen
 import { IconSpriteComponent } from '../cozy/wrappers/icon-sprite/icon-sprite.component';
 import { ImportPageComponent } from '../cozy/wrappers/import-page/import-page.component';
 import { InstallationPageComponent } from '../cozy/wrappers/installation-page/installation-page.component';
+import { SharingPaywallComponent } from '../cozy/wrappers/sharing-paywall/sharing-paywall.component';
 import { SharingComponent } from '../cozy/wrappers/sharing/sharing.component';
 
 import { FlagConditionalComponent } from '../cozy/components/flag-conditional/flag-conditional.component';
@@ -234,6 +235,7 @@ registerLocaleData(localeZhTw, 'zh-TW');
         FlagConditionalComponent,
         IfFlagDirective,
         SharingComponent,
+        SharingPaywallComponent,
         ConfirmTrustedUsersComponent,
         ConfirmYourIdentityComponent,
         BottomMenuComponent,

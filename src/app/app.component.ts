@@ -90,7 +90,8 @@ const SyncInterval = 6 * 60 * 60 * 1000; // 6 hours
         <ng-template #deleteOrganization></ng-template>
         <router-outlet></router-outlet>
         <app-icon-sprite></app-icon-sprite>
-        <app-flag-switcher></app-flag-switcher>`,
+        <app-flag-switcher></app-flag-switcher>
+        <app-sharing-paywall [showDialog]="isSharingPaywallDisplay" (onClosed)="closeSharingPaywall()"></app-sharing-paywall>`,
 })
 export class AppComponent implements OnInit {
     @ViewChild('settings', { read: ViewContainerRef, static: true }) settingsRef: ViewContainerRef;
@@ -110,6 +111,7 @@ export class AppComponent implements OnInit {
         animation: 'flyRight',
         limit: 5,
     });
+    isSharingPaywallDisplay = false;
 
     private lastActivity: number = null;
     private modal: ModalComponent = null;
@@ -308,6 +310,9 @@ export class AppComponent implements OnInit {
                             await this.openPasswordGenerator();
                         }
                         break;
+                    case 'sharingPaywall':
+                        this.isSharingPaywallDisplay = true;
+                        break;
                 }
             });
         });
@@ -362,6 +367,10 @@ export class AppComponent implements OnInit {
         this.modal.onClosed.subscribe(() => {
             this.modal = null;
         });
+    }
+
+    closeSharingPaywall() {
+        this.isSharingPaywallDisplay = false;
     }
 
     async addFolder() {
