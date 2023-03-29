@@ -9,6 +9,7 @@ import {
   StepButton,
   StepLabel
 } from 'cozy-ui/transpiled/react/Stepper'
+import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
 import PresentationStep from '../PresentationStep'
 import SecurityStep from '../SecurityStep'
@@ -42,6 +43,8 @@ const STEPS = {
   configureExtension: 3
 }
 
+const COZY_BAR_HEIGHT = 48
+
 function getStepContent(step, setActiveStep, { hasHint, onSkipExtension }) {
   switch (step) {
     case STEPS.presentation:
@@ -68,6 +71,7 @@ function getStepContent(step, setActiveStep, { hasHint, onSkipExtension }) {
 
 const InstallationPage = function({onSkipExtension, initialStep}) {
   const { t } = useI18n()
+  const { isDesktop } = useBreakpoints()
 
   const bitwardenSettings = useContext(BitwardenSettingsContext)
   const isVaultConfigured =
@@ -103,9 +107,9 @@ const InstallationPage = function({onSkipExtension, initialStep}) {
   const canNavigateStepper = !canAuthWithOIDC || isVaultConfigured
   return (
     <StepsContext.Provider value={contextValue}>
-      <div className="InstallationPage">
+      <div className="InstallationPage" style={{ marginTop: isDesktop ? 0 : COZY_BAR_HEIGHT }}>
         <BarTitle>{t('Nav.installation')}</BarTitle>
-        <Stepper
+        { isDesktop && (<Stepper
           alternativeLabel
           nonLinear={canNavigateStepper}
           activeStep={activeStep}
@@ -127,7 +131,7 @@ const InstallationPage = function({onSkipExtension, initialStep}) {
               </Step>
             )
           })}
-        </Stepper>
+        </Stepper>)}
         {getStepContent(activeStep, setActiveStep, { hasHint, onSkipExtension })}
       </div>
     </StepsContext.Provider>
