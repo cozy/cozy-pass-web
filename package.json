@@ -87,7 +87,8 @@
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.7.3",
-    "webpack-node-externals": "^3.0.0"
+    "webpack-node-externals": "^3.0.0",
+    "webpack-watch-files-plugin": "^1.2.1"
   },
   "dependencies": {
     "@angular/animations": "^11.2.11",

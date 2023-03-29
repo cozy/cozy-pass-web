@@ -7,6 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const AngularCompilerPlugin = require('@ngtools/webpack').AngularCompilerPlugin;
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const WatchExternalFilesPlugin = require('webpack-watch-files-plugin').default;
 
 const common = {
     module: {
@@ -181,6 +182,11 @@ const renderer = {
             chunkFilename: '[id].[hash].css',
             // url: false,
         }),
+        new WatchExternalFilesPlugin({
+            files: [
+              './src/cozy/**/*.jsx',
+            ]
+          })
     ],
     devServer: {
         port: 4242,
