@@ -25,7 +25,6 @@ import { useExtensionStatus, extensionStatuses } from 'cozy/react/helpers/extens
 import { canAuthWithOIDC } from 'cozy/react/helpers/oidc'
 
 import getSupportedPlatforms from 'cozy/react/supportedPlatforms'
-import BarTitle from 'cozy/react/BarTitle'
 
 const browser = detectBrowser()
 
@@ -54,7 +53,6 @@ const InstallationStep = ({ onExtensionInstalled, onSkipExtension }) => {
 
   return (
     <VerticallyCentered>
-      <BarTitle>{t('Nav.installation')}</BarTitle>
       <Wrapper>
         <NarrowContent>
           {isNativeMobile ? (

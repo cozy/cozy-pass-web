@@ -8,7 +8,6 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import Infos from 'cozy-ui/transpiled/react/Infos'
 import Icon from 'cozy-ui/transpiled/react/Icon'
-import BarTitle from 'cozy/react/BarTitle'
 import Hero, {
   Title,
   Section,
@@ -106,7 +105,6 @@ const PresentationStep = ({ onLetsGo }) => {
   const { t } = useI18n()
   return (
     <VerticallyCentered>
-      <BarTitle>{t('Nav.presentation')}</BarTitle>
       <Wrapper>
         <Stack>
           <img src={importPasswordsIcon} alt="" height={191} />
