@@ -4,7 +4,7 @@ import {
   extensionStatuses
 } from '../../helpers/extensionStatus'
 import { render } from '@testing-library/react'
-import ConfigureExtensionStep from '../ConfigureExtensionStep'
+import InstallationStep from './InstallationStep'
 import AppLike from '../../../test/lib/AppLike'
 
 jest.mock('../../helpers/extensionStatus')
@@ -12,7 +12,7 @@ jest.mock('../../helpers/extensionStatus')
 const setup = () => {
   return render(
     <AppLike>
-      <ConfigureExtensionStep />
+      <InstallationStep />
     </AppLike>
   )
 }
