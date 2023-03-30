@@ -9,7 +9,6 @@ import chromeIllustration from 'cozy/react/assets/extension-connected-chrome.svg
 import firefoxIllustration from 'cozy/react/assets/extension-connected-firefox.svg'
 import Help from './Help'
 import { ButtonLink } from 'cozy-ui/transpiled/react/Button'
-import BarTitle from 'cozy/react/BarTitle'
 
 const illustrations = {
   chrome: chromeIllustration,
@@ -32,7 +31,6 @@ const ConnectedStep = () => {
 
   return (
     <Wrapper>
-      <BarTitle>{t('Nav.installation')}</BarTitle>
       <NarrowContent>
         <Stack spacing="xxl">
           <img

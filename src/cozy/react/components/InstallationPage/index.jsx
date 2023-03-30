@@ -18,7 +18,7 @@ import ConfigureExtensionStep from '../ConfigureExtensionStep'
 import { canAuthWithOIDC as canAuthWithOIDCFn } from 'cozy/react/helpers/oidc'
 import StepsContext from './stepsContext'
 
-import BarTitle from 'cozy/react/BarTitle'
+import BackButton from 'cozy/react/components/BackButton'
 import { fetchHintExists } from '../../hint'
 import { isMobile } from 'cozy-device-helper'
 import './styles.css'
@@ -105,10 +105,15 @@ const InstallationPage = function({onSkipExtension, initialStep}) {
   }, [hasHint, isVaultConfigured, canAuthWithOIDC])
 
   const canNavigateStepper = !canAuthWithOIDC || isVaultConfigured
+
+  const goBack = () => {
+    setActiveStep(activeStep => activeStep - 1)
+  }
+
   return (
     <StepsContext.Provider value={contextValue}>
       <div className="InstallationPage" style={{ marginTop: isDesktop ? 0 : COZY_BAR_HEIGHT }}>
-        <BarTitle>{t('Nav.installation')}</BarTitle>
+        { !isDesktop && activeStep > 0 && <BackButton onClick={goBack} /> }
         { isDesktop && (<Stepper
           alternativeLabel
           nonLinear={canNavigateStepper}
