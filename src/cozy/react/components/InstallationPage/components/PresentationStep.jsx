@@ -19,12 +19,12 @@ import LockIcon from 'cozy-ui/transpiled/react/Icons/Lock'
 import ToTheCloudIcon from 'cozy-ui/transpiled/react/Icons/ToTheCloud'
 
 import importPasswordsIcon from 'cozy/react/assets/import-passwords.svg'
-import CircleIcon from './CircleIcon'
-import Wrapper from './Wrapper'
+import CircleIcon from '../../CircleIcon'
+import Wrapper from '../../Wrapper'
 import getSupportedPlatforms from 'cozy/react/supportedPlatforms'
 import { isSupportedBrowser, browserName } from 'cozy/react/currentBrowser'
-import browserIcons from './browserIcons'
-import VerticallyCentered from './VerticallyCentered'
+import browserIcons from '../../browserIcons'
+import VerticallyCentered from '../../VerticallyCentered'
 
 const Section1 = () => {
   const { t } = useI18n()

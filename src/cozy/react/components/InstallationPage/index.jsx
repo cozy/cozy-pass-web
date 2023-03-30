@@ -11,10 +11,10 @@ import {
 } from 'cozy-ui/transpiled/react/Stepper'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
-import PresentationStep from '../PresentationStep'
-import SecurityStep from '../SecurityStep'
-import HintStep from '../HintStep'
-import InstallationStep from '../InstallationStep'
+import PresentationStep from './components/PresentationStep'
+import SecurityStep from './components/SecurityStep'
+import HintStep from './components/HintStep'
+import InstallationStep from './components/InstallationStep'
 import { canAuthWithOIDC as canAuthWithOIDCFn } from 'cozy/react/helpers/oidc'
 import StepsContext from './stepsContext'
 

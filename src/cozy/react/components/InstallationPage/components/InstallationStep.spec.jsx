@@ -2,7 +2,7 @@ import React from 'react'
 import {
   useExtensionStatus,
   extensionStatuses
-} from '../../helpers/extensionStatus'
+} from '../../../helpers/extensionStatus'
 import { render } from '@testing-library/react'
 import InstallationStep from './InstallationStep'
 import AppLike from '../../../test/lib/AppLike'
