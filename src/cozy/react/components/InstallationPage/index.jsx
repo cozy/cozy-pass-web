@@ -14,7 +14,7 @@ import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import PresentationStep from '../PresentationStep'
 import SecurityStep from '../SecurityStep'
 import HintStep from '../HintStep'
-import ConfigureExtensionStep from '../ConfigureExtensionStep'
+import InstallationStep from '../InstallationStep'
 import { canAuthWithOIDC as canAuthWithOIDCFn } from 'cozy/react/helpers/oidc'
 import StepsContext from './stepsContext'
 
@@ -65,7 +65,7 @@ function getStepContent(step, setActiveStep, { hasHint, onSkipExtension }) {
         />
       )
     case STEPS.configureExtension:
-      return <ConfigureExtensionStep onSkipExtension={onSkipExtension} />
+      return <InstallationStep onSkipExtension={onSkipExtension} />
   }
 }
 
