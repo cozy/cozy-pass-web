@@ -10,7 +10,7 @@ import passwordClueIcon from 'cozy/react/assets/password-clue.svg'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import Stack from 'cozy-ui/transpiled/react/Stack'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
-import VerticallyCentered from './VerticallyCentered'
+import VerticallyCentered from '../../VerticallyCentered'
 
 const DumbHintStep = props => {
   const client = useClient()
