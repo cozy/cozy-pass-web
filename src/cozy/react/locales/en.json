@@ -90,8 +90,11 @@
 
   "InstallationStepMobile": {
     "title": "Install the Cozy Pass App",
-    "description": "Access your credentials on the go, and automatically fill forms on your mobile.",
-    "installApp": "Install the app"
+    "titleInstalled": "Open the Cozy Pass App",
+    "description": "Install the Cozy Pass application on your phone to automatically enter and save your passwords as you browse.",
+    "descriptionInstalled": "Open the Cozy Pass application on your phone to automatically enter and save your passwords as you browse.",
+    "installApp": "Install the app",
+    "openApp": "Open the app"
   },
 
   "InstalledStep": {

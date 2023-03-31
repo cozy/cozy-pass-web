@@ -5,16 +5,38 @@ import Typography from 'cozy-ui/transpiled/react/Typography'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import { InstallNativeAppButton } from 'cozy/react/components/AvailablePlatforms'
+import mobileAppIcon from 'cozy/react/assets/mobile-app.svg'
 
 const InstallationStepMobilePart = () => {
   const { t } = useI18n()
+  
+  const isNativePassInstalled = window?.cozy?.isNativePassInstalled // only injected inside flagship app
 
   return (
-    <Stack spacing="m">
-      <Typography variant="h3" component="h1">{t('InstallationStepMobile.title')}</Typography>
-      <Typography variant="body1">{t('InstallationStepMobile.description')}</Typography>
+    <Stack spacing="xxl">
+      <Stack spacing="m">
+        <img src={mobileAppIcon} alt="" height={137} /> 
+        <Typography variant="h3" component="h1" className="u-mt-1">
+          {
+            isNativePassInstalled
+              ? t('InstallationStepMobile.titleInstalled')
+              : t('InstallationStepMobile.title')
+          }
+          </Typography>
+        <Typography variant="body1">
+          {
+            isNativePassInstalled
+              ? t('InstallationStepMobile.descriptionInstalled')
+              : t('InstallationStepMobile.description')
+          }
+        </Typography>
+      </Stack>
       <InstallNativeAppButton
-        label={t('InstallationStepMobile.installApp')}
+        label={          
+          isNativePassInstalled
+            ? t('InstallationStepMobile.openApp')
+            : t('InstallationStepMobile.installApp')
+        }
         theme="primary"
       />
     </Stack>

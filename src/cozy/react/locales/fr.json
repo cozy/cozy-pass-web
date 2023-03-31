@@ -89,10 +89,12 @@
 
   "InstallationStepMobile": {
     "title": "Installer l'application Cozy Pass",
-    "description": "Vous permet d'accéder à mots de passe depuis votre mobile, et remplis vos mots de passe automatiquement dans les formulaires.",
-    "installApp": "Installer l'application"
+    "titleInstalled": "Ouvrir l'application Cozy Pass",
+    "description": "Installer l’application Cozy Pass sur votre mobile pour saisir et enregistrer automatiquement vos mots de passe lors de votre navigation.",
+    "descriptionInstalled": "Ouvrir l’application Cozy Pass sur votre mobile pour saisir et enregistrer automatiquement vos mots de passe lors de votre navigation.",
+    "installApp": "Installer l'application",
+    "openApp": "Ouvrir l'application"
   },
-
   "InstalledStep": {
     "title": "C'est presque fini !",
     "descriptionStart": "Cliquez sur l'icône",
