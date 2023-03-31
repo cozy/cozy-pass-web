@@ -9,6 +9,10 @@ import { useClient } from 'cozy-client'
 const SETTINGS_APP_SLUG = 'settings'
 const PASSWORD_APP_SLUG = 'passwords'
 
+const app = {
+  slug: SETTINGS_APP_SLUG
+}
+
 const ChangePasswordLink = ({
   successRoute,
   cancelRoute,
@@ -33,7 +37,7 @@ const ChangePasswordLink = ({
   ).href
 
   return (
-    <AppLinker slug={SETTINGS_APP_SLUG} href={settingsAppHref}>
+    <AppLinker app={app} href={settingsAppHref}>
       {({ onClick, href }) => (
         <Component href={href} onClick={onClick} {...props} />
       )}
