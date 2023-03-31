@@ -10,13 +10,11 @@ import InstallationStepMobilePart from 'cozy/react/components/InstallationPage/c
 import InstallationStepWebPart from 'cozy/react/components/InstallationPage/components/InstallationStepWebPart'
 
 const InstallationStep = ({ onExtensionInstalled, onSkipExtension }) => {
-  const isNativeMobile = isMobile()
-
   return (
     <VerticallyCentered>
       <Wrapper>
         <NarrowContent>
-          {isNativeMobile ? (
+          {isMobile() ? (
             <InstallationStepMobilePart />
           ) : (
             <InstallationStepWebPart 
