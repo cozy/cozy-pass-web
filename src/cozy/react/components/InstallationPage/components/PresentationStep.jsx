@@ -1,5 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
+import { isMobile } from 'cozy-device-helper'
 
 import Button, { ButtonLink } from 'cozy-ui/transpiled/react/Button'
 import Stack from 'cozy-ui/transpiled/react/Stack'
@@ -118,7 +119,7 @@ const PresentationStep = ({ onLetsGo }) => {
               <Section2 />
               <Section3 />
             </Sections>
-            {isSupportedBrowser() ? (
+            {isSupportedBrowser() || isMobile() ? (
               <CTA>
                 <Button
                   onClick={onLetsGo}
