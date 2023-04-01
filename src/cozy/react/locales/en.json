@@ -97,11 +97,6 @@
     "openApp": "Open the app"
   },
 
-  "Help": {
-    "faq": "<a href='https://help.cozy.io/article/405-how-to-configure-your-password-manager' target='_blank' rel='noopener noreferrer'>__Help:__ I can't connect</a>",
-    "import": "Import my credentials from another manager"
-  },
-
   "AvailablePlatforms": {
     "text": "Find the Cozy extension on the following platforms:",
     "smartphone": "Smartphone",
