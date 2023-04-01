@@ -96,11 +96,6 @@
     "openApp": "Ouvrir l'application"
   },
 
-  "Help": {
-    "faq": "<a href='https://support.cozy.io/article/394-comment-puis-je-parametrer-mon-gestionnaire-de-mot-de-passe' target='_blank' rel='noopener noreferrer'>__Aide :__ Je ne parviens pas à me connecter</a>",
-    "import": "Importer mes identifiants à partir d'un autre gestionnaire"
-  },
-
   "AvailablePlatforms": {
     "text": "Retrouvez l'extension Cozy sur les plateformes suivantes :",
     "smartphone": "Smartphone",
