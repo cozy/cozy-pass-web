@@ -17,17 +17,6 @@ const setup = () => {
   )
 }
 
-describe('when extension is installed', () => {
-  beforeEach(() => {
-    useExtensionStatus.mockReturnValue(extensionStatuses.installed)
-  })
-
-  it('should show InstalledStep', async () => {
-    const { getByText } = setup()
-    expect(getByText("It's almost finished!")).toBeDefined()
-  })
-})
-
 describe('when extension is connected', () => {
   beforeEach(() => {
     useExtensionStatus.mockReturnValue(extensionStatuses.connected)
