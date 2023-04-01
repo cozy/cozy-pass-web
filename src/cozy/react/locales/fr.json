@@ -96,11 +96,6 @@
     "openApp": "Ouvrir l'application"
   },
 
-  "ConnectedStep": {
-    "title": "Votre gestionnaire de mots de passe est configuré !",
-    "description": "Rendez vous sur votre extension navigateur Cozy pour gérer vos mots de passe"
-  },
-
   "Help": {
     "faq": "<a href='https://support.cozy.io/article/394-comment-puis-je-parametrer-mon-gestionnaire-de-mot-de-passe' target='_blank' rel='noopener noreferrer'>__Aide :__ Je ne parviens pas à me connecter</a>",
     "import": "Importer mes identifiants à partir d'un autre gestionnaire"

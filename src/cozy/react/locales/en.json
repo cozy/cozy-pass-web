@@ -97,11 +97,6 @@
     "openApp": "Open the app"
   },
 
-  "ConnectedStep": {
-    "title": "Your password manager is configured!",
-    "description": "Go to your Cozy browser extension to manage your passwords"
-  },
-
   "Help": {
     "faq": "<a href='https://help.cozy.io/article/405-how-to-configure-your-password-manager' target='_blank' rel='noopener noreferrer'>__Help:__ I can't connect</a>",
     "import": "Import my credentials from another manager"
