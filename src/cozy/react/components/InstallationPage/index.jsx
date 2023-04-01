@@ -17,6 +17,7 @@ import HintStep from './components/HintStep'
 import InstallationStep from './components/InstallationStep'
 import { canAuthWithOIDC as canAuthWithOIDCFn } from 'cozy/react/helpers/oidc'
 import StepsContext from './stepsContext'
+import useIsNativePassInstalledOnDevice from './useIsNativePassInstalledOnDevice'
 
 import BackButton from 'cozy/react/components/BackButton'
 import { fetchHintExists } from '../../hint'
@@ -45,7 +46,7 @@ const STEPS = {
 
 const COZY_BAR_HEIGHT = 48
 
-function getStepContent(step, setActiveStep, { hasHint, onSkipExtension }) {
+function getStepContent(step, setActiveStep, { hasHint, onSkipExtension, isNativePassInstalledOnDevice }) {
   switch (step) {
     case STEPS.presentation:
       return <PresentationStep onLetsGo={() => setActiveStep(STEPS.security)} />
@@ -65,13 +66,14 @@ function getStepContent(step, setActiveStep, { hasHint, onSkipExtension }) {
         />
       )
     case STEPS.configureExtension:
-      return <InstallationStep onSkipExtension={onSkipExtension} />
+      return <InstallationStep onSkipExtension={onSkipExtension} isNativePassInstalledOnDevice={isNativePassInstalledOnDevice} />
   }
 }
 
 const InstallationPage = function({onSkipExtension, initialStep}) {
   const { t } = useI18n()
   const { isDesktop } = useBreakpoints()
+  const isNativePassInstalledOnDevice = useIsNativePassInstalledOnDevice()
 
   const bitwardenSettings = useContext(BitwardenSettingsContext)
   const isVaultConfigured =
@@ -137,7 +139,7 @@ const InstallationPage = function({onSkipExtension, initialStep}) {
             )
           })}
         </Stepper>)}
-        {getStepContent(activeStep, setActiveStep, { hasHint, onSkipExtension })}
+        {getStepContent(activeStep, setActiveStep, { hasHint, onSkipExtension, isNativePassInstalledOnDevice })}
       </div>
     </StepsContext.Provider>
   )
