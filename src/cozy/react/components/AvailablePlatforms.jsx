@@ -6,28 +6,14 @@ import getSupportedPlatforms, { platforms } from 'cozy/react/supportedPlatforms'
 import Stack from 'cozy-ui/transpiled/react/Stack'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Card from 'cozy-ui/transpiled/react/Card'
-import Icon from 'cozy-ui/transpiled/react/Icon'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import { Dialog } from 'cozy-ui/transpiled/react/CozyDialogs'
-import PhoneIcon from 'cozy-ui/transpiled/react/Icons/Phone'
 
 import { isAndroid, isIOS } from 'cozy-device-helper'
 
 import { AppStoreButton, PlayStoreButton } from './StoreButtons'
 import browserIcons from './browserIcons'
 
-const PlatformButton = props => {
-  const { icon, ...rest } = props
-  const color = props.theme === 'primary' ? 'var(--white)' : 'var(--slateGrey)'
-  return (
-    <ButtonLink
-      icon={<Icon icon={icon} size={16} color={color} />}
-      theme="secondary"
-      className="u-mb-half"
-      {...rest}
-    />
-  )
-}
 const storeLinksPerOS = keyBy(
   Object.values(platforms).filter(x => x.os),
   'os'
@@ -46,8 +32,10 @@ export const InstallNativeAppButton = props => {
 
   return (
     <>
-      <PlatformButton
-        icon={PhoneIcon}
+      <ButtonLink
+        theme="secondary"
+        className="u-mb-half"
+        extension="full"
         href={mobileOS !== null ? storeLinksPerOS[mobileOS].storeUrl : null}
         onClick={mobileOS === null ? handleOpenModal : null}
         {...props}
