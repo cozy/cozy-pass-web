@@ -95,12 +95,6 @@
     "installApp": "Installer dans le store",
     "openApp": "Ouvrir l'application"
   },
-  "InstalledStep": {
-    "title": "C'est presque fini !",
-    "descriptionStart": "Cliquez sur l'icône",
-    "descriptionEnd": "en haut à droite de votre écran pour vous connecter à l'aide de votre addresse **%{address}** et de votre mot de passe Cozy.",
-    "descriptionEnd-oidc": "en haut à droite de votre écran pour vous connecter à l'aide de votre addresse **%{address}** et de votre mot de passe Cozy Pass."
-  },
 
   "ConnectedStep": {
     "title": "Votre gestionnaire de mots de passe est configuré !",
