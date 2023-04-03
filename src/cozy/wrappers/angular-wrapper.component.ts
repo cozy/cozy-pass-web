@@ -26,6 +26,9 @@ import { ContainerService } from 'jslib/services/container.service';
 import { ImportService } from 'jslib/services/import.service';
 import * as uuid from 'uuid';
 import { CozyClientService } from '../services/cozy-client.service';
+ //@ts-ignore
+import flag from 'cozy-flags';
+import { FORCE_VAULT_UNCONFIGURED } from '../flags';
 
 export interface VaultData {
     apiService: ApiService;
@@ -122,7 +125,7 @@ export class AngularWrapperComponent
             : true;
 
         const bitwardenData = {
-            extension_installed: hasHint,
+            extension_installed: flag(FORCE_VAULT_UNCONFIGURED) ? false : hasHint,
         };
 
         return {
