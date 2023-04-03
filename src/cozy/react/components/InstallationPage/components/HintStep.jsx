@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import Button from 'cozy-ui/transpiled/react/Button'
+
+import { useClient } from 'cozy-client'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+
+import Button from 'cozy-ui/transpiled/react/Button'
 import Input from 'cozy-ui/transpiled/react/Input'
-import { withClient, useClient } from 'cozy-client'
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
 import Wrapper from 'cozy/react/components/Wrapper'
 import NarrowContent from 'cozy-ui/transpiled/react/NarrowContent'
@@ -12,9 +14,8 @@ import Stack from 'cozy-ui/transpiled/react/Stack'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 import VerticallyCentered from '../../VerticallyCentered'
 
-const DumbHintStep = props => {
+const HintStep = ({ hasHint, goToNextStep, onSkip }) => {
   const client = useClient()
-  const { goToNextStep } = props
   const { t } = useI18n()
   const [hint, setHint] = useState('')
   const [saving, setSaving] = useState(false)
@@ -49,9 +50,9 @@ const DumbHintStep = props => {
               <img src={passwordClueIcon} alt="" height={137} />
               <Typography variant="h3" component="h1" className="u-mt-1">{t('HintStep.title')}</Typography>
               <Typography variant="body1">
-                {props.hasHint === null ? (
+                {hasHint === null ? (
                   <Spinner size="small" />
-                ) : props.hasHint === false ? (
+                ) : hasHint === false ? (
                   t('HintStep.please-configure-hint')
                 ) : (
                   t('HintStep.hint-configured')
@@ -73,12 +74,12 @@ const DumbHintStep = props => {
               extension="full"
               className="u-mt-2"
             />
-            {props.hasHint ? (
+            {hasHint ? (
               <Button
                 label={t('HintStep.skip')}
                 disabled={saving}
                 extension="full"
-                onClick={props.onSkip}
+                onClick={onSkip}
                 theme="secondary"
                 className="u-mt-half"
               />
@@ -89,7 +90,5 @@ const DumbHintStep = props => {
     </VerticallyCentered>
   )
 }
-
-const HintStep = withClient(DumbHintStep)
 
 export default HintStep
