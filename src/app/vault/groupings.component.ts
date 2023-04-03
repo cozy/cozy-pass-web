@@ -1,5 +1,4 @@
 import { Component, EventEmitter, NgZone, Output } from '@angular/core';
-import { CAN_SHARE_ORGANIZATION } from '../../cozy/flags';
 import { SharingService } from '../../cozy/services/sharing.service';
 
 import { CipherService } from 'jslib/abstractions/cipher.service';
@@ -17,9 +16,6 @@ import { ServiceUtils } from 'jslib/misc/serviceUtils';
 const NestingDelimiter = '/';
 
 const BroadcasterSubscriptionId = 'GroupingsComponent';
-
-// @ts-ignore
-import flag from 'cozy-flags';
 
 @Component({
     selector: 'app-vault-groupings',
@@ -63,16 +59,6 @@ export class GroupingsComponent extends BaseGroupingsComponent {
         this.hasNotes = (noteIndex > -1) ;
         // run super
         super.load(setLoaded);
-    }
-
-    addFolder() {
-        if (flag(CAN_SHARE_ORGANIZATION)) {
-            this.onAddFolder.emit();
-        } else {
-            this.broadcasterService.send({
-                command: 'sharingPaywall',
-            });
-        }
     }
 
     lock() {
