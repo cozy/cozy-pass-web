@@ -313,6 +313,9 @@ export class AppComponent implements OnInit {
                     case 'sharingPaywall':
                         this.isSharingPaywallDisplay = true;
                         break;
+                    case 'navigate':
+                        this.router.navigate([message.route]);
+                        break;
                 }
             });
         });
