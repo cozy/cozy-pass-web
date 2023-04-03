@@ -1,24 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InstallationPage from '../../react/components/InstallationStep';
+import PresentationPage from '../../react/components/InstallationPage/components/PresentationStep';
 import ReactWrapper, { reactWrapperProps } from '../react-wrapper';
 
-// wrap original InstallationPage component
-const InstallationPageWrapper = ({
+const PresentationPageWrapper = ({
   reactWrapperProps,
   onSkipExtension,
   initialStep
 }) => {
   return (
     <ReactWrapper reactWrapperProps={reactWrapperProps}>
-      <InstallationPage onSkipExtension={onSkipExtension} initialStep={initialStep}></InstallationPage>
+      <PresentationPage onSkipExtension={onSkipExtension} initialStep={initialStep}></PresentationPage>
     </ReactWrapper>
   );
 };
 
-InstallationPageWrapper.propTypes = {
+PresentationPageWrapper.propTypes = {
   reactWrapperProps: reactWrapperProps.isRequired,
   onSkipExtension: PropTypes.func.isRequired,
 }
 
-export default InstallationPageWrapper;
+export default PresentationPageWrapper;
