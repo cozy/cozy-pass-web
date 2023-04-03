@@ -1,8 +1,4 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import {
-    ActivatedRoute,
-    Params
-} from '@angular/router';
 import { ApiService } from 'jslib/abstractions/api.service';
 import { AuthService } from 'jslib/abstractions/auth.service';
 import { CipherService } from 'jslib/abstractions/cipher.service';
@@ -18,7 +14,6 @@ import { UserService } from 'jslib/abstractions/user.service';
 import { VaultTimeoutService } from 'jslib/abstractions/vaultTimeout.service';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Subscription } from 'rxjs/internal/Subscription';
 import { MessagingService } from '../../../../jslib/src/abstractions/messaging.service';
 import { CozyClientService } from '../../services/cozy-client.service';
 import { VaultInstallationService } from '../../services/installation-guard.service';
@@ -31,7 +26,7 @@ import InstallationPage from './installation-page.jsx';
 
 interface InstallationPageProps extends AngularWrapperProps {
     onSkipExtension: () => void;
-    initialStep: string;
+    navigate: () => void;
 }
 
 @Component({
@@ -40,9 +35,6 @@ interface InstallationPageProps extends AngularWrapperProps {
     encapsulation: ViewEncapsulation.None,
 })
 export class InstallationPageComponent extends AngularWrapperComponent implements OnInit, OnDestroy {
-    queryParamsSub: Subscription = undefined;
-    initialStep: string = '';
-
     constructor(
         protected clientService: CozyClientService,
         protected apiService: ApiService,
@@ -60,7 +52,6 @@ export class InstallationPageComponent extends AngularWrapperComponent implement
         protected platformUtilsService: PlatformUtilsService,
         private vaultInstallationService: VaultInstallationService,
         private messagingService: MessagingService,
-        private route: ActivatedRoute
     ) {
         super(
             clientService,
@@ -81,20 +72,8 @@ export class InstallationPageComponent extends AngularWrapperComponent implement
     }
 
     ngOnInit(): void {
-        this.queryParamsSub = this.route.queryParams.subscribe((params: Params) => {
-            if (params.initialStep) {
-                this.initialStep = params.initialStep;
-                this.renderReact();
-            }
-        });
-
         super.ngOnInit();
-    }
-
-    ngOnDestroy() {
-        if (this.queryParamsSub != null) {
-            this.queryParamsSub.unsubscribe();
-        }
+        this.renderReact();
     }
 
     /******************/
@@ -106,13 +85,17 @@ export class InstallationPageComponent extends AngularWrapperComponent implement
         this.messagingService.send('installed');
     }
 
+    protected navigate(route: string) {
+        this.messagingService.send('navigate', route);
+    }
+
     protected async getProps(): Promise<InstallationPageProps> {
         const reactWrapperProps = await this.getReactWrapperProps(true);
 
         return {
             reactWrapperProps: reactWrapperProps,
             onSkipExtension: this.onSkipExtension.bind(this),
-            initialStep: this.initialStep,
+            navigate: this.navigate.bind(this)
         };
     }
 
