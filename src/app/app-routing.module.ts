@@ -4,6 +4,9 @@ import {
     VaultInstalledGuardService,
     VaultUninstalledGuardService,
 } from '../cozy/services/installation-guard.service';
+import { PresentationPageComponent } from '../cozy/wrappers/presentation-page/presentation-page.component';
+import { SecurityPageComponent } from '../cozy/wrappers/security-page/security-page.component';
+import { HintPageComponent } from '../cozy/wrappers/hint-page/hint-page.component';
 import { InstallationPageComponent } from '../cozy/wrappers/installation-page/installation-page.component';
 
 import { LockGuardService } from 'jslib/angular/services/lock-guard.service';
@@ -59,6 +62,25 @@ const routes: Routes = [
     },
     {
         path: 'installation',
+        redirectTo: 'installation/presentation'
+    },
+    {
+        path: 'installation/presentation',
+        component: PresentationPageComponent,
+        canActivate: [VaultUninstalledGuardService],
+    },
+    {
+        path: 'installation/security',
+        component: SecurityPageComponent,
+        canActivate: [VaultUninstalledGuardService],
+    },
+    {
+        path: 'installation/hint',
+        component: HintPageComponent,
+        canActivate: [VaultUninstalledGuardService],
+    },
+    {
+        path: 'installation/installation',
         component: InstallationPageComponent,
         canActivate: [VaultUninstalledGuardService],
     },

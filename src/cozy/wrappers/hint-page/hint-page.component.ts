@@ -1,0 +1,129 @@
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+    ActivatedRoute,
+    Params
+} from '@angular/router';
+import { ApiService } from 'jslib/abstractions/api.service';
+import { AuthService } from 'jslib/abstractions/auth.service';
+import { CipherService } from 'jslib/abstractions/cipher.service';
+import { CollectionService } from 'jslib/abstractions/collection.service';
+import { CryptoService } from 'jslib/abstractions/crypto.service';
+import { EnvironmentService } from 'jslib/abstractions/environment.service';
+import { FolderService } from 'jslib/abstractions/folder.service';
+import { I18nService } from 'jslib/abstractions/i18n.service';
+import { PasswordGenerationService } from 'jslib/abstractions/passwordGeneration.service';
+import { PlatformUtilsService } from 'jslib/abstractions/platformUtils.service';
+import { SyncService } from 'jslib/abstractions/sync.service';
+import { UserService } from 'jslib/abstractions/user.service';
+import { VaultTimeoutService } from 'jslib/abstractions/vaultTimeout.service';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { MessagingService } from '../../../../jslib/src/abstractions/messaging.service';
+import { CozyClientService } from '../../services/cozy-client.service';
+import { VaultInstallationService } from '../../services/installation-guard.service';
+import {
+    AngularWrapperComponent,
+    AngularWrapperProps,
+} from '../angular-wrapper.component';
+// @ts-ignore
+import HintPage from './hint-page.jsx';
+
+interface HintPageProps extends AngularWrapperProps {
+    onSkipExtension: () => void;
+    initialStep: string;
+}
+
+@Component({
+    selector: 'app-installation-page',
+    templateUrl: '../angular-wrapper.component.html',
+    encapsulation: ViewEncapsulation.None,
+})
+export class HintPageComponent extends AngularWrapperComponent implements OnInit, OnDestroy {
+    queryParamsSub: Subscription = undefined;
+    initialStep: string = '';
+
+    constructor(
+        protected clientService: CozyClientService,
+        protected apiService: ApiService,
+        protected environmentService: EnvironmentService,
+        protected authService: AuthService,
+        protected syncService: SyncService,
+        protected cryptoService: CryptoService,
+        protected cipherService: CipherService,
+        protected userService: UserService,
+        protected collectionService: CollectionService,
+        protected passwordGenerationService: PasswordGenerationService,
+        protected vaultTimeoutService: VaultTimeoutService,
+        protected folderService: FolderService,
+        protected i18nService: I18nService,
+        protected platformUtilsService: PlatformUtilsService,
+        private vaultInstallationService: VaultInstallationService,
+        private messagingService: MessagingService,
+        private route: ActivatedRoute
+    ) {
+        super(
+            clientService,
+            apiService,
+            environmentService,
+            authService,
+            syncService,
+            cryptoService,
+            cipherService,
+            userService,
+            collectionService,
+            passwordGenerationService,
+            vaultTimeoutService,
+            folderService,
+            i18nService,
+            platformUtilsService
+        );
+    }
+
+    ngOnInit(): void {
+        this.queryParamsSub = this.route.queryParams.subscribe((params: Params) => {
+            if (params.initialStep) {
+                this.initialStep = params.initialStep;
+                this.renderReact();
+            }
+        });
+
+        super.ngOnInit();
+    }
+
+    ngOnDestroy() {
+        if (this.queryParamsSub != null) {
+            this.queryParamsSub.unsubscribe();
+        }
+    }
+
+    /******************/
+    /* Props Bindings */
+    /******************/
+
+    protected onSkipExtension() {
+        this.vaultInstallationService.setIsInstalled();
+        this.messagingService.send('installed');
+    }
+
+    protected async getProps(): Promise<HintPageProps> {
+        const reactWrapperProps = await this.getReactWrapperProps(true);
+
+        return {
+            reactWrapperProps: reactWrapperProps,
+            onSkipExtension: this.onSkipExtension.bind(this),
+            initialStep: this.initialStep,
+        };
+    }
+
+    /**********/
+    /* Render */
+    /**********/
+
+    protected async renderReact() {
+        ReactDOM.render(
+            React.createElement(HintPage, await this.getProps()),
+            this.getRootDomNode()
+        );
+    }
+}

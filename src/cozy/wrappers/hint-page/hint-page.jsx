@@ -1,24 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InstallationPage from '../../react/components/InstallationStep';
+import HintPage from '../../react/components/InstallationPage/components/HintStep';
 import ReactWrapper, { reactWrapperProps } from '../react-wrapper';
 
-// wrap original InstallationPage component
-const InstallationPageWrapper = ({
+const HintPageWrapper = ({
   reactWrapperProps,
   onSkipExtension,
   initialStep
 }) => {
   return (
     <ReactWrapper reactWrapperProps={reactWrapperProps}>
-      <InstallationPage onSkipExtension={onSkipExtension} initialStep={initialStep}></InstallationPage>
+      <HintPage onSkipExtension={onSkipExtension} initialStep={initialStep}></HintPage>
     </ReactWrapper>
   );
 };
 
-InstallationPageWrapper.propTypes = {
+HintPageWrapper.propTypes = {
   reactWrapperProps: reactWrapperProps.isRequired,
   onSkipExtension: PropTypes.func.isRequired,
 }
 
-export default InstallationPageWrapper;
+export default HintPageWrapper;
