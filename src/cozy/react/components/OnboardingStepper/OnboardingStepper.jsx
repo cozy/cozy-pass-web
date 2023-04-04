@@ -17,9 +17,10 @@ export const OnboardingStepper = ({ route, navigate }) => {
   const client = useClient()
   const { t } = useI18n()
 
-  const bitwardenSettings = useContext(BitwardenSettingsContext)
-  const isVaultConfigured =
-    bitwardenSettings && bitwardenSettings.extension_installed
+  const {
+    extension_installed: isVaultConfigured,
+    hasHint
+  } = useContext(BitwardenSettingsContext)
 
   const canAuthWithOIDC = canAuthWithOIDCFn(client)
   const canNavigateStepper = !canAuthWithOIDC || isVaultConfigured
