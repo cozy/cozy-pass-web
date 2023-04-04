@@ -13,12 +13,15 @@ import Typography from 'cozy-ui/transpiled/react/Typography'
 import Stack from 'cozy-ui/transpiled/react/Stack'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 import VerticallyCentered from '../../VerticallyCentered'
+import { STEPS } from 'cozy/react/steps'
 
-const HintStep = ({ hasHint, goToNextStep, onSkip }) => {
+const HintStep = ({ hasHint, navigate }) => {
   const client = useClient()
   const { t } = useI18n()
   const [hint, setHint] = useState('')
   const [saving, setSaving] = useState(false)
+
+  const goToNextStep = () => navigate({ route: STEPS.INSTALLATION })
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -79,7 +82,7 @@ const HintStep = ({ hasHint, goToNextStep, onSkip }) => {
                 label={t('HintStep.skip')}
                 disabled={saving}
                 extension="full"
-                onClick={onSkip}
+                onClick={goToNextStep}
                 theme="secondary"
                 className="u-mt-half"
               />
