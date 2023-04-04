@@ -9,15 +9,13 @@ import VerticallyCentered from 'cozy/react/components/VerticallyCentered'
 import InstallationStepMobilePart from 'cozy/react/components/InstallationPage/components/InstallationStepMobilePart'
 import InstallationStepWebPart from 'cozy/react/components/InstallationPage/components/InstallationStepWebPart'
 
-const InstallationStep = ({ onExtensionInstalled, onSkipExtension, isNativePassInstalledOnDevice }) => {
+const InstallationStep = ({ onExtensionInstalled, onSkipExtension }) => {
   return (
     <VerticallyCentered>
       <Wrapper>
         <NarrowContent>
           {isMobile() ? (
-            <InstallationStepMobilePart
-              isNativePassInstalledOnDevice={isNativePassInstalledOnDevice}
-            />
+            <InstallationStepMobilePart />
           ) : (
             <InstallationStepWebPart 
               onExtensionInstalled={onExtensionInstalled}
