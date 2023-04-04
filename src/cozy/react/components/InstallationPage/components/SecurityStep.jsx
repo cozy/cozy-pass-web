@@ -13,6 +13,7 @@ import { UnorderedList, ListItem } from 'cozy-ui/transpiled/react/UnorderedList'
 import { useClient } from 'cozy-client'
 import flag from 'cozy-flags'
 
+import { STEPS } from 'cozy/react/steps'
 import Wrapper from 'cozy/react/components/Wrapper'
 import VerticallyCentered from 'cozy/react/components/VerticallyCentered'
 import strongPasswordIcon from 'cozy/react/assets/strong-password.svg'
@@ -21,8 +22,10 @@ import { useStepsContext } from 'cozy/react/components/InstallationPage/stepsCon
 import ChangePasswordLink from 'cozy/react/components/ChangePasswordLink'
 import SetVaultPasswordForm from 'cozy/react/components/SetVaultPasswordForm'
 
-const DefaultSecurityStep = ({ onSkip }) => {
+const DefaultSecurityStep = ({ navigate }) => {
   const { t } = useI18n()
+
+  const onKeepPassword = () => navigate({ route: STEPS.HINT })
 
   return (
     <VerticallyCentered>
@@ -63,13 +66,13 @@ const DefaultSecurityStep = ({ onSkip }) => {
               <Stack spacing="xs">
                 <ChangePasswordLink
                   label={t('SecurityStep.enhance-password')}
-                  successRoute="#/installation?initialStep=configureExtension"
-                  cancelRoute="#/installation?initialStep=hint"
+                  successRoute="#/installation/installation"
+                  cancelRoute="#/installation/hint"
                   extension="full"
                 />
                 <Button
                   tag={Link}
-                  onClick={onSkip}
+                  onClick={onKeepPassword}
                   label={t('SecurityStep.keep-password')}
                   theme="secondary"
                   className="u-mt-half"

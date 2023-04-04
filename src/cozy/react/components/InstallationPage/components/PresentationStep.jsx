@@ -20,6 +20,7 @@ import LockIcon from 'cozy-ui/transpiled/react/Icons/Lock'
 import ToTheCloudIcon from 'cozy-ui/transpiled/react/Icons/ToTheCloud'
 
 import importPasswordsIcon from 'cozy/react/assets/import-passwords.svg'
+import { STEPS } from 'cozy/react/steps'
 import CircleIcon from '../../CircleIcon'
 import Wrapper from '../../Wrapper'
 import getSupportedPlatforms from 'cozy/react/supportedPlatforms'
@@ -102,7 +103,7 @@ const UnsupportedBrowser = () => {
   )
 }
 
-const PresentationStep = ({ onLetsGo }) => {
+const PresentationStep = ({ navigate }) => {
   const { t } = useI18n()
   return (
     <VerticallyCentered>
@@ -122,7 +123,7 @@ const PresentationStep = ({ onLetsGo }) => {
             {isSupportedBrowser() || isMobile() ? (
               <CTA>
                 <Button
-                  onClick={onLetsGo}
+                  onClick={() => navigate({ route: STEPS.SECURITY })}
                   label={t('PresentationStep.cta')}
                   extension="full"
                 />

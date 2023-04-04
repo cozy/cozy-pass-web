@@ -1,39 +1,17 @@
 import React, { useContext } from 'react'
 
-import { BitwardenSettingsContext } from '../../bitwarden-settings'
-import { isMobile } from 'cozy-device-helper'
 import { useClient } from 'cozy-client'
+import {
+  Stepper,
+  Step,
+  StepButton,
+  StepLabel
+} from 'cozy-ui/transpiled/react/Stepper'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
-
-import {
-    Stepper,
-    Step,
-    StepButton,
-    StepLabel
-  } from 'cozy-ui/transpiled/react/Stepper'
-  import { canAuthWithOIDC as canAuthWithOIDCFn } from 'cozy/react/helpers/oidc'
-
-  function getSteps(t, canAuthWithOIDC) {
-    return [
-      {
-        label: t('Nav.presentation'),
-        route: 'installation/presentation'
-      },
-      {
-        label: canAuthWithOIDC ? t('InstallationStep.steps.choose-pass-password') : t('InstallationStep.steps.improve-password'),
-        route: 'installation/security'
-      },
-      {
-        label: t('InstallationStep.steps.leave-hint'),
-        route: 'installation/hint'
-      },
-      {
-        label: isMobile() ? t('InstallationStep.steps.install-app') : t('InstallationStep.steps.install-extension'),
-        route: 'installation/installation'
-      }
-    ]
-  }
+import { BitwardenSettingsContext } from 'cozy/react/bitwarden-settings'
+import { canAuthWithOIDC as canAuthWithOIDCFn } from 'cozy/react/helpers/oidc'
+import { getStepsWithLabelAndRoute } from 'cozy/react/steps'
 
 export const OnboardingStepper = ({ route, navigate }) => {
   const client = useClient()
@@ -46,7 +24,7 @@ export const OnboardingStepper = ({ route, navigate }) => {
   const canAuthWithOIDC = canAuthWithOIDCFn(client)
   const canNavigateStepper = !canAuthWithOIDC || isVaultConfigured
 
-  const steps = getSteps(t, canAuthWithOIDC, isVaultConfigured)
+  const steps = getStepsWithLabelAndRoute(t, canAuthWithOIDC)
 
   return (
     <Stepper

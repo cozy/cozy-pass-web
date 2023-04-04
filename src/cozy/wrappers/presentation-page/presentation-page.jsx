@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import PresentationPage from '../../react/components/InstallationPage/components/PresentationStep';
 import ReactWrapper, { reactWrapperProps } from '../react-wrapper';
 import { OnboardingStepper } from '../../react/components/OnboardingStepper/OnboardingStepper';
+import { STEPS } from 'cozy/react/steps'
 
 const PresentationPageWrapper = ({
   reactWrapperProps,
@@ -11,8 +12,8 @@ const PresentationPageWrapper = ({
 }) => {
   return (
     <ReactWrapper reactWrapperProps={reactWrapperProps}>
-      <OnboardingStepper route="installation/presentation" navigate={navigate} />
-      <PresentationPage onSkipExtension={onSkipExtension}></PresentationPage>
+      <OnboardingStepper route={STEPS.PRESENTATION} navigate={navigate} />
+      <PresentationPage onSkipExtension={onSkipExtension} navigate={navigate}></PresentationPage>
     </ReactWrapper>
   );
 };
