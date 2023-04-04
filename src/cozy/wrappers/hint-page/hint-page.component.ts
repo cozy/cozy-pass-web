@@ -25,7 +25,6 @@ import {
 import HintPage from './hint-page.jsx';
 
 interface HintPageProps extends AngularWrapperProps {
-    onSkipExtension: () => void;
     navigate: () => void;
 }
 
@@ -80,11 +79,6 @@ export class HintPageComponent extends AngularWrapperComponent implements OnInit
     /* Props Bindings */
     /******************/
 
-    protected onSkipExtension() {
-        this.vaultInstallationService.setIsInstalled();
-        this.messagingService.send('installed');
-    }
-
     protected navigate(route: string) {
         this.messagingService.send('navigate', route);
     }
@@ -94,7 +88,6 @@ export class HintPageComponent extends AngularWrapperComponent implements OnInit
 
         return {
             reactWrapperProps: reactWrapperProps,
-            onSkipExtension: this.onSkipExtension.bind(this),
             navigate: this.navigate.bind(this)
         };
     }

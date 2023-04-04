@@ -25,7 +25,6 @@ import {
 import PresentationPage from './presentation-page.jsx';
 
 interface PresentationPageProps extends AngularWrapperProps {
-    onSkipExtension: () => void;
     navigate: () => void;
 }
 
@@ -80,11 +79,6 @@ export class PresentationPageComponent extends AngularWrapperComponent implement
     /* Props Bindings */
     /******************/
 
-    protected onSkipExtension() {
-        this.vaultInstallationService.setIsInstalled();
-        this.messagingService.send('installed');
-    }
-
     protected navigate(route: string) {
         this.messagingService.send('navigate', route);
     }
@@ -94,7 +88,6 @@ export class PresentationPageComponent extends AngularWrapperComponent implement
 
         return {
             reactWrapperProps: reactWrapperProps,
-            onSkipExtension: this.onSkipExtension.bind(this),
             navigate: this.navigate.bind(this)
         };
     }
