@@ -5,11 +5,14 @@ import Typography from 'cozy-ui/transpiled/react/Typography'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import { InstallNativeAppButton } from 'cozy/react/components/AvailablePlatforms'
+import useIsNativePassInstalledOnDevice from 'cozy/react/components/InstallationPage/useIsNativePassInstalledOnDevice'
 import mobileAppIcon from 'cozy/react/assets/mobile-app.svg'
 
-const InstallationStepMobilePart = ({ isNativePassInstalledOnDevice }) => {
+const InstallationStepMobilePart = () => {
   const { t } = useI18n()
   
+  const isNativePassInstalledOnDevice = useIsNativePassInstalledOnDevice()
+
   return (
     <Stack spacing="xxl">
       <Stack spacing="m">
