@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 
 import { useClient } from 'cozy-client'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
@@ -14,12 +14,16 @@ import Stack from 'cozy-ui/transpiled/react/Stack'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 import VerticallyCentered from '../../VerticallyCentered'
 import { STEPS } from 'cozy/react/steps'
+import { BitwardenSettingsContext } from 'cozy/react/bitwarden-settings'
 
-const HintStep = ({ hasHint, navigate }) => {
+const HintStep = ({ navigate }) => {
   const client = useClient()
   const { t } = useI18n()
   const [hint, setHint] = useState('')
   const [saving, setSaving] = useState(false)
+
+  const bitwardenSettings = useContext(BitwardenSettingsContext)
+  const { hasHint } = bitwardenSettings
 
   const goToNextStep = () => navigate({ route: STEPS.INSTALLATION })
 
