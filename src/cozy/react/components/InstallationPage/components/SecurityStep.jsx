@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import snarkdown from 'snarkdown'
 
@@ -18,9 +18,9 @@ import Wrapper from 'cozy/react/components/Wrapper'
 import VerticallyCentered from 'cozy/react/components/VerticallyCentered'
 import strongPasswordIcon from 'cozy/react/assets/strong-password.svg'
 import { canAuthWithOIDC } from 'cozy/react/helpers/oidc'
-import { useStepsContext } from 'cozy/react/components/InstallationPage/stepsContext'
 import ChangePasswordLink from 'cozy/react/components/ChangePasswordLink'
 import SetVaultPasswordForm from 'cozy/react/components/SetVaultPasswordForm'
+import { BitwardenSettingsContext } from 'cozy/react/bitwarden-settings'
 
 const DefaultSecurityStep = ({ navigate }) => {
   const { t } = useI18n()
@@ -87,12 +87,16 @@ const DefaultSecurityStep = ({ navigate }) => {
   )
 }
 
-const OIDCSecurityStep = ({ onNext }) => {
+const OIDCSecurityStep = ({ navigate }) => {
   const { t } = useI18n()
 
-  const { isVaultConfigured: rawIsVaultConfigured } = useStepsContext()
+  const onNext = () => navigate({ route: STEPS.HINT })
 
-  const isVaultConfigured =
+  const bitwardenSettings = useContext(BitwardenSettingsContext)
+  const rawIsVaultConfigured =
+    bitwardenSettings && bitwardenSettings.extension_installed
+
+  const isVaultConfigured = 
     flag('passwords.force-vault-configured') === null
       ? rawIsVaultConfigured
       : flag('passwords.force-vault-configured')
@@ -120,8 +124,8 @@ const OIDCSecurityStep = ({ onNext }) => {
                     extension="full"
                     theme="secondary"
                     label={t('UpdateCozyPassPassword')}
-                    successRoute="#/installation?initialStep=configureExtension"
-                    cancelRoute="#/installation?initialStep=configureExtension"
+                    successRoute="#/installation/installation"
+                    cancelRoute="#/installation/installation"
                   />
                 </div>
               ) : (
@@ -164,13 +168,13 @@ const OIDCSecurityStep = ({ onNext }) => {
   )
 }
 
-const SecurityStep = props => {
+const SecurityStep = ({ navigate }) => {
   const client = useClient()
 
   if (canAuthWithOIDC(client)) {
-    return <OIDCSecurityStep {...props} />
+    return <OIDCSecurityStep navigate={navigate} />
   }
-  return <DefaultSecurityStep {...props} />
+  return <DefaultSecurityStep navigate={navigate} />
 }
 
 export default SecurityStep
