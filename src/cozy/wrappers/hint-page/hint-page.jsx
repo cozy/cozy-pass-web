@@ -7,20 +7,18 @@ import { STEPS } from 'cozy/react/steps'
 
 const HintPageWrapper = ({
   reactWrapperProps,
-  onSkipExtension,
   navigate
 }) => {
   return (
     <ReactWrapper reactWrapperProps={reactWrapperProps}>
       <OnboardingStepper route={STEPS.HINT} navigate={navigate}/>
-      <HintPage onSkipExtension={onSkipExtension} navigate={navigate}></HintPage>
+      <HintPage navigate={navigate}></HintPage>
     </ReactWrapper>
   );
 };
 
 HintPageWrapper.propTypes = {
-  reactWrapperProps: reactWrapperProps.isRequired,
-  onSkipExtension: PropTypes.func.isRequired,
+  reactWrapperProps: reactWrapperProps.isRequired
 }
 
 export default HintPageWrapper;

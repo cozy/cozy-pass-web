@@ -7,20 +7,18 @@ import { STEPS } from 'cozy/react/steps'
 
 const PresentationPageWrapper = ({
   reactWrapperProps,
-  onSkipExtension,
   navigate,
 }) => {
   return (
     <ReactWrapper reactWrapperProps={reactWrapperProps}>
       <OnboardingStepper route={STEPS.PRESENTATION} navigate={navigate} />
-      <PresentationPage onSkipExtension={onSkipExtension} navigate={navigate}></PresentationPage>
+      <PresentationPage navigate={navigate}></PresentationPage>
     </ReactWrapper>
   );
 };
 
 PresentationPageWrapper.propTypes = {
   reactWrapperProps: reactWrapperProps.isRequired,
-  onSkipExtension: PropTypes.func.isRequired,
 }
 
 export default PresentationPageWrapper;
