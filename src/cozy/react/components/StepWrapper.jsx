@@ -11,7 +11,7 @@ const COZY_BAR_HEIGHT = 48
 export const StepWrapper = ({ route, navigate, children }) => {
   const { isMobile } = useBreakpoints()
 
-  const onClick = route === STEPS.PRESENTATION ? undefined : () => navigate({ route: '..' })
+  const onClick = route === STEPS.PRESENTATION ? undefined : () => navigate({ goBack: true })
 
   return (
     <div style={{ marginTop: isMobile ? COZY_BAR_HEIGHT : 0 }}>
