@@ -10,6 +10,7 @@ import {
     ToasterService,
 } from 'angular2-toaster';
 
+import { Location } from '@angular/common';
 import {
     Component,
     ComponentFactoryResolver,
@@ -22,7 +23,6 @@ import {
 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { Location } from "@angular/common";
 
 // import { PremiumComponent } from './accounts/premium.component';
 import { SettingsComponent } from './accounts/settings.component';
@@ -317,7 +317,7 @@ export class AppComponent implements OnInit {
                         break;
                     case 'navigate':
                         if (message.goBack) {
-                            this.location.back()
+                            this.location.back();
                         } else {
                             this.router.navigate([message.route]);
                         }

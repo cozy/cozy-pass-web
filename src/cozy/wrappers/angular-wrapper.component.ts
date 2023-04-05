@@ -7,6 +7,8 @@ import {
     ViewEncapsulation
 } from '@angular/core';
 import CozyClient from 'cozy-client';
+ // @ts-ignore
+import flag from 'cozy-flags';
 import * as invariant from 'invariant';
 import { ApiService } from 'jslib/abstractions/api.service';
 import { AuthService } from 'jslib/abstractions/auth.service';
@@ -25,10 +27,8 @@ import { Utils } from 'jslib/misc/utils';
 import { ContainerService } from 'jslib/services/container.service';
 import { ImportService } from 'jslib/services/import.service';
 import * as uuid from 'uuid';
-import { CozyClientService } from '../services/cozy-client.service';
- //@ts-ignore
-import flag from 'cozy-flags';
 import { FORCE_VAULT_UNCONFIGURED } from '../flags';
+import { CozyClientService } from '../services/cozy-client.service';
 
 export interface VaultData {
     apiService: ApiService;
@@ -120,7 +120,7 @@ export class AngularWrapperComponent
     async getReactWrapperProps(checkExtensionInstalled = false): Promise<ReactWrapperProps> {
         const client = this.clientService.GetClient();
 
-        const hasHint = await this.fetchHintExists(client)
+        const hasHint = await this.fetchHintExists(client);
 
         const extensionInstalled = checkExtensionInstalled
             ? hasHint
@@ -128,7 +128,7 @@ export class AngularWrapperComponent
 
         const bitwardenData = {
             extension_installed: flag(FORCE_VAULT_UNCONFIGURED) ? false : extensionInstalled,
-            hasHint
+            hasHint: hasHint,
         };
 
         return {
