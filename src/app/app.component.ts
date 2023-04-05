@@ -10,7 +10,6 @@ import {
     ToasterService,
 } from 'angular2-toaster';
 
-import { Location } from '@angular/common';
 import {
     Component,
     ComponentFactoryResolver,
@@ -132,8 +131,7 @@ export class AppComponent implements OnInit {
         private searchService: SearchService, private notificationsService: NotificationsService,
         private platformUtilsService: PlatformUtilsService, private systemService: SystemService,
         private stateService: StateService, private eventService: EventService,
-        private policyService: PolicyService, private clientService: CozyClientService,
-        private location: Location) { }
+        private policyService: PolicyService, private clientService: CozyClientService) { }
 
     ngOnInit() {
         this.ngZone.runOutsideAngular(() => {
@@ -314,14 +312,6 @@ export class AppComponent implements OnInit {
                         break;
                     case 'sharingPaywall':
                         this.isSharingPaywallDisplay = true;
-                        break;
-                    case 'navigate':
-                        if (message.goBack) {
-                            this.location.back();
-                        } else {
-                            this.router.navigate([message.route]);
-                        }
-
                         break;
                 }
             });
