@@ -95,7 +95,7 @@ export class InstallationPageComponent extends AngularWrapperComponent implement
         return {
             reactWrapperProps: reactWrapperProps,
             onSkipExtension: this.onSkipExtension.bind(this),
-            navigate: this.navigate.bind(this)
+            navigate: this.navigate.bind(this),
         };
     }
 

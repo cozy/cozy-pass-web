@@ -88,7 +88,7 @@ export class HintPageComponent extends AngularWrapperComponent implements OnInit
 
         return {
             reactWrapperProps: reactWrapperProps,
-            navigate: this.navigate.bind(this)
+            navigate: this.navigate.bind(this),
         };
     }
 
