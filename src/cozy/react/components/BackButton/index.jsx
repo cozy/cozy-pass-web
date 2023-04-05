@@ -7,12 +7,11 @@ const { BarLeft } = cozy.bar
 
 const previousIconStyle = { width: '3em', padding: '1em', fill: 'var(--secondaryTextColor)' }
 
-const BackButton = ({ onClick }) => {
-  return (
-    <BarLeft>
-      <PreviousIcon style={previousIconStyle} onClick={onClick} />
-    </BarLeft>
-  )
-}
+// Without onClick, BarLeft is empty and reset to default BarLeft
+const BackButton = ({ onClick }) => (
+  <BarLeft>
+    { onClick && (<PreviousIcon style={previousIconStyle} onClick={onClick} />) }
+  </BarLeft>
+)
 
 export default BackButton

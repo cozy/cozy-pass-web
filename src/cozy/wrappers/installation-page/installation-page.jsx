@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import InstallationPage from '../../react/components/InstallationPage/components/InstallationStep';
 import ReactWrapper, { reactWrapperProps } from '../react-wrapper';
-import { OnboardingStepper } from '../../react/components/OnboardingStepper/OnboardingStepper';
+import { StepWrapper } from 'cozy/react/components/StepWrapper'
 import { STEPS } from 'cozy/react/steps'
 
 // wrap original InstallationPage component
@@ -13,8 +13,9 @@ const InstallationPageWrapper = ({
 }) => {
   return (
     <ReactWrapper reactWrapperProps={reactWrapperProps}>
-      <OnboardingStepper route={STEPS.INSTALLATION} navigate={navigate} />
-      <InstallationPage onSkipExtension={onSkipExtension}></InstallationPage>
+      <StepWrapper route={STEPS.INSTALLATION} navigate={navigate}>
+        <InstallationPage onSkipExtension={onSkipExtension}></InstallationPage>
+      </StepWrapper>
     </ReactWrapper>
   );
 };
