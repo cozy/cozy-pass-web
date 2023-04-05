@@ -88,7 +88,7 @@ export class SecurityPageComponent extends AngularWrapperComponent implements On
 
         return {
             reactWrapperProps: reactWrapperProps,
-            navigate: this.navigate.bind(this)
+            navigate: this.navigate.bind(this),
         };
     }
 

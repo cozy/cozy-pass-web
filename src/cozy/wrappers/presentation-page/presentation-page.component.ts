@@ -88,7 +88,7 @@ export class PresentationPageComponent extends AngularWrapperComponent implement
 
         return {
             reactWrapperProps: reactWrapperProps,
-            navigate: this.navigate.bind(this)
+            navigate: this.navigate.bind(this),
         };
     }
 
