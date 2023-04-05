@@ -22,6 +22,7 @@ import {
 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { Location } from "@angular/common";
 
 // import { PremiumComponent } from './accounts/premium.component';
 import { SettingsComponent } from './accounts/settings.component';
@@ -131,7 +132,8 @@ export class AppComponent implements OnInit {
         private searchService: SearchService, private notificationsService: NotificationsService,
         private platformUtilsService: PlatformUtilsService, private systemService: SystemService,
         private stateService: StateService, private eventService: EventService,
-        private policyService: PolicyService, private clientService: CozyClientService) { }
+        private policyService: PolicyService, private clientService: CozyClientService,
+        private location: Location) { }
 
     ngOnInit() {
         this.ngZone.runOutsideAngular(() => {
@@ -314,7 +316,12 @@ export class AppComponent implements OnInit {
                         this.isSharingPaywallDisplay = true;
                         break;
                     case 'navigate':
-                        this.router.navigate([message.route]);
+                        if (message.goBack) {
+                            this.location.back()
+                        } else {
+                            this.router.navigate([message.route]);
+                        }
+
                         break;
                 }
             });

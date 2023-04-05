@@ -79,8 +79,8 @@ export class HintPageComponent extends AngularWrapperComponent implements OnInit
     /* Props Bindings */
     /******************/
 
-    protected navigate(route: string) {
-        this.messagingService.send('navigate', route);
+    protected navigate(params: object) {
+        this.messagingService.send('navigate', params);
     }
 
     protected async getProps(): Promise<HintPageProps> {
