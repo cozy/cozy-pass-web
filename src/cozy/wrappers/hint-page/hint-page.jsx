@@ -2,15 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HintPage from '../../react/components/InstallationPage/components/HintStep';
 import ReactWrapper, { reactWrapperProps } from '../react-wrapper';
+import { OnboardingStepper } from '../../react/components/OnboardingStepper/OnboardingStepper';
 
 const HintPageWrapper = ({
   reactWrapperProps,
   onSkipExtension,
-  initialStep
+  navigate
 }) => {
   return (
     <ReactWrapper reactWrapperProps={reactWrapperProps}>
-      <HintPage onSkipExtension={onSkipExtension} initialStep={initialStep}></HintPage>
+      <OnboardingStepper route="installation/hint" navigate={navigate}/>
+      <HintPage onSkipExtension={onSkipExtension}></HintPage>
     </ReactWrapper>
   );
 };

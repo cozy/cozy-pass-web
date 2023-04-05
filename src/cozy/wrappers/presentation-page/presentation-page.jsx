@@ -2,15 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PresentationPage from '../../react/components/InstallationPage/components/PresentationStep';
 import ReactWrapper, { reactWrapperProps } from '../react-wrapper';
+import { OnboardingStepper } from '../../react/components/OnboardingStepper/OnboardingStepper';
 
 const PresentationPageWrapper = ({
   reactWrapperProps,
   onSkipExtension,
-  initialStep
+  navigate,
 }) => {
   return (
     <ReactWrapper reactWrapperProps={reactWrapperProps}>
-      <PresentationPage onSkipExtension={onSkipExtension} initialStep={initialStep}></PresentationPage>
+      <OnboardingStepper route="installation/presentation" navigate={navigate} />
+      <PresentationPage onSkipExtension={onSkipExtension}></PresentationPage>
     </ReactWrapper>
   );
 };
