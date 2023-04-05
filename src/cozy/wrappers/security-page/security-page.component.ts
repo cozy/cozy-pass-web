@@ -1,4 +1,6 @@
+import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'jslib/abstractions/api.service';
 import { AuthService } from 'jslib/abstractions/auth.service';
 import { CipherService } from 'jslib/abstractions/cipher.service';
@@ -51,6 +53,8 @@ export class SecurityPageComponent extends AngularWrapperComponent implements On
         protected platformUtilsService: PlatformUtilsService,
         private vaultInstallationService: VaultInstallationService,
         private messagingService: MessagingService,
+        private router: Router,
+        private location: Location,
     ) {
         super(
             clientService,
@@ -79,8 +83,12 @@ export class SecurityPageComponent extends AngularWrapperComponent implements On
     /* Props Bindings */
     /******************/
 
-    protected navigate(route: string) {
-        this.messagingService.send('navigate', route);
+    protected navigate(params: { goBack: true; route: string; }) {
+        if (params.goBack) {
+            this.location.back();
+        } else {
+            this.router.navigate([params.route]);
+        }
     }
 
     protected async getProps(): Promise<SecurityPageProps> {
