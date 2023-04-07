@@ -1,4 +1,4 @@
-# 2.0.7
+# 2.0.8
 
 ## ✨ Features
 
@@ -6,6 +6,25 @@
 
 ## 🔧 Tech
 
+# 2.0.7
+
+## ✨ Features
+
+* Handle back button to go back on Android
+* Improve responsive onboarding
+* Add mobile installation step
+* Enable folder creation for everyone
+* Share buttons are visible to use them you need `passwords.can-share-organizations`
+
+## 🐛 Bug Fixes
+
+* Use initialState prop instead of useParams in installation-page 
+
+## 🔧 Tech
+
+* Renew Github Token for CI
+* Remove Matomo
+* Update cozy-ui from 58.0.0 to 82.10.0,  cozy-client from 24.6.1 to 37.0.0, cozy-flag from 2.7.2 to 2.11.0
 
 # 2.0.6
 
