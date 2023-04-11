@@ -8,10 +8,12 @@ import { STEPS } from 'cozy/react/steps'
 
 const COZY_BAR_HEIGHT = 48
 
+const ROUTES_WITHOUT_BACK_BUTTON = [STEPS.PRESENTATION, STEPS.INSTALLATION]
+
 export const StepWrapper = ({ route, navigate, children }) => {
   const { isMobile } = useBreakpoints()
 
-  const onClick = route === STEPS.PRESENTATION ? undefined : () => navigate({ goBack: true })
+  const onClick = ROUTES_WITHOUT_BACK_BUTTON.includes(route) ? undefined : () => navigate({ goBack: true })
 
   return (
     <div style={{ marginTop: isMobile ? COZY_BAR_HEIGHT : 0 }}>
