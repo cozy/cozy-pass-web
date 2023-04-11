@@ -54,6 +54,8 @@ export class ElectronPlatformUtilsService implements PlatformUtilsService {
             this.deviceCache = DeviceType.ChromeExtension;
         } else if (navigator.userAgent.indexOf(' Safari/') !== -1) {
             this.deviceCache = DeviceType.SafariExtension;
+        } else {
+            this.deviceCache = DeviceType.UnknownBrowser;
         }
 
         return this.deviceCache;
