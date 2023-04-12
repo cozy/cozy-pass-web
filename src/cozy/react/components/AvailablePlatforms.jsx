@@ -30,15 +30,23 @@ export const InstallNativeAppButton = props => {
     setSmartphoneModalOpened(false)
   }, [setSmartphoneModalOpened])
 
+  const onClick = async () => {    
+    if(mobileOS === null) {
+      handleOpenModal()
+    } else {
+      await props.onClick?.()
+      window.location.href = storeLinksPerOS[mobileOS].storeUrl
+    }
+  }
+
   return (
     <>
       <ButtonLink
         theme="secondary"
         className="u-mb-half"
         extension="full"
-        href={mobileOS !== null ? storeLinksPerOS[mobileOS].storeUrl : null}
-        onClick={mobileOS === null ? handleOpenModal : null}
         {...props}
+        onClick={onClick}
       />
       {isSmartphoneModalOpened ? (
         <Dialog
