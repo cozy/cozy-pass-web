@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { useClient, Q } from 'cozy-client'
 import Stack from 'cozy-ui/transpiled/react/Stack'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
@@ -10,8 +11,21 @@ import mobileAppIcon from 'cozy/react/assets/mobile-app.svg'
 
 const InstallationStepMobilePart = () => {
   const { t } = useI18n()
-  
+  const client = useClient()
+
   const isNativePassInstalledOnDevice = useIsNativePassInstalledOnDevice()
+
+  const setVaultInstalled = async () => {
+    const { data } = await client.query(
+      Q('io.cozy.settings').getById('io.cozy.settings.bitwarden'),
+      { as: 'io.cozy.settings/io.cozy.settings.bitwarden' }  
+    )
+    const newInstanceSettings = {
+      ...data,
+      extension_installed: true
+    }
+    await client.save(newInstanceSettings)
+  }
 
   return (
     <Stack spacing="xxl">
@@ -33,6 +47,7 @@ const InstallationStepMobilePart = () => {
         </Typography>
       </Stack>
       <InstallNativeAppButton
+        onClick={setVaultInstalled}
         label={          
           isNativePassInstalledOnDevice
             ? t('InstallationStepMobile.openApp')
