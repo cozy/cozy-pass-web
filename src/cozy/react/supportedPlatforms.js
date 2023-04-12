@@ -36,7 +36,7 @@ export const platforms = {
     id: 'android',
     type: 'os',
     os: 'android',
-    storeUrl: 'https://play.google.com/store/apps/details?id=io.cozy.pass'
+    storeUrl: 'market://details?id=io.cozy.pass'
   }
 }
 
