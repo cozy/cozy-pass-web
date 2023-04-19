@@ -17,7 +17,7 @@ import browserExtensionIcon from 'cozy/react/assets/browser-extension.svg'
 import WithCozyIcon from 'cozy/react/components/WithCozyIcon'
 
 import { useExtensionStatus, extensionStatuses } from 'cozy/react/helpers/extensionStatus'
-import { canAuthWithOIDC } from 'cozy/react/helpers/oidc'
+import { canAuthWithOIDC } from 'cozy/react/helpers/loginType'
 
 import getSupportedPlatforms from 'cozy/react/supportedPlatforms'
 
