@@ -10,19 +10,18 @@ import Stack from 'cozy-ui/transpiled/react/Stack'
 import Card from 'cozy-ui/transpiled/react/Card'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import { UnorderedList, ListItem } from 'cozy-ui/transpiled/react/UnorderedList'
-import { useClient } from 'cozy-client'
 import flag from 'cozy-flags'
 
 import { STEPS } from 'cozy/react/steps'
 import Wrapper from 'cozy/react/components/Wrapper'
 import VerticallyCentered from 'cozy/react/components/VerticallyCentered'
 import strongPasswordIcon from 'cozy/react/assets/strong-password.svg'
-import { canAuthWithOIDC } from 'cozy/react/helpers/loginType'
 import ChangePasswordLink from 'cozy/react/components/ChangePasswordLink'
+import { useShouldCreatePassword } from 'cozy/react/components/InstallationPage/useShouldCreatePassword'
 import SetVaultPasswordForm from 'cozy/react/components/SetVaultPasswordForm'
 import { BitwardenSettingsContext } from 'cozy/react/bitwarden-settings'
 
-const DefaultSecurityStep = ({ navigate }) => {
+const ImprovePasswordStep = ({ navigate }) => {
   const { t } = useI18n()
 
   const onKeepPassword = () => navigate({ route: STEPS.HINT })
@@ -87,7 +86,7 @@ const DefaultSecurityStep = ({ navigate }) => {
   )
 }
 
-const OIDCSecurityStep = ({ navigate }) => {
+const CreatePasswordStep = ({ navigate }) => {
   const { t } = useI18n()
 
   const onNext = () => navigate({ route: STEPS.HINT })
@@ -169,12 +168,16 @@ const OIDCSecurityStep = ({ navigate }) => {
 }
 
 const SecurityStep = ({ navigate }) => {
-  const client = useClient()
+  const shouldCreatePassword = useShouldCreatePassword()
 
-  if (canAuthWithOIDC(client)) {
-    return <OIDCSecurityStep navigate={navigate} />
+  if (shouldCreatePassword === undefined) {
+    return null
   }
-  return <DefaultSecurityStep navigate={navigate} />
+
+  if (shouldCreatePassword) {
+    return <CreatePasswordStep navigate={navigate} />
+  }
+  return <ImprovePasswordStep navigate={navigate} />
 }
 
 export default SecurityStep

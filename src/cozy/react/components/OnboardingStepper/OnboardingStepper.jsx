@@ -11,7 +11,7 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import Wrapper from 'cozy/react/components/Wrapper'
 import { BitwardenSettingsContext } from 'cozy/react/bitwarden-settings'
-import { canAuthWithOIDC as canAuthWithOIDCFn } from 'cozy/react/helpers/loginType'
+import { useShouldCreatePassword } from 'cozy/react/components/InstallationPage/useShouldCreatePassword'
 import { getStepsWithLabelAndRoute } from 'cozy/react/steps'
 
 export const OnboardingStepper = ({ route, navigate }) => {
@@ -22,11 +22,15 @@ export const OnboardingStepper = ({ route, navigate }) => {
     extension_installed: isVaultConfigured,
     hasHint
   } = useContext(BitwardenSettingsContext)
+  const shouldCreatePassword = useShouldCreatePassword()
 
-  const canAuthWithOIDC = canAuthWithOIDCFn(client)
-  const canNavigateStepper = !canAuthWithOIDC || isVaultConfigured
+  if (shouldCreatePassword === undefined) {
+    return null
+  }
 
-  const steps = getStepsWithLabelAndRoute(t, canAuthWithOIDC)
+  const canNavigateStepper = !shouldCreatePassword || isVaultConfigured
+
+  const steps = getStepsWithLabelAndRoute(t, shouldCreatePassword)
 
   return (
     <Wrapper>
