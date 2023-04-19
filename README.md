@@ -1,7 +1,7 @@
 [![Travis build status shield](https://img.shields.io/travis/com/cozy/cozy-pass-web/master.svg)](https://travis-ci.org/cozy/cozy-pass-web)
 [![Github Release version shield](https://img.shields.io/github/tag/cozy/cozy-pass-web.svg)](https://github.com/cozy/cozy-pass-web/releases)
 
-[Cozy] Pass
+[Cozy] Pass 
 =======================
 
 What's Cozy?
