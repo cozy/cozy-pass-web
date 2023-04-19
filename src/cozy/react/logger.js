@@ -1,4 +1,4 @@
-import minilogLib from 'minilog'
+import minilogLib from '@cozy/minilog'
 
 const minilog =
   typeof window !== 'undefined' && window.minilog ? window.minilog : minilogLib
