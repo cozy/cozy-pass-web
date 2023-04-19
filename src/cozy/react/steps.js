@@ -7,14 +7,14 @@ export const STEPS = {
   INSTALLATION: 'installation/installation',
 }
 
-export const getStepsWithLabelAndRoute = (t, canAuthWithOIDC) => {
+export const getStepsWithLabelAndRoute = (t, shouldCreatePassword) => {
   return [
     {
       label: t('Nav.presentation'),
       route: STEPS.PRESENTATION
     },
     {
-      label: canAuthWithOIDC ? t('InstallationStep.steps.choose-pass-password') : t('InstallationStep.steps.improve-password'),
+      label: shouldCreatePassword ? t('InstallationStep.steps.choose-pass-password') : t('InstallationStep.steps.improve-password'),
       route: STEPS.SECURITY
     },
     {
@@ -26,4 +26,4 @@ export const getStepsWithLabelAndRoute = (t, canAuthWithOIDC) => {
       route: STEPS.INSTALLATION
     }
   ]
-  }
+}
