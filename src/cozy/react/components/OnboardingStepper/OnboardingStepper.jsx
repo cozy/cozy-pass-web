@@ -11,7 +11,7 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import Wrapper from 'cozy/react/components/Wrapper'
 import { BitwardenSettingsContext } from 'cozy/react/bitwarden-settings'
-import { canAuthWithOIDC as canAuthWithOIDCFn } from 'cozy/react/helpers/oidc'
+import { canAuthWithOIDC as canAuthWithOIDCFn } from 'cozy/react/helpers/loginType'
 import { getStepsWithLabelAndRoute } from 'cozy/react/steps'
 
 export const OnboardingStepper = ({ route, navigate }) => {
