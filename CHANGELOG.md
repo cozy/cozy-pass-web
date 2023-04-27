@@ -2,6 +2,9 @@
 
 ## ✨ Features
 
+* Improve onboarding so MagicLink based Cozys can create a password for the Vault
+* Enable moving passwords into folders for everyone
+
 ## 🐛 Bug Fixes
 
 ## 🔧 Tech
