@@ -7,6 +7,8 @@
 
 ## 🐛 Bug Fixes
 
+* Fixes a bug that may display the contact confirmation dialog even if not necessary
+
 ## 🔧 Tech
 
 # 2.0.7
