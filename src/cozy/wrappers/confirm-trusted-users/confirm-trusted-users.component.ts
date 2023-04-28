@@ -95,7 +95,6 @@ export class ConfirmTrustedUsersComponent extends AngularWrapperComponent {
                     if (this.waitForFirstSync) {
                         this.waitForFirstSync = false;
 
-                        this.showModal = true;
                         this.firstRenderReact();
                     }
                     break;
@@ -129,6 +128,7 @@ export class ConfirmTrustedUsersComponent extends AngularWrapperComponent {
             return;
         }
 
+        this.showModal = true;
         this.renderReact();
     }
 
