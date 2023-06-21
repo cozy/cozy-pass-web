@@ -57,6 +57,7 @@ export class LoginComponent extends BaseLoginComponent implements OnDestroy {
     baseUrl: string;
     canAuthWithOIDC = false;
     appIconForOIDC = 'images/icons-login.svg';
+    forceLoading = false;
     // Cozy customization, display error message on form
     // /*
     errorMsg = '';
@@ -120,6 +121,22 @@ export class LoginComponent extends BaseLoginComponent implements OnDestroy {
                 this.successRoute = this.redirectUri;
             }
         });
+
+        // Cozy custo
+        // send an event to Pass Addon to get user's password in order to autologin.
+        document.addEventListener('cozy.passwordextension.credentials.response', (evt: any) => {
+            this.forceLoading = true;
+            this.masterPassword = evt.detail;
+            // submit only after a short delay in order to avoid a blinking screen for the user
+            // The chosen timeout avoids this flickering and allows the user to understand
+            // that the addon's authentication service is working for him.
+            setTimeout(() => {
+                this.forceLoading = false;
+                this.submit();
+            }, 1100);
+        });
+        document.dispatchEvent(new Event('cozy.passwordextension.getcredentials'));
+        // end custo
     }
 
     async checkIfClientCanAuthWithOIDC() {

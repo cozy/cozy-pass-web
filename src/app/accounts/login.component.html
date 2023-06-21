@@ -31,11 +31,11 @@
                 </div>
                 <a (click)="openHint()" >{{'getMasterPasswordHint' | i18n}}</a>
                 <div class="buttons-row">
-                    <button type="submit" class="btn primary block" [disabled]="form.loading" appBlurClick>
-                        <b [hidden]="form.loading">
+                    <button type="submit" class="btn primary block" [disabled]="form.loading || forceLoading" appBlurClick>
+                        <b [hidden]="form.loading || forceLoading">
                             {{'unlock' | i18n}}
                         </b>
-                        <i class="fa fa-spinner fa-spin" [hidden]="!form.loading" aria-hidden="true"></i>
+                        <i class="fa fa-spinner fa-spin" [hidden]="!form.loading && !forceLoading" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
