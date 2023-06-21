@@ -56,7 +56,10 @@ $ npm install --legacy-peer-deps
 ```bash
 npm run build:browser:prod   # to build into `build-browser` for production
 npm run build:browser:watch  # to build into `build-browser` and watch changes
+npm run start                # same as previous, shorter
 ```
+
+In watch mode, you can run a command - for instance to play a sound - by personalizing the `webpack.announcer.plugin.js`
 
 ### Living on the edge
 

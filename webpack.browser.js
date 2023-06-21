@@ -9,6 +9,8 @@ const AngularCompilerPlugin = require('@ngtools/webpack').AngularCompilerPlugin;
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const WatchExternalFilesPlugin = require('webpack-watch-files-plugin').default;
 
+let WebpackAnnouncerPlugin = require('./webpack.announcer.plugin.js');
+
 const common = {
     module: {
         rules: [
@@ -65,7 +67,8 @@ const common = {
             'process.env.NODE_ENV': process.env.DEVELOPMENT === '1'
                 ? JSON.stringify('development')
                 : JSON.stringify('production'),
-        })
+        }),
+        new WebpackAnnouncerPlugin(),
     ],
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.jsx'],
