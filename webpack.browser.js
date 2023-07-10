@@ -87,6 +87,7 @@ const common = {
             '../abstractions/platformUtils.service'                        : path.resolve(__dirname, 'src/app/browser/platformUtils.service.abstraction'),
             '../../abstractions/platformUtils.service'                     : path.resolve(__dirname, 'src/app/browser/platformUtils.service.abstraction'),
             '../../../abstractions/platformUtils.service'                  : path.resolve(__dirname, 'src/app/browser/platformUtils.service.abstraction'),
+            '../models/request/tokenRequest'                               : path.resolve(__dirname, 'src/app/browser/tokenRequest'),
             jslib: path.join(__dirname, 'jslib/src'),
             cozy: path.join(__dirname, 'src/cozy')
         },
