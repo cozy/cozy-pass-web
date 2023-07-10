@@ -15,7 +15,7 @@ import { StorageService } from 'jslib/abstractions/storage.service';
 const DialogPromiseExpiration = 600000; // 10 minutes
 
 export class ElectronPlatformUtilsService implements PlatformUtilsService {
-    identityClientId: string = 'webapp';
+    identityClientId: string = 'web';
 
     private showDialogResolves = new Map<number, { resolve: (value: boolean) => void, date: Date }>();
     private passwordDialogResolves = new Map<number, { tryResolve: (canceled: boolean, password: string) => Promise<boolean>, date: Date }>();
@@ -42,18 +42,18 @@ export class ElectronPlatformUtilsService implements PlatformUtilsService {
         }
 
         if (navigator.userAgent.indexOf(' Firefox/') !== -1 || navigator.userAgent.indexOf(' Gecko/') !== -1) {
-            this.deviceCache = DeviceType.FirefoxExtension;
+            this.deviceCache = DeviceType.FirefoxBrowser;
         } else if ((!!(window as any).opr && !!opr.addons) || !!(window as any).opera ||
             navigator.userAgent.indexOf(' OPR/') >= 0) {
-            this.deviceCache = DeviceType.OperaExtension;
+            this.deviceCache = DeviceType.OperaBrowser;
         } else if (navigator.userAgent.indexOf(' Edg/') !== -1) {
-            this.deviceCache = DeviceType.EdgeExtension;
+            this.deviceCache = DeviceType.EdgeBrowser;
         } else if (navigator.userAgent.indexOf(' Vivaldi/') !== -1) {
-            this.deviceCache = DeviceType.VivaldiExtension;
+            this.deviceCache = DeviceType.VivaldiBrowser;
         } else if ((window as any).chrome && navigator.userAgent.indexOf(' Chrome/') !== -1) {
-            this.deviceCache = DeviceType.ChromeExtension;
+            this.deviceCache = DeviceType.ChromeBrowser;
         } else if (navigator.userAgent.indexOf(' Safari/') !== -1) {
-            this.deviceCache = DeviceType.SafariExtension;
+            this.deviceCache = DeviceType.SafariBrowser;
         } else {
             this.deviceCache = DeviceType.UnknownBrowser;
         }

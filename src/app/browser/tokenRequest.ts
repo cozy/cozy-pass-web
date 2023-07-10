@@ -38,6 +38,10 @@ export class TokenRequest {
         const obj: any = {
             scope: 'api offline_access',
             client_id: clientId,
+            // Cozy customization, display error message on form
+            // /*
+            clientName: `Cozy Pass Web (${this.device?.name})`,
+            // */
         };
 
         if (this.clientSecret != null) {
