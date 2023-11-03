@@ -5,9 +5,11 @@
 
 ## 🐛 Bug Fixes
 
+Fix a bug that would sometimes show Confirm Trusted Users modal even if there is no contact to confirm 
 
 ## 🔧 Tech
 
+Set correct id, name and type to OAuth client
 
 # 2.0.8
 
