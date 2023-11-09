@@ -1,3 +1,14 @@
+# 2.0.10
+
+## ✨ Features
+
+
+## 🐛 Bug Fixes
+
+
+## 🔧 Tech
+
+
 # 2.0.9
 
 ## ✨ Features
