@@ -6,6 +6,7 @@ import { CozyProvider } from "cozy-client";
 import { VaultProvider } from "cozy-keys-lib";
 import { BreakpointsProvider } from "cozy-ui/transpiled/react/hooks/useBreakpoints";
 import { WebviewIntentProvider } from "cozy-intent";
+import Alerter from 'cozy-ui/transpiled/react/Alerter';
 import { I18n } from "cozy-ui/transpiled/react/I18n";
 import React from "react";
 import PropTypes from 'prop-types';
@@ -76,6 +77,7 @@ const ReactWrapper = ({
                 <BreakpointsProvider>
                   <MuiCozyTheme>
                     <HashRouter>{props.children}</HashRouter>
+                    <Alerter />
                   </MuiCozyTheme>
                 </BreakpointsProvider>
               </WebviewIntentProvider>
