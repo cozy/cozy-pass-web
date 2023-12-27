@@ -52,6 +52,7 @@
     "submit": "Enregistrer l'indice",
     "skip": "Passer",
     "error": "Erreur lors de la mise à jour de l'indice",
+    "errorSamePassword": "L'indice ne peut pas être identique à votre mot de passe",
     "please-configure-hint": "Merci de configurer un indice",
     "hint-configured": "Indice défini ✅ Vous pouvez toujours le changer ici."
   },

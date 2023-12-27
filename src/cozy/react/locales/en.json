@@ -52,6 +52,7 @@
     "submit": "Save the hint",
     "skip": "Skip",
     "error": "Error while updating hint",
+    "errorSamePassword": "The hint cannot be the same as the password",
     "please-configure-hint": "Please configure a hint",
     "hint-configured": "Hint configured ✅ You can still change it here."
   },

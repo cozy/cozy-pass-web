@@ -39,7 +39,11 @@ const HintStep = ({ navigate }) => {
 
       goToNextStep()
     } catch (err) {
-      Alerter.error(t('HintStep.error'))
+      if (err.status === 422 && err.reason?.errors?.[0].detail === 'The hint cannot be the same as the password') {
+        Alerter.error(t('HintStep.errorSamePassword'))
+      } else {
+        Alerter.error(t('HintStep.error'))
+      }
 
       // eslint-disable-next-line no-console
       console.error(err)
