@@ -32,7 +32,12 @@ export class VaultInstallationService {
         }
     }
 
-    setIsInstalled() {
+    async completeVaultConfiguration() {
+        const client = this.clientService.GetClient();
+        await client.stackClient.fetchJSON(
+            'POST',
+            '/settings/vault'
+        );
         this.userFinishedInstallation = true;
     }
 }
