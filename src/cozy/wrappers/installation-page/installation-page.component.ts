@@ -84,8 +84,8 @@ export class InstallationPageComponent extends AngularWrapperComponent implement
     /* Props Bindings */
     /******************/
 
-    protected onSkipExtension() {
-        this.vaultInstallationService.setIsInstalled();
+    protected async onSkipExtension() {
+        await this.vaultInstallationService.completeVaultConfiguration();
         this.messagingService.send('installed');
     }
 
