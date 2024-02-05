@@ -2,9 +2,12 @@
 
 ## ✨ Features
 
+* The web app can now auto-login when the browser's addon is connected ([PR #111](https://github.com/cozy/cozy-pass-web/pull/111))
 
 ## 🐛 Bug Fixes
 
+* Fix a bug that prevented toast errors to be displayed ([PR #115](https://github.com/cozy/cozy-pass-web/pull/115))
+* Fix a bug that prevented the web onboarding to complete ([PR #116](https://github.com/cozy/cozy-pass-web/pull/116))
 
 ## 🔧 Tech
 
