@@ -7,7 +7,7 @@ branches:
   only:
   - master
   # tags
-  - /^release\/\d+\.\d+\.\d+(\-beta.\d+)?$/
+  - /^\d+\.\d+\.\d+(\-beta.\d+)?$/
 env:
   global:
     - MATTERMOST_CHANNEL='{"dev":"feat---password-mgr","beta":"feat---password-mgr,publication","stable":"feat---password-mgr,publication"}'
