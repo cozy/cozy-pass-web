@@ -64,6 +64,16 @@
       "type": "io.cozy.settings",
       "verbs": ["GET", "PUT"]
     },
+    "profiles": {
+      "description": "Required to manage profiles on Pass extension",
+      "type": "com.bitwarden.profiles",
+      "verbs": ["ALL"]
+    },
+    "folders": {
+      "description": "Required to manage folders on Pass extension",
+      "type": "com.bitwarden.folders",
+      "verbs": ["ALL"]
+    },
     "organizations": {
       "description": "Required to share passwords with other people",
       "type": "com.bitwarden.organizations",
@@ -93,6 +103,26 @@
       "description": "Required to have access to the sharings in realtime",
       "type": "io.cozy.sharings",
       "verbs": ["GET", "POST"]
+    },
+    "files": {
+      "description": "Required to display and manage papers on web extension",
+      "type": "io.cozy.files",
+      "verbs": ["GET", "DELETE"]
+    },
+    "appSuggestions": {
+      "description": "Required to display konnector suggestions",
+      "verbs": ["GET"],
+      "type": "io.cozy.apps.suggestions"
+    },
+    "konnectors": {
+      "description": "Required to display konnector suggestions",
+      "type": "io.cozy.konnectors",
+      "verbs": ["GET"]
+    },
+    "support": {
+      "description": "Required to contact support",
+      "type": "io.cozy.support",
+      "verbs": ["POST"]
     }
   },
   "mobile": {
