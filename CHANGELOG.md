@@ -1,7 +1,19 @@
+# 2.0.12
+
+## ✨ Features
+
+
+## 🐛 Bug Fixes
+
+
+## 🔧 Tech
+
+
 # 2.0.11
 
 ## ✨ Features
 
+* Add permissions for web extension ([PR #120](https://github.com/cozy/cozy-pass-web/pull/120))
 
 ## 🐛 Bug Fixes
 
