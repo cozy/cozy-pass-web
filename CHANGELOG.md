@@ -1,7 +1,19 @@
+# 2.0.13
+
+## ✨ Features
+
+
+## 🐛 Bug Fixes
+
+
+## 🔧 Tech
+
+
 # 2.0.12
 
 ## ✨ Features
 
+* Add io.cozy.files PATCH permission ([PR #122](https://github.com/cozy/cozy-pass-web/pull/122))
 
 ## 🐛 Bug Fixes
 
