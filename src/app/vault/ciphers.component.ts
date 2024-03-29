@@ -131,7 +131,12 @@ export class CiphersComponent extends BaseCiphersComponent {
 
     protected restoreCiphers() {
         const ids = this.ciphers
+        // Cozy customization, Prevent to restore deleted Profiles as they will be replaced by Cozy Contacts
+        /*
             .filter(cipher => cipher.isDeleted)
+        /*/
+            .filter(cipher => cipher.isDeleted && cipher.type !== CipherType.Identity)
+        // */
             .map(cipher => cipher.id);
 
         return this.cipherService.restoreManyWithServer(ids);
