@@ -22,6 +22,7 @@ import { UserService } from 'jslib/abstractions/user.service';
 import { BroadcasterService } from 'jslib/angular/services/broadcaster.service';
 
 import { AddEditComponent as BaseAddEditComponent } from 'jslib/angular/components/add-edit.component';
+import { CipherType } from 'jslib/enums/cipherType';
 
 const BroadcasterSubscriptionId = 'AddEditComponent';
 
@@ -44,9 +45,11 @@ export class AddEditComponent extends BaseAddEditComponent implements OnChanges,
     }
 
     async ngOnInit() {
-        // @override by Cozy : remove the notes from the possible types of ciphers
-        this.typeOptions.pop();
-        // end override
+        // Cozy Customization, Remove notes and profiles from available types
+        // /*
+        const ignoredTypes = [CipherType.Identity, CipherType.SecureNote];
+        this.typeOptions = this.typeOptions.filter(type => !ignoredTypes.includes(type.value));
+        // */
         this.broadcasterService.subscribe(BroadcasterSubscriptionId, async (message: any) => {
             this.ngZone.run(() => {
                 switch (message.command) {
