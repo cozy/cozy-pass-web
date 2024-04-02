@@ -92,7 +92,7 @@
     "contacts": {
       "description": "Required to share passwords with other people",
       "type": "io.cozy.contacts",
-      "verbs": ["GET", "POST"]
+      "verbs": ["GET", "PUT", "POST", "DELETE"]
     },
     "groups": {
       "description": "Required to share passwords with other people",
