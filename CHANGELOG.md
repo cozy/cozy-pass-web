@@ -1,7 +1,19 @@
+# 2.0.14
+
+## ✨ Features
+
+
+## 🐛 Bug Fixes
+
+
+## 🔧 Tech
+
+
 # 2.0.13
 
 ## ✨ Features
 
+* Add io.cozy.contacts PUT and DELETE permissions ([PR #125](https://github.com/cozy/cozy-pass-web/pull/125))
 
 ## 🐛 Bug Fixes
 
