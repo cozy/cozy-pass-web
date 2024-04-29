@@ -7,6 +7,7 @@ import { SearchService } from 'jslib/abstractions/search.service';
 
 import { CiphersComponent as BaseCiphersComponent } from 'jslib/angular/components/ciphers.component';
 
+import { CipherType } from 'jslib/enums/cipherType';
 import { CipherView } from 'jslib/models/view/cipherView';
 
 import { UserService } from '../../services/user.service';
@@ -19,6 +20,12 @@ export class CiphersComponent extends BaseCiphersComponent {
 
     @Output() onDeletedCipher = new EventEmitter();
     @Input() collectionId: string = null;
+
+    // Cozy customization, Add type to allow disabling profiles creation
+    // /*
+    @Input() type: CipherType = null;
+    cipherType = CipherType;
+    // */
 
     isReadOnly = false;
     isCozyConnectors = false;
@@ -124,7 +131,12 @@ export class CiphersComponent extends BaseCiphersComponent {
 
     protected restoreCiphers() {
         const ids = this.ciphers
+        // Cozy customization, Prevent to restore deleted Profiles as they will be replaced by Cozy Contacts
+        /*
             .filter(cipher => cipher.isDeleted)
+        /*/
+            .filter(cipher => cipher.isDeleted && cipher.type !== CipherType.Identity)
+        // */
             .map(cipher => cipher.id);
 
         return this.cipherService.restoreManyWithServer(ids);

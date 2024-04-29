@@ -48,10 +48,13 @@
     </ng-container>
 </div>
 <div class="footer" [class.readonlyCipher]="isReadOnly">
+    <!-- Cozy customization -->
+    <!-- Prevent to create Profiles as they will be replaced by Cozy Contacts -->
     <button appBlurClick (click)="addCipher()" (contextmenu)="addCipherOptions()" *ngIf="!isReadOnly"
-        class="block primary" appA11yTitle="{{'addItem' | i18n}}" [disabled]="deleted">
+        class="block primary" appA11yTitle="{{'addItem' | i18n}}" [disabled]="deleted || type === cipherType.Identity">
         <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
     </button>
+    <!---->
     <app-sharing *ngIf="collectionId && !isCozyConnectors" [collectionId]="collectionId"></app-sharing>
     <app-bottom-menu
         *ngIf="!isReadOnly"
