@@ -107,7 +107,7 @@
     "files": {
       "description": "Required to display and manage papers on web extension",
       "type": "io.cozy.files",
-      "verbs": ["GET", "PATCH", "DELETE"]
+      "verbs": ["GET", "PATCH", "DELETE", "POST"]
     },
     "appSuggestions": {
       "description": "Required to display konnector suggestions",
