@@ -1,7 +1,19 @@
+# 2.0.15
+
+## ✨ Features
+
+
+## 🐛 Bug Fixes
+
+
+## 🔧 Tech
+
+
 # 2.0.14
 
 ## ✨ Features
 
+* Add io.cozy.files POST permission ([PR #128](https://github.com/cozy/cozy-pass-web/pull/128))
 
 ## 🐛 Bug Fixes
 
