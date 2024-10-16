@@ -1,0 +1,15 @@
+{
+    "baseDir": "./build-browser",
+    "files": [
+        {
+            "path": "app/main.<hash>.js"
+        },
+        {
+            "path": "app/main.js"
+        },
+        {
+            "path": "app/vendor.js"
+        }
+    ],
+    "reportOutput": ["github"]
+}
