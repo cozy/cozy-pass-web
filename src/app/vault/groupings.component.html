@@ -62,7 +62,9 @@
                     &nbsp;{{'typeCard' | i18n}}
                 </a>
             </li>
-            <li [ngClass]="{active: selectedType === cipherType.Identity}">
+            <!-- Cozy customization -->
+            <!-- Disable Profiles if empty as they will be replaced by Cozy Contacts -->
+            <li [ngClass]="{active: selectedType === cipherType.Identity}" *ngIf="this.typeCounts.get(cipherType.Identity) > 0">
                 <a href="#" appStopClick appBlurClick (click)="selectType(cipherType.Identity)">
                     <svg class="icon-type" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 24">
                         <g fill="none" fill-rule="evenodd">
@@ -73,6 +75,7 @@
                     &nbsp;{{'typeIdentity' | i18n}}
                 </a>
             </li>
+            <!---->
             <li *ngIf="hasNotes" [ngClass]="{active: selectedType === cipherType.SecureNote}">
                 <a href="#" appStopClick appBlurClick (click)="selectType(cipherType.SecureNote)">
                     <svg class="icon-type" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">

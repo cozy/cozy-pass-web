@@ -263,8 +263,11 @@
                 <i class="fa fa-pencil fa-fw fa-lg" aria-hidden="true"></i>
                 <span>{{'edit' | i18n}}</span>
             </button>
+            <!-- Cozy customization -->
+            <!-- Prevent to restore deleted Profiles as they will be replaced by Cozy Contacts -->
             <button appBlurClick class="primary" (click)="restore()" appA11yTitle="{{'restore' | i18n}}"
-                *ngIf="cipher.isDeleted">
+                *ngIf="cipher.isDeleted && cipher.type !== cipherType.Identity">
+            <!---->
                 <i class="fa fa-undo fa-fw fa-lg" aria-hidden="true"></i>
                 <span>{{'restore' | i18n}}</span>
             </button>
