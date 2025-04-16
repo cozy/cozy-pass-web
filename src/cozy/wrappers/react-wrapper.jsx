@@ -4,10 +4,10 @@ import {
 } from "@material-ui/core/styles";
 import { CozyProvider } from "cozy-client";
 import { VaultProvider } from "cozy-keys-lib";
-import { BreakpointsProvider } from "cozy-ui/transpiled/react/hooks/useBreakpoints";
+import { BreakpointsProvider } from "cozy-ui/transpiled/react/providers/Breakpoints";
 import { WebviewIntentProvider } from "cozy-intent";
-import Alerter from 'cozy-ui/transpiled/react/Alerter';
-import { I18n } from "cozy-ui/transpiled/react/I18n";
+import Alerter from "cozy-ui/transpiled/react/deprecated/Alerter";
+import { I18n } from "cozy-ui/transpiled/react/providers/I18n";
 import React from "react";
 import PropTypes from 'prop-types';
 import { BitwardenSettingsContext } from "../react/bitwarden-settings";

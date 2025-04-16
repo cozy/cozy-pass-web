@@ -24,10 +24,12 @@ export class IfFlagDirective implements OnInit, OnDestroy {
   ) { }
 
   ngOnDestroy(): void {
+      // @ts-ignore
       flag.store.removeListener('change', this.flagChanged.bind(this));
   }
 
   ngOnInit() {
+      // @ts-ignore
       flag.store.on('change', this.flagChanged.bind(this));
 
       this.flagChanged();

@@ -7,7 +7,7 @@ import {
   StepButton,
   StepLabel
 } from 'cozy-ui/transpiled/react/Stepper'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
 
 import Wrapper from 'cozy/react/components/Wrapper'
 import { BitwardenSettingsContext } from 'cozy/react/bitwarden-settings'

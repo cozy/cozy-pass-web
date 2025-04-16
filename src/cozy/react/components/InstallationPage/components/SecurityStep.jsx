@@ -2,9 +2,9 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import snarkdown from 'snarkdown'
 
-import Button from 'cozy-ui/transpiled/react/Button'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
-import NarrowContent from 'cozy-ui/transpiled/react/NarrowContent'
+import Button from "cozy-ui/transpiled/react/deprecated/Button"
+import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
+import NarrowContent from "cozy-ui/transpiled/react/deprecated/NarrowContent"
 import PasswordExample from 'cozy-ui/transpiled/react/PasswordExample'
 import Stack from 'cozy-ui/transpiled/react/Stack'
 import Card from 'cozy-ui/transpiled/react/Card'

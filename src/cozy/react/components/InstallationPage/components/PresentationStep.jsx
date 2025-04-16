@@ -2,12 +2,12 @@ import React from 'react'
 import cx from 'classnames'
 import { isMobile } from 'cozy-device-helper'
 
-import Button, { ButtonLink } from 'cozy-ui/transpiled/react/Button'
+import Button, { ButtonLink } from "cozy-ui/transpiled/react/deprecated/Button"
 import Stack from 'cozy-ui/transpiled/react/Stack'
 import Typography from 'cozy-ui/transpiled/react/Typography'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
 
-import Infos from 'cozy-ui/transpiled/react/Infos'
+import Infos from "cozy-ui/transpiled/react/deprecated/Infos"
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import Hero, {
   Title,
