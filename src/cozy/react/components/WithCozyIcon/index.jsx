@@ -1,6 +1,6 @@
 import React from 'react'
 import Typography from 'cozy-ui/transpiled/react/Typography'
-import { Media, Bd, Img } from 'cozy-ui/transpiled/react/Media'
+import { Media, Bd, Img } from "cozy-ui/transpiled/react/deprecated/Media"
 import CloudIcon from 'cozy/react/components/CloudIcon'
 import './styles.css'
 

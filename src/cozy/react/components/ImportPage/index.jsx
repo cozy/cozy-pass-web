@@ -1,22 +1,22 @@
 import React, { useState, useRef } from 'react'
 import { withVaultClient } from 'cozy-keys-lib'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
 import Stack from 'cozy-ui/transpiled/react/Stack'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import VerticallyCentered from '../VerticallyCentered'
 import Wrapper from '../Wrapper'
 import Label from 'cozy-ui/transpiled/react/Label'
-import Button from 'cozy-ui/transpiled/react/Button'
+import Button from "cozy-ui/transpiled/react/deprecated/Button"
 import Modal, {
   ModalDescription,
   ModalHeader
-} from 'cozy-ui/transpiled/react/Modal'
+} from "cozy-ui/transpiled/react/deprecated/Modal"
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 import ImportOptionsField from './ImportOptionsField'
 import { getFileContent } from './helpers'
 import logger from '../../logger'
 import flag from 'cozy-flags'
-import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+import useBreakpoints from "cozy-ui/transpiled/react/providers/Breakpoints"
 
 const ImportPage = ({ vaultClient }) => {
   const { t } = useI18n()

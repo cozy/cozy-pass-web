@@ -1,5 +1,5 @@
-import { useI18n } from 'cozy-ui/transpiled/react/I18n';
-import { default as UIButtonClient } from 'cozy-ui/transpiled/react/PushClientButton';
+import { useI18n } from "cozy-ui/transpiled/react/providers/I18n";
+import { default as UIButtonClient } from "cozy-ui/transpiled/react/deprecated/PushClientButton";
 import { extensionStoresIcons } from 'cozy/react/components/browserIcons';
 import {
   extensionStatuses,

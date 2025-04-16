@@ -6,9 +6,9 @@ import { detect as detectBrowser } from 'detect-browser'
 import Stack from 'cozy-ui/transpiled/react/Stack'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import Card from 'cozy-ui/transpiled/react/Card'
-import { ButtonLink, Button } from 'cozy-ui/transpiled/react/Button'
+import { ButtonLink, Button } from "cozy-ui/transpiled/react/deprecated/Button"
 import { OrderedList, ListItem } from 'cozy-ui/transpiled/react/OrderedList'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
 
 import { useClient } from 'cozy-client'
 

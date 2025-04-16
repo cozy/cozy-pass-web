@@ -1,6 +1,6 @@
 import React from 'react'
 
-import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+import useBreakpoints from "cozy-ui/transpiled/react/providers/Breakpoints"
 
 import { OnboardingStepper } from 'cozy/react/components/OnboardingStepper/OnboardingStepper';
 import BackButton from 'cozy/react/components/BackButton'

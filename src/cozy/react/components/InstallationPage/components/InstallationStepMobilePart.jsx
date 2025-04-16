@@ -3,7 +3,7 @@ import React from 'react'
 import { useClient, Q } from 'cozy-client'
 import Stack from 'cozy-ui/transpiled/react/Stack'
 import Typography from 'cozy-ui/transpiled/react/Typography'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
 
 import { InstallNativeAppButton } from 'cozy/react/components/AvailablePlatforms'
 import useIsNativePassInstalledOnDevice from 'cozy/react/components/InstallationPage/useIsNativePassInstalledOnDevice'

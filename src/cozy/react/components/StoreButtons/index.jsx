@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
 
 import playBadgeEn from 'cozy/react/assets/google-play-badge-en.png'
 import playBadgeFr from 'cozy/react/assets/google-play-badge-fr.png'

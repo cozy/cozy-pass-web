@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import ReactWrapper, { reactWrapperProps } from '../react-wrapper';
 
-import Button from 'cozy-ui/transpiled/react/Button'
+import Button from "cozy-ui/transpiled/react/deprecated/Button"
 import { FixedDialog } from 'cozy-ui/transpiled/react/CozyDialogs'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
 import Paper from 'cozy-ui/transpiled/react/Paper'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 

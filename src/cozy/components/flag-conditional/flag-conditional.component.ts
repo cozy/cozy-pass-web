@@ -18,10 +18,12 @@ export class FlagConditionalComponent implements OnInit, OnDestroy {
     isFlagEnabled = false;
 
     ngOnDestroy(): void {
+        // @ts-ignore
         flag.store.removeListener('change', this.flagChanged.bind(this));
     }
 
     ngOnInit() {
+        // @ts-ignore
         flag.store.on('change', this.flagChanged.bind(this));
 
         this.flagChanged();

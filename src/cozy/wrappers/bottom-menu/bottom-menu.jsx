@@ -2,8 +2,8 @@
 import React, { useState, useRef } from 'react'
 import ReactWrapper, { reactWrapperProps } from '../react-wrapper';
 
-import ActionMenu, { ActionMenuItem } from 'cozy-ui/transpiled/react/ActionMenu';
-import { useI18n } from 'cozy-ui/transpiled/react/I18n';
+import ActionMenu, { ActionMenuItem } from "cozy-ui/transpiled/react/deprecated/ActionMenu";
+import { useI18n } from "cozy-ui/transpiled/react/providers/I18n";
 import Icon from 'cozy-ui/transpiled/react/Icon';
 
 import TrashIcon from "cozy-ui/transpiled/react/Icons/Trash";

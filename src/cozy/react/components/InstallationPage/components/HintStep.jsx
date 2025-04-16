@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react'
 
 import { useClient } from 'cozy-client'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
 
-import Button from 'cozy-ui/transpiled/react/Button'
+import Button from "cozy-ui/transpiled/react/deprecated/Button"
 import Input from 'cozy-ui/transpiled/react/Input'
-import Alerter from 'cozy-ui/transpiled/react/Alerter'
+import Alerter from "cozy-ui/transpiled/react/deprecated/Alerter"
 import Wrapper from 'cozy/react/components/Wrapper'
-import NarrowContent from 'cozy-ui/transpiled/react/NarrowContent'
+import NarrowContent from "cozy-ui/transpiled/react/deprecated/NarrowContent"
 import passwordClueIcon from 'cozy/react/assets/password-clue.svg'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import Stack from 'cozy-ui/transpiled/react/Stack'

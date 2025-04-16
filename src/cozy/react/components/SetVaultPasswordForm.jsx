@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react'
 
-import Button from 'cozy-ui/transpiled/react/Button'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import Button from "cozy-ui/transpiled/react/deprecated/Button"
+import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
 import Stack from 'cozy-ui/transpiled/react/Stack'
-import Alerter from 'cozy-ui/transpiled/react/Alerter'
+import Alerter from "cozy-ui/transpiled/react/deprecated/Alerter"
 import PasswordInput from 'cozy-ui/transpiled/react/Labs/PasswordInput'
 
 import { useClient } from 'cozy-client'
