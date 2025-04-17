@@ -5,6 +5,8 @@
 /* App styles */
 @import './nav.css';
 
+@import '~cozy-bar/dist/stylesheet.css';
+
 html,
 body {
   height: 100%;

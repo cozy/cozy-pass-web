@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+// @ts-ignore
 import { Link } from 'react-router-dom'
 import snarkdown from 'snarkdown'
 

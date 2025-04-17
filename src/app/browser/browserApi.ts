@@ -23,7 +23,9 @@ export class BrowserApi {
 
     static downloadFile(win: Window, blobData: any, blobOptions: any, fileName: string) {
         const blob = new Blob([blobData], blobOptions);
+        // @ts-ignore
         if (navigator.msSaveOrOpenBlob) {
+            // @ts-ignore
             navigator.msSaveBlob(blob, fileName);
         } else {
             const a = win.document.createElement('a');
