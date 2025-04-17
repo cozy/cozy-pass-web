@@ -23,10 +23,12 @@
       "cozy/*": [
         "src/cozy/*"
       ]
-    }
+    },
+    "skipLibCheck": true
   },
   "angularCompilerOptions": {
-    "preserveWhitespaces": true
+    "preserveWhitespaces": true,
+    "disableTypeScriptVersionCheck": true
   },
   "exclude": [
     "node_modules",
