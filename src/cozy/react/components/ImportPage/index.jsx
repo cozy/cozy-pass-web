@@ -6,7 +6,7 @@ import Typography from 'cozy-ui/transpiled/react/Typography'
 import VerticallyCentered from '../VerticallyCentered'
 import Wrapper from '../Wrapper'
 import Label from 'cozy-ui/transpiled/react/Label'
-import Button from "cozy-ui/transpiled/react/deprecated/Button"
+import Button from "cozy-ui/transpiled/react/Buttons"
 import Modal, {
   ModalDescription,
   ModalHeader
@@ -81,8 +81,7 @@ const ImportPage = ({ vaultClient }) => {
               <Button
                 type="submit"
                 label={t('ImportPage.submit')}
-                extension="full"
-                className="u-mt-1"
+                className="u-mt-1 u-w-100"
               />
             </form>
           </Stack>
@@ -120,9 +119,9 @@ const ImportPage = ({ vaultClient }) => {
               ) : null}
               {importStatus === 'imported' || importStatus === 'errored' ? (
                 <Button
-                  extension="full"
                   onClick={reloadPage}
                   label={t('ImportPage.modal.close')}
+                  className="u-w-100"
                 />
               ) : null}
           </ModalDescription>

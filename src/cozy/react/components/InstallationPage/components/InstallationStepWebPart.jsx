@@ -6,7 +6,7 @@ import { detect as detectBrowser } from 'detect-browser'
 import Stack from 'cozy-ui/transpiled/react/Stack'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import Card from 'cozy-ui/transpiled/react/Card'
-import { ButtonLink, Button } from "cozy-ui/transpiled/react/deprecated/Button"
+import Button from "cozy-ui/transpiled/react/Buttons"
 import { OrderedList, ListItem } from 'cozy-ui/transpiled/react/OrderedList'
 import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
 
@@ -110,20 +110,19 @@ const InstallationStepWebPart = ({ onExtensionInstalled, onSkipExtension }) => {
           />
         </OrderedList>
       </Card>
-      <ButtonLink
+      <Button
         href={storeURL}
         target="_blank"
         label={t('InstallationStep.cta')}
-        extension="full"
-        className="u-mt-2-half"
+        style={{ color: 'var(--primaryContrastTextColor)' }}
+        className="u-mt-2-half u-w-100"
         onClick={onGoToStore}
       />
       <Button
         label={storeVisited ? t('InstallationStep.login') : t('InstallationStep.skip')}
-        extension="full"
         onClick={onSkipExtension}
-        theme="secondary"
-        className="u-mt-half"
+        variant="secondary"
+        className="u-mt-half u-w-100"
       />
     </Stack>
   )

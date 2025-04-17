@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 
-import Button from "cozy-ui/transpiled/react/deprecated/Button"
+import Button from "cozy-ui/transpiled/react/Buttons"
 import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
 import Stack from 'cozy-ui/transpiled/react/Stack'
 import Alerter from "cozy-ui/transpiled/react/deprecated/Alerter"
@@ -78,8 +78,8 @@ const SetVaultPasswordForm = ({ onSuccess }) => {
         error={passphraseTouched && !passphraseMatch}
       />
       <Button
-        theme="primary"
-        extension="full"
+        variant="primary"
+        className="u-w-100"
         label={t('SecurityStepOIDC.next-step')}
         disabled={!passphraseMatch || values.passphrase === ''}
         onClick={handleSetPassphrase}

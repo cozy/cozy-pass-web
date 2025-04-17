@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react'
 import { useClient } from 'cozy-client'
 import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
 
-import Button from "cozy-ui/transpiled/react/deprecated/Button"
+import Button from "cozy-ui/transpiled/react/Buttons"
 import Input from 'cozy-ui/transpiled/react/Input'
 import Alerter from "cozy-ui/transpiled/react/deprecated/Alerter"
 import Wrapper from 'cozy/react/components/Wrapper'
@@ -79,20 +79,19 @@ const HintStep = ({ navigate }) => {
               <Typography variant="body1">{t('HintStep.description')}</Typography>
             </Stack>
             <Button
+              type="submit"
               label={t('HintStep.submit')}
               disabled={saving || hint === ''}
               busy={saving}
-              extension="full"
-              className="u-mt-2"
+              className="u-mt-2 u-w-100"
             />
             {hasHint ? (
               <Button
                 label={t('HintStep.skip')}
                 disabled={saving}
-                extension="full"
                 onClick={goToNextStep}
-                theme="secondary"
-                className="u-mt-half"
+                variant="secondary"
+                className="u-mt-half u-w-100"
               />
             ) : null}
           </Stack>
