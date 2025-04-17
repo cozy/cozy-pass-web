@@ -9,9 +9,11 @@ import { WebviewIntentProvider } from "cozy-intent";
 import Alerter from "cozy-ui/transpiled/react/deprecated/Alerter";
 import { I18n } from "cozy-ui/transpiled/react/providers/I18n";
 import CozyTheme from 'cozy-ui/transpiled/react/providers/CozyTheme'
+import { BarProvider } from 'cozy-bar'
 import React from "react";
 import PropTypes from 'prop-types';
 import { BitwardenSettingsContext } from "../react/bitwarden-settings";
+// @ts-ignore
 import { HashRouter } from "react-router-dom";
 
 
@@ -71,18 +73,20 @@ const ReactWrapper = ({
         }
       >
         <CozyProvider client={client}>
-          <VaultProvider instance={client.getStackClient().uri} vaultData={vaultData}>
-            <BitwardenSettingsContext.Provider value={bitwardenData}>
-              <WebviewIntentProvider>
-                <BreakpointsProvider>
-                  <CozyTheme>
-                    <HashRouter>{props.children}</HashRouter>
-                    <Alerter />
-                  </CozyTheme>
-                </BreakpointsProvider>
-              </WebviewIntentProvider>
-            </BitwardenSettingsContext.Provider>
-          </VaultProvider>
+          <BarProvider searchOptions={{ enabled: false }}>
+            <VaultProvider instance={client.getStackClient().uri} vaultData={vaultData}>
+              <BitwardenSettingsContext.Provider value={bitwardenData}>
+                <WebviewIntentProvider>
+                  <BreakpointsProvider>
+                    <CozyTheme>
+                      <HashRouter>{props.children}</HashRouter>
+                      <Alerter />
+                    </CozyTheme>
+                  </BreakpointsProvider>
+                </WebviewIntentProvider>
+              </BitwardenSettingsContext.Provider>
+            </VaultProvider>
+          </BarProvider>
         </CozyProvider>
       </I18n>
     </StylesProvider>
