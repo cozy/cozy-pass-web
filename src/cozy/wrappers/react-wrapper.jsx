@@ -8,12 +8,12 @@ import { BreakpointsProvider } from "cozy-ui/transpiled/react/providers/Breakpoi
 import { WebviewIntentProvider } from "cozy-intent";
 import Alerter from "cozy-ui/transpiled/react/deprecated/Alerter";
 import { I18n } from "cozy-ui/transpiled/react/providers/I18n";
+import CozyTheme from 'cozy-ui/transpiled/react/providers/CozyTheme'
 import React from "react";
 import PropTypes from 'prop-types';
 import { BitwardenSettingsContext } from "../react/bitwarden-settings";
 import { HashRouter } from "react-router-dom";
 
-import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
 
 const bitwardenDataProps = PropTypes.shape({
   extension_installed: PropTypes.bool.isRequired
@@ -75,10 +75,10 @@ const ReactWrapper = ({
             <BitwardenSettingsContext.Provider value={bitwardenData}>
               <WebviewIntentProvider>
                 <BreakpointsProvider>
-                  <MuiCozyTheme>
+                  <CozyTheme>
                     <HashRouter>{props.children}</HashRouter>
                     <Alerter />
-                  </MuiCozyTheme>
+                  </CozyTheme>
                 </BreakpointsProvider>
               </WebviewIntentProvider>
             </BitwardenSettingsContext.Provider>

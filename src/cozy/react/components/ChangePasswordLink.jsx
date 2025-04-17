@@ -2,7 +2,7 @@ import React from 'react'
 
 import generateWebAppLink from 'cozy/react/helpers/generateWebAppLink'
 import AppLinker from 'cozy-ui/transpiled/react/AppLinker'
-import { ButtonLink } from "cozy-ui/transpiled/react/deprecated/Button"
+import Button from "cozy-ui/transpiled/react/Buttons"
 
 import { useClient } from 'cozy-client'
 
@@ -39,14 +39,9 @@ const ChangePasswordLink = ({
   return (
     <AppLinker app={app} href={settingsAppHref}>
       {({ onClick, href }) => (
-        <Component href={href} onClick={onClick} {...props} />
+        <Button href={href} onClick={onClick} style={{ color: 'var(--primaryContrastTextColor)' }} {...props} />
       )}
     </AppLinker>
   )
 }
-
-ChangePasswordLink.defaultProps = {
-  Component: ButtonLink
-}
-
 export default ChangePasswordLink

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import ReactWrapper, { reactWrapperProps } from '../react-wrapper';
 
-import Button from "cozy-ui/transpiled/react/deprecated/Button"
+import Button from "cozy-ui/transpiled/react/Buttons"
 import { FixedDialog } from 'cozy-ui/transpiled/react/CozyDialogs'
 import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
 import Paper from 'cozy-ui/transpiled/react/Paper'
@@ -50,7 +50,7 @@ const ConfirmYourIdentityModal = ({
   )
   let dialogActions = (
     <Button
-      theme="primary"
+      variant="primary"
       label={t(`ConfirmYourIdentityModal.confirm`)}
       onClick={onClose}
     />

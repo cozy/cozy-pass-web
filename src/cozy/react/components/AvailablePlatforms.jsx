@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import keyBy from 'lodash/keyBy'
 
-import { ButtonLink } from "cozy-ui/transpiled/react/deprecated/Button"
+import Button from "cozy-ui/transpiled/react/Buttons"
 import getSupportedPlatforms, { platforms } from 'cozy/react/supportedPlatforms'
 import Stack from 'cozy-ui/transpiled/react/Stack'
 import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
@@ -41,10 +41,9 @@ export const InstallNativeAppButton = props => {
 
   return (
     <>
-      <ButtonLink
-        theme="secondary"
-        className="u-mb-half"
-        extension="full"
+      <Button
+        variant="secondary"
+        className="u-mb-half u-w-100"
         {...props}
         onClick={onClick}
       />

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import snarkdown from 'snarkdown'
 
-import Button from "cozy-ui/transpiled/react/deprecated/Button"
+import Button from "cozy-ui/transpiled/react/Buttons"
 import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
 import NarrowContent from "cozy-ui/transpiled/react/deprecated/NarrowContent"
 import PasswordExample from 'cozy-ui/transpiled/react/PasswordExample'
@@ -64,18 +64,18 @@ const ImprovePasswordStep = ({ navigate }) => {
               </Card>
               <Stack spacing="xs">
                 <ChangePasswordLink
+                  variant="primary"
                   label={t('SecurityStep.enhance-password')}
                   successRoute="#/installation/installation"
                   cancelRoute="#/installation/hint"
-                  extension="full"
+                  className="u-w-100"
                 />
                 <Button
-                  tag={Link}
+                  component={Link}
                   onClick={onKeepPassword}
                   label={t('SecurityStep.keep-password')}
-                  theme="secondary"
-                  className="u-mt-half"
-                  extension="full"
+                  variant="secondary"
+                  className="u-mt-half u-w-100"
                 />
               </Stack>
             </Stack>
@@ -120,11 +120,11 @@ const CreatePasswordStep = ({ navigate }) => {
               {isVaultConfigured ? (
                 <div>
                   <ChangePasswordLink
-                    extension="full"
-                    theme="secondary"
+                    variant="secondary"
                     label={t('UpdateCozyPassPassword')}
                     successRoute="#/installation/installation"
                     cancelRoute="#/installation/installation"
+                    className="u-w-100"
                   />
                 </div>
               ) : (
