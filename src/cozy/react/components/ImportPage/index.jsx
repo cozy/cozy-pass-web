@@ -62,6 +62,8 @@ const ImportPage = ({ vaultClient }) => {
     setImportStatus('waiting')
   }
 
+  if (!vaultClient) return null
+
   return (
     <>
       <VerticallyCentered>
