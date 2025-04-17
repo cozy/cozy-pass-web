@@ -72,6 +72,7 @@ import { ImportPageComponent } from '../cozy/wrappers/import-page/import-page.co
 import { InstallationPageComponent } from '../cozy/wrappers/installation-page/installation-page.component';
 import { SharingPaywallComponent } from '../cozy/wrappers/sharing-paywall/sharing-paywall.component';
 import { SharingComponent } from '../cozy/wrappers/sharing/sharing.component';
+import { BarComponent } from '../cozy/wrappers/bar/bar.component';
 
 import { FlagConditionalComponent } from '../cozy/components/flag-conditional/flag-conditional.component';
 import { IfFlagDirective } from '../cozy/components/flag-conditional/if-flag.directive';
@@ -235,6 +236,7 @@ registerLocaleData(localeZhTw, 'zh-TW');
         FlagConditionalComponent,
         IfFlagDirective,
         SharingComponent,
+        BarComponent,
         SharingPaywallComponent,
         ConfirmTrustedUsersComponent,
         ConfirmYourIdentityComponent,
