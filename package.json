@@ -34,7 +34,7 @@
     "build:browser:prod": "gulp prebuild:renderer && cross-env DEVELOPMENT=0 webpack --config webpack.browser.js",
     "build:browser:server": "gulp prebuild:renderer && cross-env DEVELOPMENT=1 webpack serve --config webpack.browser.js",
     "build:browser:server:analysebundle": "gulp prebuild:renderer && cross-env BUNDLE_ANALYSE=1 webpack-dev-server --config webpack.browser.js --watch",
-    "cozyPublish": "cozy-app-publish --token $REGISTRY_TOKEN --prepublish downcloud --postpublish mattermost --space default --build-dir build-browser"
+    "cozyPublish": "cozy-app-publish --token $REGISTRY_TOKEN --prepublish downcloud --postpublish mattermost --build-dir build-browser --yes"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^11.2.10",
