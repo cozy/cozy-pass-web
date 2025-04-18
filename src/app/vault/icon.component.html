@@ -1,32 +1,6 @@
 <div class="icon-wrapper" aria-hidden="true">
-
     <img class="icon-type" [src]="image" appFallbackSrc="{{fallbackImage}}" *ngIf="imageEnabled && image" alt="" />
     <i class="fa fa-fw fa-lg {{icon}}" *ngIf="cipher.type === 1 && imageEnabled && !image"></i>
-
-    <svg *ngIf="cipher.type === 3" class="icon-type" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32">
-        <defs>
-            <path id="a" d="M0 0h32v22H0z"/>
-            <path id="c" d="M0 22h32V0H0z"/>
-        </defs>
-        <g fill="none" fill-rule="evenodd" transform="translate(0 5)">
-            <mask id="b" fill="#fff">
-                <use xlink:href="#a"/>
-            </mask>
-            <path fill="#16B52D" d="M0 1.991C0 .891.889.001 2.001.001h27.998C31.104 0 32 .888 32 1.99V20.01A1.992 1.992 0 0 1 29.999 22H2.001A1.995 1.995 0 0 1 0 20.01V1.99z" mask="url(#b)"/>
-            <mask id="d" fill="#fff">
-                <use xlink:href="#c"/>
-            </mask>
-            <path fill="#8EE39B" d="M2 20h28V2H2z" mask="url(#d)"/>
-            <path fill="#16B52D" d="M16 6.005a5 5 0 1 1 0 10 5 5 0 0 1 0-10zM7 9a2.002 2.002 0 0 1 0 4.003A2 2 0 0 1 7 9zm18 0a2.002 2.002 0 0 1 0 4.003A2 2 0 0 1 25 9z" mask="url(#d)"/>
-        </g>
-    </svg>
-
-    <svg *ngIf="cipher.type===4" class="icon-type" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 24">
-        <g fill="none" fill-rule="evenodd">
-            <path fill="#FFD799" d="M32 21.995A1.997 1.997 0 0 1 30.002 24H24v-2.499c0-.829-.666-1.5-1.5-1.5-.829 0-1.5.678-1.5 1.5v2.5H11v-2.5c0-.829-.666-1.5-1.5-1.5-.829 0-1.5.678-1.5 1.5v2.5H1.998A2.002 2.002 0 0 1 0 21.994V2.005C0 .897.889 0 2.001 0h27.997C31.104 0 32 .897 32 2.005v19.99z"/>
-            <path fill="#FF9300" d="M12 11.5c1.5 0 3 2.25 3 3s0 1.5-.75 1.5H3.75C3 16 3 15.25 3 14.5s1.5-3 3-3 .75.75 3 .75 1.5-.75 3-.75zM28 14v1H17v-1h11zm0-3v1H17v-1h11zM9 4c1.657 0 3 1.511 3 3.375s-1.343 3.375-3 3.375-3-1.511-3-3.375S7.343 4 9 4zm19 4v1H17V8h11zm-5-3v1h-6V5h6z"/>
-        </g>
-    </svg>
 
     <svg *ngIf="cipher.type===2" class="icon-type" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
         <g fill="none" fill-rule="evenodd">
@@ -35,4 +9,7 @@
         </g>
     </svg>
 
+    <svg  *ngIf="cipher.type === 3" class="icon-type" viewBox="0 0 17 14" xmlns="http://www.w3.org/2000/svg"><path fill="var(--secondaryTextColor)" d="M14.92.816H2.12c-.888 0-1.592.712-1.592 1.6l-.008 9.6c0 .888.712 1.6 1.6 1.6h12.8c.888 0 1.6-.712 1.6-1.6v-9.6c0-.888-.712-1.6-1.6-1.6Zm0 11.2H2.12v-4.8h12.8v4.8Zm0-8H2.12v-1.6h12.8v1.6Z"/></svg>
+
+    <svg *ngIf="cipher.type===4" class="icon-type" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_d_3096_936)"><path d="M15.992 5.874c5.857 0 10.606 4.102 10.606 9.16 0 5.06-4.749 9.16-10.606 9.16a12.12 12.12 0 0 1-3.432-.49c-1.203.936-3.069 1.722-5.596 2.356a.485.485 0 0 1-.541-.706l.18-.329c.84-1.544 1.364-2.811 1.572-3.8-1.733-1.63-2.79-3.804-2.79-6.19 0-5.06 4.749-9.16 10.607-9.16Z" fill="#fff"/></g><g clip-path="url(#clip0_3096_936)"><rect width="32" height="32" rx="10" fill="url(#paint0_linear_3096_936)"/><g filter="url(#filter1_d_3096_936)" fill="#fff"><path d="M15.99 16.016a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm8.85 6.028c-.68-1.907-2.795-4.028-8.85-4.028s-8.171 2.122-8.85 4.029c-.599 1.682 1.081 2.971 2.867 2.971h11.965c1.786 0 3.466-1.289 2.867-2.971Z"/></g></g><defs><filter id="filter0_d_3096_936" x="3.753" y="4.569" width="24.477" height="23.463" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy=".326"/><feGaussianBlur stdDeviation=".816"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/><feBlend in2="BackgroundImageFix" result="effect1_dropShadow_3096_936"/><feBlend in="SourceGraphic" in2="effect1_dropShadow_3096_936" result="shape"/></filter><filter id="filter1_d_3096_936" x="4.16" y="4.731" width="23.66" height="23.714" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy=".571"/><feGaussianBlur stdDeviation="1.429"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/><feBlend in2="BackgroundImageFix" result="effect1_dropShadow_3096_936"/><feBlend in="SourceGraphic" in2="effect1_dropShadow_3096_936" result="shape"/></filter><linearGradient id="paint0_linear_3096_936" x1="5.548" y1="29.127" x2="30.188" y2="1.958" gradientUnits="userSpaceOnUse"><stop offset=".23" stop-color="#F74EA9"/><stop offset="1" stop-color="#FFB2A8"/></linearGradient><clipPath id="clip0_3096_936"><path fill="#fff" d="M0 0h31.983v31.983H0z"/></clipPath></defs></svg>
 </div>
