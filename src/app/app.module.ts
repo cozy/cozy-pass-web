@@ -62,6 +62,7 @@ import { ShareComponent } from './vault/share.component';
 import { VaultComponent } from './vault/vault.component';
 import { ViewComponent } from './vault/view.component';
 
+import { BarComponent } from '../cozy/wrappers/bar/bar.component';
 import { BottomMenuComponent } from '../cozy/wrappers/bottom-menu/bottom-menu.component';
 import { ButtonExtensionComponent } from '../cozy/wrappers/button-extension/button-extension.component';
 import { ConfirmTrustedUsersComponent } from '../cozy/wrappers/confirm-trusted-users/confirm-trusted-users.component';
@@ -72,7 +73,6 @@ import { ImportPageComponent } from '../cozy/wrappers/import-page/import-page.co
 import { InstallationPageComponent } from '../cozy/wrappers/installation-page/installation-page.component';
 import { SharingPaywallComponent } from '../cozy/wrappers/sharing-paywall/sharing-paywall.component';
 import { SharingComponent } from '../cozy/wrappers/sharing/sharing.component';
-import { BarComponent } from '../cozy/wrappers/bar/bar.component';
 
 import { FlagConditionalComponent } from '../cozy/components/flag-conditional/flag-conditional.component';
 import { IfFlagDirective } from '../cozy/components/flag-conditional/if-flag.directive';
