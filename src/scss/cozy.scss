@@ -5,7 +5,13 @@
 
 @import '~cozy-sharing/dist/stylesheet.css';
 
+@import '~cozy-bar/dist/stylesheet.css';
+
 @import "variables.scss";
+
+html {
+    --primaryFont: Inter;
+}
 
 [role=application] {
     display: block;

@@ -58,15 +58,12 @@ import { PlatformUtilsService } from 'jslib/abstractions/platformUtils.service';
 
 import { ConstantsService } from 'jslib/services/constants.service';
 
-import CozyClient from 'cozy-client';
-
 import { CipherType } from 'jslib/enums/cipherType';
 
 import { ExportComponent } from './vault/export.component';
 import { FolderAddEditComponent } from './vault/folder-add-edit.component';
 import { PasswordGeneratorComponent } from './vault/password-generator.component';
 
-import { CozyClientInstanceOption } from '../cozy/CozyClientTypes';
 import { CozyClientService } from '../cozy/services/cozy-client.service';
 import { OrganizationDeleteComponent } from './vault/organization-delete.component';
 
@@ -81,6 +78,7 @@ const SyncInterval = 6 * 60 * 60 * 1000; // 6 hours
     styles: [],
     template: `
         <toaster-container [toasterconfig]="toasterConfig" aria-live="polite"></toaster-container>
+        <app-bar></app-bar>
         <ng-template #settings></ng-template>
         <ng-template #premium></ng-template>
         <ng-template #passwordHistory></ng-template>
@@ -147,8 +145,6 @@ export class AppComponent implements OnInit {
             window.onkeypress = () => this.recordActivity();
         });
 
-        this.initCozy();
-
         this.broadcasterService.subscribe(BroadcasterSubscriptionId, async (message: any) => {
             this.ngZone.run(async () => {
                 // console.log(`message heard =`, message);
@@ -201,6 +197,7 @@ export class AppComponent implements OnInit {
                         await this.systemService.clearPendingClipboard();
                         break;
                     case 'reloadProcess':
+                        // @ts-ignore
                         window.location.reload(true);
                         break;
                     case 'syncStarted':
@@ -315,35 +312,6 @@ export class AppComponent implements OnInit {
                         break;
                 }
             });
-        });
-    }
-
-    initCozy() {
-        const data = (this.clientService.GetClient().getInstanceOptions() as CozyClientInstanceOption);
-
-        const protocol = window.location ? window.location.protocol : 'https:';
-        const cozyUrl = `${protocol}//${data.domain}`;
-        const appMetadata = {
-            slug: 'password',
-            version: '1',
-        };
-
-        const client = new CozyClient({
-            uri: cozyUrl,
-            token: data.token,
-            appMetadata: appMetadata,
-            schema: {},
-        });
-
-        cozy.bar.init({
-            appName: data.app.name,
-            appEditor: data.app.editor,
-            cozyClient: client,
-            iconPath: data.app.icon,
-            lang: data.locale,
-            replaceTitleOnMobile: false,
-            appSlug: data.app.slug,
-            appNamePrefix: data.app.prefix,
         });
     }
 

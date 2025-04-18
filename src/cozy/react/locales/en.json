@@ -8,10 +8,10 @@
 
   "PresentationStep": {
     "title": "Stop losing your passwords",
-    "description": "Keep your passwords safe in your Cozy",
+    "description": "Keep your passwords safe in your Twake",
     "item1": "Your passwords will be saved once and for all in your 100% personal and secured safe.",
-    "item2": "Your cozy will allow you to instantly fill in the forms of websites, for easy connection to all your services.",
-    "item3": "You can connect your brands to your Cozy to recover your data in the blink of an eye.",
+    "item2": "Your twake will allow you to instantly fill in the forms of websites, for easy connection to all your services.",
+    "item3": "You can connect your brands to your Twake to recover your data in the blink of an eye.",
     "cta": "Let's go!",
    "notSupportedInfos": {
       "title": "Not available on %{browser}",
@@ -20,11 +20,11 @@
   },
 
   "SecurityStep": {
-    "title": "Improve your Cozy password",
-    "description": "The password of your Cozy becomes the unique key to decrypt your securely stored passwords",
+    "title": "Improve your Twake password",
+    "description": "The password of your Twake becomes the unique key to decrypt your securely stored passwords",
     "advices": {
       "strong_passphrase": "**Privilege a strong password:** A long password with numbers and special characters will be impossible to break.",
-      "memorize": "**Memorize it well:** In case of loss, you will not be able to recover the encrypted passwords in your cozy.",
+      "memorize": "**Memorize it well:** In case of loss, you will not be able to recover the encrypted passwords in your twake.",
       "our_tip": "**Our tip:** Find a short phrase that suits you, for example: "
     },
     "enhance-password": "Improve my password",
@@ -33,13 +33,13 @@
   },
 
   "SecurityStepOIDC": {
-    "title": "Choose your Cozy Pass password",
-    "title-configured": "Cozy Pass password configured",
-    "description": "Your Cozy Pass password becomes the unique key to decrypt your securely stored passwords",
-    "description-configured": "You configured your Cozy Pass password earlier, your passwords vault is ready.",
+    "title": "Choose your Twake Pass password",
+    "title-configured": "Twake Pass password configured",
+    "description": "Your Twake Pass password becomes the unique key to decrypt your securely stored passwords",
+    "description-configured": "You configured your Twake Pass password earlier, your passwords vault is ready.",
     "next-step": "Next",
     "passphrase": {
-      "placeholder": "Cozy Pass Password",
+      "placeholder": "Twake Pass Password",
       "confirmationPlaceholder": "Confirm the password",
       "error-setting-passphrase": "Could not set passphrase, please retry later"
     }
@@ -58,13 +58,13 @@
   },
 
   "InstallationStep": {
-    "title": "Install Cozy extension",
+    "title": "Install Twake extension",
     "descriptionStart": "Add the",
     "descriptionEnd": "to your browser. This installation is necessary to allow you to automatically fill in and save your passwords while browsing.",
-    "cozyExtension": "Cozy extension",
+    "twakeExtension": "Twake extension",
     "steps": {
-      "choose-pass-password": "Choose Cozy Pass password",
-      "pass-password-chosen": "Cozy Pass password configured ✅",
+      "choose-pass-password": "Choose Twake Pass password",
+      "pass-password-chosen": "Twake Pass password configured ✅",
       "improve-password": "Improve password",
       "leave-hint": "Leave hint",
       "install-extension": "Install extension",
@@ -83,23 +83,23 @@
       "safari": "Then open Safari preferences to activate the extension (Preferences > Extensions)"
     },
     "step3": "Log in with your address **%{address}** and your password!",
-    "step3-oidc": "Log in with your address **%{address}** and your Cozy Pass password!",
-    "cta": "Install Cozy extension",
+    "step3-oidc": "Log in with your address **%{address}** and your Twake Pass password!",
+    "cta": "Install Twake extension",
     "skip": "Skip",
     "login": "Open my passwords"
   },
 
   "InstallationStepMobile": {
-    "title": "Install the Cozy Pass App",
-    "titleInstalled": "Open the Cozy Pass App",
-    "description": "Install the Cozy Pass application on your phone to automatically enter and save your passwords as you browse.",
-    "descriptionInstalled": "Open the Cozy Pass application on your phone to automatically enter and save your passwords as you browse.",
+    "title": "Install the Twake Pass App",
+    "titleInstalled": "Open the Twake Pass App",
+    "description": "Install the Twake Pass application on your phone to automatically enter and save your passwords as you browse.",
+    "descriptionInstalled": "Open the Twake Pass application on your phone to automatically enter and save your passwords as you browse.",
     "installApp": "Install in store",
     "openApp": "Open the app"
   },
 
   "AvailablePlatforms": {
-    "text": "Find the Cozy extension on the following platforms:",
+    "text": "Find the Twake extension on the following platforms:",
     "smartphone": "Smartphone",
     "smartphone-soon": "Smartphone (available soon)"
   },
@@ -120,7 +120,7 @@
       },
       "imported": {
         "title": "Credentials imported",
-        "content": "You can now find your credentials in your Cozy vault."
+        "content": "You can now find your credentials in your Twake vault."
       },
       "errored": {
         "title": "Error while importing your credentials",
@@ -130,21 +130,21 @@
     }
   },
 
-  "UpdateCozyPassPassword": "Update Cozy Pass password",
+  "UpdateTwakePassPassword": "Update Twake Pass password",
 
   "manifest": {
     "short_description": "Stop losing your passwords",
-    "long_description": "Keep your passwords safe in your Cozy.\n\nYour passwords are saved once and for all in your 100% personal and secured safe.\n\nYour Cozy allows you to instantly fill in the forms of websites, for easy connection to all your services.\n\nConnect your brands to your Cozy to recover your data in the blink of an eye."
+    "long_description": "Keep your passwords safe in your Twake.\n\nYour passwords are saved once and for all in your 100% personal and secured safe.\n\nYour Twake allows you to instantly fill in the forms of websites, for easy connection to all your services.\n\nConnect your brands to your Twake to recover your data in the blink of an eye."
   },
 
   "Vault": {
     "extension": {
       "cta": {
-        "android": "Install Cozy Pass application",
+        "android": "Install Twake Pass application",
         "chrome": "Install on Chrome",
         "edge-chromium": "Install on Edge",
         "firefox": "Install on Firefox",
-        "ios": "Install Cozy Pass application",
+        "ios": "Install Twake Pass application",
         "safari": "Install on Safari"
       }
     },

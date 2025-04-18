@@ -53,7 +53,8 @@ img {
     border: none;
 }
 
-a {
+// Cozy customization, to avoid a style to apply to cozy-bar
+app-root a {
     text-decoration: none;
 
     @include themify($themes) {

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+// @ts-ignore
 import { Link } from 'react-router-dom'
 import snarkdown from 'snarkdown'
 
@@ -121,7 +122,7 @@ const CreatePasswordStep = ({ navigate }) => {
                 <div>
                   <ChangePasswordLink
                     variant="secondary"
-                    label={t('UpdateCozyPassPassword')}
+                    label={t('UpdateTwakePassPassword')}
                     successRoute="#/installation/installation"
                     cancelRoute="#/installation/installation"
                     className="u-w-100"
