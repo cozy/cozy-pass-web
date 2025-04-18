@@ -436,11 +436,8 @@ img.icon-type {
     cursor:text;
     border: 1px solid;
     border-radius: 4px;
-    border-color: #ffffffa3;
+    border-color: $text-muted;
     position: relative;
-    & ::selection {
-        background: #b5d4ff;;
-    }
 
 
     .error label {
@@ -449,7 +446,6 @@ img.icon-type {
 
     label {
         font-size: 16px;
-        color: #b5d4ff;
     }
 
 
@@ -478,7 +474,7 @@ img.icon-type {
         padding-right: 0;
         max-width: calc(100% - #{ $visible-label-left });
         transition: all 0.5s;
-        background-color: #297EF2;
+        background-color: white;
     }
 
     &.eyed > .visible-label > label {

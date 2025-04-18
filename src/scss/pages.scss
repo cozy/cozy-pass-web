@@ -191,10 +191,10 @@
         padding: 40px;
     }
     .box-content {
-        background-color: $brand-primary;
+        background-color: white;
         padding: 48px 24px 24px 24px;
         font-size: 16px;
-        color : white;
+        color: $text-color;
         svg {
             margin-right: auto;
             margin-left: auto;
@@ -202,7 +202,7 @@
         }
         h1 {
             font-size: 24px;
-            color : white;
+            color : $text-color;
             margin-bottom: 0.35em;
         }
         .material-input{
@@ -211,10 +211,10 @@
         }
         input {
             background-color: unset;
-            color : white;
+            color : $text-color;
         }
         a {
-            color:white;
+            color:$text-color;
             margin-bottom: 40px;
         }
         a:hover {
@@ -230,9 +230,8 @@
         }
     }
     .box-content-row {
-        background-color: unset !important;
         label {
-            color:#b5d4ff;
+            color:$text-muted;
         }
     }
 

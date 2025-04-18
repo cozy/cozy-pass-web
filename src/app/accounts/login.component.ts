@@ -55,6 +55,7 @@ export class LoginComponent extends BaseLoginComponent implements OnDestroy {
     showingModal = false;
     isInCozyApp: boolean = false;
     baseUrl: string;
+    appIcon = 'images/icon.svg';
     canAuthWithOIDC = false;
     appIconForOIDC = 'images/icons-login.svg';
     forceLoading = false;
