@@ -8,10 +8,10 @@
 
   "PresentationStep": {
     "title": "Ne perdez plus vos mots de passe",
-    "description": "Conservez vos mots de passe en sécurité dans votre Cozy",
+    "description": "Conservez vos mots de passe en sécurité dans votre Twake",
     "item1": "Vos mots de passe seront enregistrés une bonne fois pour toute dans votre coffre 100% personnel et sécurisé.",
-    "item2": "Votre cozy vous permettra un remplissage instantané des formulaires des sites internet, pour une connexion facilitée à tous vos services.",
-    "item3": "Vous pourrez connecter vos marques à votre Cozy pour récupérer vos données en un clin d'oeil.",
+    "item2": "Votre twake vous permettra un remplissage instantané des formulaires des sites internet, pour une connexion facilitée à tous vos services.",
+    "item3": "Vous pourrez connecter vos marques à votre Twake pour récupérer vos données en un clin d'oeil.",
     "cta": "C'est parti !",
     "notSupportedInfos": {
       "title": "Indisponible sur %{browser}",
@@ -20,11 +20,11 @@
   },
 
   "SecurityStep": {
-    "title": "Améliorer votre mot de passe Cozy",
-    "description": "Le mot de passe de votre Cozy devient l'unique clé pour décoder vos mots de passe sauvegardés de manière sécurisée",
+    "title": "Améliorer votre mot de passe Twake",
+    "description": "Le mot de passe de votre Twake devient l'unique clé pour décoder vos mots de passe sauvegardés de manière sécurisée",
     "advices": {
       "strong_passphrase": "**Privilégiez un mot de passe fort :** Un mot de passe long avec des chiffres et des caractères spéciaux sera impossible à casser.",
-      "memorize": "**Mémorisez-le bien :** En cas de perte, il vous sera impossible de récupérer les mots de passe chiffrés dans votre Cozy.",
+      "memorize": "**Mémorisez-le bien :** En cas de perte, il vous sera impossible de récupérer les mots de passe chiffrés dans votre Twake.",
       "our_tip": "**Notre conseil :** Trouvez une phrase courte qui vous corresponde, par exemple : "
     },
     "enhance-password": "Améliorer mon mot de passe",
@@ -34,12 +34,12 @@
 
 
   "SecurityStepOIDC": {
-    "title": "Choisissez votre mot de passe Cozy Pass",
-    "title-configured": "Votre mot de passe Cozy Pass est configuré",
-    "description": "Votre mot de passe Cozy Pass devient la clé unique pour décoder vos mots de passe sauvegardés de manière sécurisée.",
-    "description-configured": "Vous avez configuré votre mot de passe Cozy Pass, vous pouvez maintenant stocker vos mot de passe.",
+    "title": "Choisissez votre mot de passe Twake Pass",
+    "title-configured": "Votre mot de passe Twake Pass est configuré",
+    "description": "Votre mot de passe Twake Pass devient la clé unique pour décoder vos mots de passe sauvegardés de manière sécurisée.",
+    "description-configured": "Vous avez configuré votre mot de passe Twake Pass, vous pouvez maintenant stocker vos mot de passe.",
     "passphrase": {
-      "placeholder": "Mot de passe Cozy Pass",
+      "placeholder": "Mot de passe Twake Pass",
       "confirmationPlaceholder": "Confirmez le mot de passe"
     },
     "next-step": "Suivant"
@@ -58,10 +58,10 @@
   },
 
   "InstallationStep": {
-    "title": "Installer l'extension Cozy",
+    "title": "Installer l'extension Twake",
     "descriptionStart": "Ajoutez",
     "descriptionEnd": "à votre navigateur. Cette installation est nécessaire pour vous permettre de remplir et enregistrer automatiquement vos mots de passe lors de votre navigation.",
-    "cozyExtension": "l'extension Cozy",
+    "twakeExtension": "l'extension Twake",
     "step1": {
       "chrome": "Cliquez ci-dessous pour ouvrir le Chrome Web Store",
       "edge-chromium": "Cliquez ci-dessous pour ouvrir le Chrome Web Store",
@@ -75,30 +75,30 @@
       "safari": "Ouvrez ensuite les préférences Safari pour activer l'extension (Préférences > Extensions)"
     },
     "steps": {
-      "choose-pass-password": "Choisir votre mot de passe Cozy Pass",
-      "improve-password": "Renforcer le mot de passe de votre Cozy",
+      "choose-pass-password": "Choisir votre mot de passe Twake Pass",
+      "improve-password": "Renforcer le mot de passe de votre Twake",
       "leave-hint": "Définir un indice",
       "install-extension": "Installer l'extension",
       "install-app": "Installer l'app"
     },
     "step3": "Connectez-vous avec votre adresse **%{address}** et votre mot de passe !",
-    "step3-oidc": "Connectez-vous avec votre adresse **%{address}** et votre mot de passe Cozy Pass !",
-    "cta": "Installer l'extension Cozy",
+    "step3-oidc": "Connectez-vous avec votre adresse **%{address}** et votre mot de passe Twake Pass !",
+    "cta": "Installer l'extension Twake",
     "skip": "Passer",
     "login": "Accéder à mes mots de passe"
   },
 
   "InstallationStepMobile": {
-    "title": "Installer l'application Cozy Pass",
-    "titleInstalled": "Ouvrir l'application Cozy Pass",
-    "description": "Installer l’application Cozy Pass sur votre mobile pour saisir et enregistrer automatiquement vos mots de passe lors de votre navigation.",
-    "descriptionInstalled": "Ouvrir l’application Cozy Pass sur votre mobile pour saisir et enregistrer automatiquement vos mots de passe lors de votre navigation.",
+    "title": "Installer l'application Twake Pass",
+    "titleInstalled": "Ouvrir l'application Twake Pass",
+    "description": "Installer l’application Twake Pass sur votre mobile pour saisir et enregistrer automatiquement vos mots de passe lors de votre navigation.",
+    "descriptionInstalled": "Ouvrir l’application Twake Pass sur votre mobile pour saisir et enregistrer automatiquement vos mots de passe lors de votre navigation.",
     "installApp": "Installer dans le store",
     "openApp": "Ouvrir l'application"
   },
 
   "AvailablePlatforms": {
-    "text": "Retrouvez l'extension Cozy sur les plateformes suivantes :",
+    "text": "Retrouvez l'extension Twake sur les plateformes suivantes :",
     "smartphone": "Smartphone",
     "smartphone-soon": "Smartphone (disponible bientôt)"
   },
@@ -119,7 +119,7 @@
       },
       "imported": {
         "title": "Vos identifiants ont été importés",
-        "content": "Vous pouvez maintenant trouver vos identifiants dans votre gestionnaire de mots de passe cozy."
+        "content": "Vous pouvez maintenant trouver vos identifiants dans votre gestionnaire de mots de passe twake."
       },
       "errored": {
         "title": "Erreur lors de l'import de vos identifiants",
@@ -129,21 +129,21 @@
     }
   },
 
-  "UpdateCozyPassPassword": "Modifier le mot de passe Cozy Pass",
+  "UpdateTwakePassPassword": "Modifier le mot de passe Twake Pass",
 
   "manifest": {
     "short_description": "Ne perdez plus vos mots de passe",
-    "long_description": "Conservez vos mots de passe en sécurité dans votre Cozy.\n\nVos mots de passe sont enregistrés une bonne fois pour toute dans votre coffre 100% personnel et sécurisé.\n\nVotre Cozy vous permet un remplissage instantané des formulaires des sites Internet, pour une connexion facilitée à tous vos services.\n\nConnectez vos marques à votre Cozy pour récupérer vos données en un clin d'oeil."
+    "long_description": "Conservez vos mots de passe en sécurité dans votre Twake.\n\nVos mots de passe sont enregistrés une bonne fois pour toute dans votre coffre 100% personnel et sécurisé.\n\nVotre Twake vous permet un remplissage instantané des formulaires des sites Internet, pour une connexion facilitée à tous vos services.\n\nConnectez vos marques à votre Twake pour récupérer vos données en un clin d'oeil."
   },
 
   "Vault": {
     "extension": {
       "cta": {
-        "android": "Installer l'application Cozy Pass",
+        "android": "Installer l'application Twake Pass",
         "chrome": "Installer sur Chrome",
         "edge-chromium": "Installer sur Edge",
         "firefox": "Installer sur Firefox",
-        "ios": "Installer l'application Cozy Pass",
+        "ios": "Installer l'application Twake Pass",
         "safari": "Installer sur Safari"
       }
     },
