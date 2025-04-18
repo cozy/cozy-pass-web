@@ -8,8 +8,6 @@ import {
 // @ts-ignore
 import Bar from './bar.jsx';
 
-interface BarProps extends AngularWrapperProps {}
-
 @Component({
     selector: 'app-bar',
     templateUrl: '../angular-wrapper.component.html',
@@ -21,11 +19,11 @@ export class BarComponent extends AngularWrapperComponent implements OnChanges {
     /* Props Bindings */
     /******************/
 
-    protected async getProps(): Promise<BarProps> {
+    protected async getProps(): Promise<AngularWrapperProps> {
         const reactWrapperProps = await this.getReactWrapperProps(true);
 
         return {
-            reactWrapperProps: reactWrapperProps
+            reactWrapperProps: reactWrapperProps,
         };
     }
 
