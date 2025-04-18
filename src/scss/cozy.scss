@@ -9,6 +9,10 @@
 
 @import "variables.scss";
 
+html {
+    --primaryFont: Inter;
+}
+
 [role=application] {
     display: block;
 }
