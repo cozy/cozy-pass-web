@@ -310,7 +310,7 @@
     "message": "Authentification"
   },
   "authentification-oidc": {
-    "message": "Cozy Pass"
+    "message": "Twake Pass"
   },
   "confirmYourIdentity": {
     "message": "For security, please confirme your identity"
@@ -497,7 +497,7 @@
     "message": "Contraseña maestra"
   },
   "masterPass-oidc": {
-    "message": "Password for Cozy Pass"
+    "message": "Password for Twake Pass"
   },
   "masterPassDesc": {
     "message": "La contraseña maestra es la clave que utilizas para acceder a tu caja fuerte. Es muy importante que no olvides tu contraseña maestra. No hay forma de recuperarla si la olvidas."
