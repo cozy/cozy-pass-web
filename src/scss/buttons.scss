@@ -1,7 +1,12 @@
 @import "variables.scss";
 
 .btn, .vault .footer button, .modal-footer button {
+    // Cozy customization, custom border-radius for buttons
+    //*
+    border-radius: 100px;
+    /*/
     border-radius: $border-radius;
+    //*/
     padding: 8px 15px;
     border: 1px solid #000000;
     font-size: $font-size-base;
