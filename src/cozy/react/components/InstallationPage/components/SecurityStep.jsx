@@ -122,7 +122,7 @@ const CreatePasswordStep = ({ navigate }) => {
                 <div>
                   <ChangePasswordLink
                     variant="secondary"
-                    label={t('UpdateCozyPassPassword')}
+                    label={t('UpdateTwakePassPassword')}
                     successRoute="#/installation/installation"
                     cancelRoute="#/installation/installation"
                     className="u-w-100"

@@ -51,7 +51,7 @@
     "message": "Shared"
   },
   "sharedWithKonnector": {
-    "message": "Shared with Cozy Connector"
+    "message": "Shared with Twake Connector"
   },
   "share": {
     "message": "Share"
@@ -319,7 +319,7 @@
     "message": "Authentification"
   },
   "authentification-oidc": {
-    "message": "Cozy Pass"
+    "message": "Twake Pass"
   },
   "confirmYourIdentity": {
     "message": "For security, please confirme your identity"
@@ -503,10 +503,10 @@
     "message": "Submit"
   },
   "masterPass": {
-    "message": "Password of your Cozy"
+    "message": "Password of your Twake"
   },
   "masterPass-oidc": {
-    "message": "Password for Cozy Pass"
+    "message": "Password for Twake Pass"
   },
   "masterPassDesc": {
     "message": "The master password is the password you use to access your vault. It is very important that you do not forget your master password. There is no way to recover the password in the event that you forget it."
@@ -774,7 +774,7 @@
     "description": "A 'fingerprint phrase' is a unique word phrase (similar to a passphrase) that a user can use to authenticate their public key with another user, for the purposes of sharing."
   },
   "yourAccountsFingerprint": {
-    "message": "Your Cozy's security code",
+    "message": "Your Twake's security code",
     "description": "A 'fingerprint phrase' is a unique word phrase (similar to a passphrase) that a user can use to authenticate their public key with another user, for the purposes of sharing."
   },
   "goToWebVault": {
@@ -1291,7 +1291,7 @@
     "message": "This export encrypts your data using your account's encryption key. If you ever rotate your account's encryption key you should export again since you will not be able to decrypt this export file."
   },
   "encExportAccountWarningDesc": {
-    "message": "Account encryption keys are unique to each Cozy user account, so you can't import an encrypted export into a different account."
+    "message": "Account encryption keys are unique to each Twake user account, so you can't import an encrypted export into a different account."
   },
   "exportMasterPassword": {
     "message": "Enter your master password to export your vault data."

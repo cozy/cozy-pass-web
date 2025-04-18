@@ -51,7 +51,7 @@
     "message": "Partagé"
   },
   "sharedWithKonnector": {
-    "message": "Partagé avec un Connecteur Cozy"
+    "message": "Partagé avec un Connecteur Twake"
   },
   "share": {
     "message": "Partager"
@@ -319,7 +319,7 @@
     "message": "Authentification"
   },
   "authentification-oidc": {
-    "message": "Cozy Pass"
+    "message": "Twake Pass"
   },
   "confirmYourIdentity": {
     "message": "Par sécurité, merci de confirmer votre identité"
@@ -503,10 +503,10 @@
     "message": "Soumettre"
   },
   "masterPass": {
-    "message": "Mot de passe de votre Cozy"
+    "message": "Mot de passe de votre Twake"
   },
   "masterPass-oidc": {
-    "message": "Mot de passe Cozy Pass"
+    "message": "Mot de passe Twake Pass"
   },
   "masterPassDesc": {
     "message": "Le mot de passe maître est le mot de passe que vous utilisez pour accéder à votre coffre. Il est très important de ne pas l'oublier. Il n'existe aucun moyen de le récupérer si vous le perdez."
@@ -774,7 +774,7 @@
     "description": "A 'fingerprint phrase' is a unique word phrase (similar to a passphrase) that a user can use to authenticate their public key with another user, for the purposes of sharing."
   },
   "yourAccountsFingerprint": {
-    "message": "La phrase de sécurité de votre Cozy",
+    "message": "La phrase de sécurité de votre Twake",
     "description": "A 'fingerprint phrase' is a unique word phrase (similar to a passphrase) that a user can use to authenticate their public key with another user, for the purposes of sharing."
   },
   "goToWebVault": {
@@ -1291,7 +1291,7 @@
     "message": "Cet export chiffre vos données en utilisant la clé de chiffrement de votre compte. Si jamais vous modifiez la clé de chiffrement de votre compte, vous devriez exporter à nouveau car vous ne pourrez pas déchiffrer ce fichier."
   },
   "encExportAccountWarningDesc": {
-    "message": "Les clés de chiffrement du compte sont spécifiques à chaque utilisateur Cozy. Vous ne pouvez donc pas importer d'export chiffré dans un compte différent."
+    "message": "Les clés de chiffrement du compte sont spécifiques à chaque utilisateur Twake. Vous ne pouvez donc pas importer d'export chiffré dans un compte différent."
   },
   "exportMasterPassword": {
     "message": "Saisissez votre mot de passe maître pour exporter les données de votre coffre."
