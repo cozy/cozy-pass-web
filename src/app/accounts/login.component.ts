@@ -57,7 +57,7 @@ export class LoginComponent extends BaseLoginComponent implements OnDestroy {
     baseUrl: string;
     appIcon = 'images/icon.svg';
     canAuthWithOIDC = false;
-    appIconForOIDC = 'images/icons-login.svg';
+    appIconForOIDC = 'images/icon.svg';
     forceLoading = false;
     // Cozy customization, display error message on form
     // /*

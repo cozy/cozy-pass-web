@@ -110,7 +110,7 @@ export class IconComponent implements OnChanges {
             if (this.imageEnabled && isWebsite) {
                 try {
                     this.image = this.iconsUrl + '/' + Utils.getHostname(hostnameUri) + '/icon.png';
-                    this.fallbackImage = 'images/icons-login.svg';
+                    this.fallbackImage = 'images/icon.svg';
                 } catch (e) { }
             }
         } else {
