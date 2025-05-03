@@ -49,7 +49,9 @@
         class="block primary" appA11yTitle="{{'addItem' | i18n}}" [disabled]="deleted">
         <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
     </button>
+    <ng-container *ifFlag="CAN_SHARE_ORGANIZATION">
     <app-sharing *ngIf="collectionId && !isCozyConnectors" [collectionId]="collectionId"></app-sharing>
+    </ng-container>
     <app-bottom-menu
         *ngIf="!isReadOnly"
         [isTrashContext]="deleted"
