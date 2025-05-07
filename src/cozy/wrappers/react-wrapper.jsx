@@ -5,7 +5,6 @@ import {
 import { CozyProvider } from "cozy-client";
 import { VaultProvider } from "cozy-keys-lib";
 import { BreakpointsProvider } from "cozy-ui/transpiled/react/providers/Breakpoints";
-import { WebviewIntentProvider } from "cozy-intent";
 import Alerter from "cozy-ui/transpiled/react/deprecated/Alerter";
 import { I18n } from "cozy-ui/transpiled/react/providers/I18n";
 import CozyTheme from 'cozy-ui/transpiled/react/providers/CozyTheme'
@@ -76,14 +75,12 @@ const ReactWrapper = ({
           <BarProvider searchOptions={{ enabled: false }}>
             <VaultProvider instance={client.getStackClient().uri} vaultData={vaultData}>
               <BitwardenSettingsContext.Provider value={bitwardenData}>
-                <WebviewIntentProvider>
                   <BreakpointsProvider>
                     <CozyTheme>
                       <HashRouter>{props.children}</HashRouter>
                       <Alerter />
                     </CozyTheme>
                   </BreakpointsProvider>
-                </WebviewIntentProvider>
               </BitwardenSettingsContext.Provider>
             </VaultProvider>
           </BarProvider>

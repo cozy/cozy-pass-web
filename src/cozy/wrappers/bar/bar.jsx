@@ -2,11 +2,15 @@ import React from 'react';
 
 import { BarComponent } from 'cozy-bar'
 import useBreakpoints from "cozy-ui/transpiled/react/providers/Breakpoints"
+import { WebviewIntentProvider } from "cozy-intent";
 
 import ReactWrapper, { reactWrapperProps } from '../react-wrapper';
 
+import { useWebviewIntentProxy } from '../react-webview-intent-proxy'; 
 
 const Bar = () => {
+  useWebviewIntentProxy();
+
   const { isMobile } = useBreakpoints()
 
   return (
@@ -22,9 +26,11 @@ const BarWrapper = ({
 }) => {  
   return (
     <div style={{ width: 0, height: 0 }}>
-      <ReactWrapper reactWrapperProps={reactWrapperProps}>
-        <Bar />
-      </ReactWrapper>
+      <WebviewIntentProvider>
+        <ReactWrapper reactWrapperProps={reactWrapperProps}>
+          <Bar />
+        </ReactWrapper>
+      </WebviewIntentProvider>
     </div>
   );
 };

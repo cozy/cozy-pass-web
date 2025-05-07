@@ -1,20 +1,21 @@
 import { useState, useEffect } from 'react'
 
-import { useWebviewIntent } from 'cozy-intent'
-
 const useIsNativePassInstalledOnDevice = () => {
-  const webviewIntent = useWebviewIntent()
-
   const [isNativePassInstalledOnDevice, setIsNativePassInstalledOnDevice] = useState(false)
 
   useEffect(() => {
-    const checkNativePassInstallationOnDevice = async () => {
-      const intentResult = await webviewIntent?.call('isNativePassInstalledOnDevice')
-      setIsNativePassInstalledOnDevice(intentResult)
-    }
+    window.addEventListener('onWebviewIntentCallResult', (eventReceived) => {
+        const { detail: { name, result } } = eventReceived
 
-    checkNativePassInstallationOnDevice()
-  }, [webviewIntent])
+        if (name === 'isNativePassInstalledOnDevice') {
+            setIsNativePassInstalledOnDevice(result)
+        }
+    })
+
+    const eventToSend = new CustomEvent('onWebviewIntentCall', { detail: { name: 'isNativePassInstalledOnDevice' } })
+
+    window.dispatchEvent(eventToSend)
+  }, [])
 
   return isNativePassInstalledOnDevice
 }
