@@ -51,29 +51,14 @@ const InstallationStepWebPart = ({ onExtensionInstalled, onSkipExtension }) => {
         <img
           src={browserExtensionIcon}
           alt=""
-          width={230}
           height={115}
         />
-        <Typography variant="h3" component="h1">{t('InstallationStep.title')}</Typography>
+        <Typography variant="h3" component="h1" className="u-mt-1">{t('InstallationStep.title')}</Typography>
         <Typography variant="body1">
           <span
             dangerouslySetInnerHTML={{
               __html: snarkdown(
-                t('InstallationStep.descriptionStart', {
-                  address: cozyURL.host
-                })
-              )
-            }}
-          />{' '}
-          <WithCozyIcon>
-            {t('InstallationStep.cozyExtension')}
-          </WithCozyIcon>{' '}
-          <span
-            dangerouslySetInnerHTML={{
-              __html: snarkdown(
-                t('InstallationStep.descriptionEnd', {
-                  address: cozyURL.host
-                })
+                t('InstallationStep.description')
               )
             }}
           />
