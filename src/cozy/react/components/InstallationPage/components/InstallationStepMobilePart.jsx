@@ -7,7 +7,7 @@ import { useI18n } from "cozy-ui/transpiled/react/providers/I18n"
 
 import { InstallNativeAppButton } from 'cozy/react/components/AvailablePlatforms'
 import useIsNativePassInstalledOnDevice from 'cozy/react/components/InstallationPage/useIsNativePassInstalledOnDevice'
-import mobileAppIcon from 'cozy/react/assets/mobile-app.svg'
+import mobileAppIcon from 'cozy/react/assets/icon.svg'
 
 const InstallationStepMobilePart = () => {
   const { t } = useI18n()
@@ -30,7 +30,7 @@ const InstallationStepMobilePart = () => {
   return (
     <Stack spacing="xxl">
       <Stack spacing="m">
-        <img src={mobileAppIcon} alt="" height={137} /> 
+        <img src={mobileAppIcon} alt="" height={80} /> 
         <Typography variant="h3" component="h1" className="u-mt-1">
           {
             isNativePassInstalledOnDevice
@@ -54,6 +54,7 @@ const InstallationStepMobilePart = () => {
             : t('InstallationStepMobile.installApp')
         }
         theme="primary"
+        className="u-mt-1"
       />
     </Stack>
   )

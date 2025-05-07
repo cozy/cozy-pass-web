@@ -32,8 +32,8 @@ const ImprovePasswordStep = ({ navigate }) => {
       <Wrapper>
         <NarrowContent>
           <Stack>
-            <img src={strongPasswordIcon} alt="" width={204} height={137} />
-            <Typography variant="h3" component="h1">{t('SecurityStep.title')}</Typography>
+            <img src={strongPasswordIcon} alt="" height={137} />
+            <Typography variant="h3" component="h1" className="u-mt-1">{t('SecurityStep.title')}</Typography>
             <Stack spacing="xxl">
               <Typography variant="body1">{t('SecurityStep.description')}</Typography>
               <Card>
@@ -107,7 +107,7 @@ const CreatePasswordStep = ({ navigate }) => {
         <NarrowContent>
           <Stack>
             <img src={strongPasswordIcon} alt="" width={204} height={137} />
-            <Typography variant="h3" component="h1">
+            <Typography variant="h3" component="h1" className="u-mt-1">
               {isVaultConfigured
                 ? t('SecurityStepOIDC.title-configured')
                 : t('SecurityStepOIDC.title')}

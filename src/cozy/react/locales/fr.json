@@ -59,9 +59,7 @@
 
   "InstallationStep": {
     "title": "Installer l'extension Twake",
-    "descriptionStart": "Ajoutez",
-    "descriptionEnd": "à votre navigateur. Cette installation est nécessaire pour vous permettre de remplir et enregistrer automatiquement vos mots de passe lors de votre navigation.",
-    "twakeExtension": "l'extension Twake",
+    "description": "Ajoutez l'extension Twake à votre navigateur. Cette installation est nécessaire pour vous permettre de remplir et enregistrer automatiquement vos mots de passe lors de votre navigation.",
     "step1": {
       "chrome": "Cliquez ci-dessous pour ouvrir le Chrome Web Store",
       "edge-chromium": "Cliquez ci-dessous pour ouvrir le Chrome Web Store",

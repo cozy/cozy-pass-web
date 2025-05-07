@@ -59,9 +59,7 @@
 
   "InstallationStep": {
     "title": "Install Twake extension",
-    "descriptionStart": "Add the",
-    "descriptionEnd": "to your browser. This installation is necessary to allow you to automatically fill in and save your passwords while browsing.",
-    "twakeExtension": "Twake extension",
+    "description": "Add the Twake extension to your browser. This installation is necessary to allow you to automatically fill in and save your passwords while browsing.",
     "steps": {
       "choose-pass-password": "Choose Twake Pass password",
       "pass-password-chosen": "Twake Pass password configured ✅",
