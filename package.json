@@ -27,7 +27,7 @@
     "sub:update": "git submodule update --remote",
     "sub:pull": "git submodule foreach git pull origin master",
     "sub:commit": "npm run sub:pull && git commit -am \"update submodule\"",
-    "postinstall": "./node_modules/.bin/electron-rebuild && npm run sub:init && patch-package",
+    "postinstall": "./node_modules/.bin/electron-rebuild && npm run sub:init && patch-package && git apply jslib-patches/salt.diff",
     "lint": "tslint 'src/**/*.ts'",
     "lint:fix": "tslint 'src/**/*.ts' --fix",
     "build:browser:watch": "gulp prebuild:renderer && cross-env DEVELOPMENT=1 webpack --config webpack.browser.js --watch",

@@ -1,0 +1,45 @@
+Submodule jslib contains modified content
+diff --git i/jslib/src/models/response/preloginResponse.ts w/jslib/src/models/response/preloginResponse.ts
+index fcbd4cb2..483e0f0d 100644
+--- i/jslib/src/models/response/preloginResponse.ts
++++ w/jslib/src/models/response/preloginResponse.ts
+@@ -5,10 +5,12 @@ import { KdfType } from '../../enums/kdfType';
+ export class PreloginResponse extends BaseResponse {
+     kdf: KdfType;
+     kdfIterations: number;
++    salt?: string; // Cozy customization
+ 
+     constructor(response: any) {
+         super(response);
+         this.kdf = this.getResponseProperty('Kdf');
+         this.kdfIterations = this.getResponseProperty('KdfIterations');
++        this.salt = this.getResponseProperty('Salt'); // Cozy customization
+     }
+ }
+diff --git i/jslib/src/services/auth.service.ts w/jslib/src/services/auth.service.ts
+index 10048d0c..c6c7adc2 100644
+--- i/jslib/src/services/auth.service.ts
++++ w/jslib/src/services/auth.service.ts
+@@ -238,18 +238,21 @@ export class AuthService implements AuthServiceAbstraction {
+         email = email.trim().toLowerCase();
+         let kdf: KdfType = null;
+         let kdfIterations: number = null;
++        let salt: string = null;
+         try {
+             const preloginResponse = await this.apiService.postPrelogin(new PreloginRequest(email));
+             if (preloginResponse != null) {
+                 kdf = preloginResponse.kdf;
+                 kdfIterations = preloginResponse.kdfIterations;
++                salt = preloginResponse.salt;
+             }
+         } catch (e) {
+             if (e == null || e.statusCode !== 404) {
+                 throw e;
+             }
+         }
+-        return this.cryptoService.makeKey(masterPassword, email, kdf, kdfIterations);
++        // Cozy customization; used salt from backend
++        return this.cryptoService.makeKey(masterPassword, salt, kdf, kdfIterations);
+     }
+ 
+     authingWithApiKey(): boolean {
