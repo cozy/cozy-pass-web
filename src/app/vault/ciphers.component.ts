@@ -11,6 +11,8 @@ import { CipherView } from 'jslib/models/view/cipherView';
 
 import { UserService } from '../../services/user.service';
 
+import { CAN_SHARE_ORGANIZATION } from '../../cozy/flags';
+
 @Component({
     selector: 'app-vault-ciphers',
     templateUrl: 'ciphers.component.html',
@@ -22,6 +24,7 @@ export class CiphersComponent extends BaseCiphersComponent {
 
     isReadOnly = false;
     isCozyConnectors = false;
+    CAN_SHARE_ORGANIZATION = CAN_SHARE_ORGANIZATION;
 
     constructor(searchService: SearchService, protected platformUtilsService: PlatformUtilsService,
         protected i18nService: I18nService, protected cipherService: CipherService,
