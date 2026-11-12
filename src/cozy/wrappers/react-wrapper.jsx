@@ -6,6 +6,7 @@ import { CozyProvider } from "cozy-client";
 import { VaultProvider } from "cozy-keys-lib";
 import { BreakpointsProvider } from "cozy-ui/transpiled/react/providers/Breakpoints";
 import Alerter from "cozy-ui/transpiled/react/deprecated/Alerter";
+import AlertProvider from "cozy-ui/transpiled/react/providers/Alert";
 import { I18n } from "cozy-ui/transpiled/react/providers/I18n";
 import CozyTheme from 'cozy-ui/transpiled/react/providers/CozyTheme'
 import { BarProvider } from 'cozy-bar'
@@ -77,8 +78,10 @@ const ReactWrapper = ({
               <BitwardenSettingsContext.Provider value={bitwardenData}>
                   <BreakpointsProvider>
                     <CozyTheme>
-                      <HashRouter>{props.children}</HashRouter>
-                      <Alerter />
+                      <AlertProvider>
+                        <HashRouter>{props.children}</HashRouter>
+                        <Alerter />
+                      </AlertProvider>
                     </CozyTheme>
                   </BreakpointsProvider>
               </BitwardenSettingsContext.Provider>
