@@ -4,13 +4,17 @@
         (onAddFolder)="addFolder()" (onEditFolder)="editFolder($event.id)"
         (onCollectionClicked)="filterCollection($event.id)" (onTrashClicked)="filterDeleted()" (onImportClicked)="startImport()">
     </app-vault-groupings>
+    <!-- Cozy customization -->
+    <!-- Add type to allow disabling profiles creation -->
     <app-vault-ciphers id="items" [hidden]="action === 'import'"
         class="{{shouldDisplayCiphersList()}} items"
+        [type]="type"
         [activeCipherId]="cipherId" (onCipherClicked)="viewCipher($event)"
         (onCipherRightClicked)="viewCipherMenu($event)" (onAddCipher)="addCipher($event)"
         (onAddCipherOptions)="addCipherOptions()" (onDeletedCipher)="deletedCipher($event)"
         [collectionId]="collectionId">
     </app-vault-ciphers>
+    <!---->
     <app-vault-view id="details" class="details" *ngIf="cipherId && action === 'view'" [cipherId]="cipherId"
         (onCloneCipher)="cloneCipher($event)" (onEditCipher)="editCipher($event)"
         (onViewCipherPasswordHistory)="viewCipherPasswordHistory($event)" (onRestoredCipher)="restoredCipher($event)"

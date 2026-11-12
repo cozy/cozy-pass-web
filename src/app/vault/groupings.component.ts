@@ -11,7 +11,9 @@ import { GroupingsComponent as BaseGroupingsComponent } from 'jslib/angular/comp
 import { BroadcasterService } from 'jslib/angular/services/broadcaster.service';
 import { CollectionView } from 'jslib/models/view/collectionView';
 
+import { CipherType } from 'jslib/enums/cipherType';
 import { ServiceUtils } from 'jslib/misc/serviceUtils';
+import { CipherView } from 'jslib/models/view';
 
 const NestingDelimiter = '/';
 
@@ -26,6 +28,10 @@ export class GroupingsComponent extends BaseGroupingsComponent {
     @Output() onImportClicked = new EventEmitter<void>();
     importSelected = false;
     collectionsWithUsersToValidateIds: { [id: string]: string[] } = {};
+    // Cozy customization, Add typeCounts to conditionnaly remove Profiles section
+    // /*
+    typeCounts = new Map<CipherType, number>();
+    // */
 
     hasNotes: boolean;
     private prevSelection: any = new Object();
@@ -57,6 +63,10 @@ export class GroupingsComponent extends BaseGroupingsComponent {
             return (c.type === 2 && !c.isDeleted);
         });
         this.hasNotes = (noteIndex > -1) ;
+        // Cozy customization, Add typeCounts to conditionnaly remove Profiles section
+        // /*
+        await this.getCounts();
+        // */
         // run super
         super.load(setLoaded);
     }
@@ -186,6 +196,28 @@ export class GroupingsComponent extends BaseGroupingsComponent {
         });
     }
 
+    // */
+
+    // Cozy customization, Add typeCounts to conditionnaly remove Profiles section
+    // /*
+    async getCounts() {
+        const typeCounts = new Map<CipherType, number>();
+
+        const ciphers = await this.cipherService.getAllDecrypted();
+        ciphers.forEach(c => {
+            if (c.isDeleted) {
+                return;
+            }
+
+            if (typeCounts.has(c.type)) {
+                typeCounts.set(c.type, typeCounts.get(c.type) + 1);
+            } else {
+                typeCounts.set(c.type, 1);
+            }
+        });
+
+        this.typeCounts = typeCounts;
+    }
     // */
 
     protected isOrgWithNoKey(collection: CollectionView) {

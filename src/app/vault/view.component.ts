@@ -21,6 +21,7 @@ import { StorageService } from 'jslib/abstractions/storage.service';
 import { TokenService } from 'jslib/abstractions/token.service';
 import { TotpService } from 'jslib/abstractions/totp.service';
 import { UserService } from 'jslib/abstractions/user.service';
+import { CipherType } from 'jslib/enums/cipherType';
 
 import { BroadcasterService } from 'jslib/angular/services/broadcaster.service';
 
@@ -38,6 +39,10 @@ export class ViewComponent extends BaseViewComponent implements OnChanges {
     @Output() onViewCipherPasswordHistory = new EventEmitter<CipherView>();
 
     isReadOnly = false;
+    // Cozy customization, Prevent to restore deleted Profiles as they will be replaced by Cozy Contacts
+    // /*
+    cipherType = CipherType;
+    // */
 
     constructor(cipherService: CipherService, totpService: TotpService,
         tokenService: TokenService, i18nService: I18nService,
